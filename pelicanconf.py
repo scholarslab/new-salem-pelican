@@ -7,7 +7,7 @@ import json
 AUTHOR = ''
 SITENAME = 'New Salem - Pelican'
 SITEURL = ''
-THEME = "/Users/ssl2ab/projects/pelican-themes/pelican-twitchy"
+THEME = "./pelican-twitchy"
 
 PATH = 'content'
 TAG_NAMES = json.load(open("tags.json"))
