@@ -11,10 +11,10 @@ THEME = "/Users/ssl2ab/projects/pelican-themes/pelican-twitchy"
 
 PATH = 'content'
 TAG_NAMES = json.load(open("tags.json"))
-CAT_NAMES = {"swp":"Salem Witchcraft Papers"}
+CAT_NAMES = {"swp":"Salem Witchcraft Papers", "salvrec":"Salem Village Records"}
 
 TIMEZONE = 'EST'
-
+ARTICLE_ORDER_BY = 'basename'
 DEFAULT_LANG = 'en'
 
 # Feed generation is usually not desired when developing
