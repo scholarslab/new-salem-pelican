@@ -12,6 +12,11 @@ body {
     font-family: times, serif;
 }
 
+main {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
 .doc17 a {
     color: #fff;
 }
