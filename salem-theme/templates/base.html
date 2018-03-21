@@ -1,0 +1,76 @@
+{% if RECENT_POST_COUNT is not defined %}
+    {% set RECENT_POST_COUNT = 5 %}
+{% endif %}
+
+{% macro nav_small_li(href, title, content) -%}
+    <li>
+        <a href="{{href|striptags|trim}}" title="{{title|striptags|trim}}" class="collapsed">
+            {{content}}
+        </a>
+    </li>
+{%- endmacro %}
+{% macro nav_small_li_collapsable(href, title, content) -%}
+    <li>
+        <a href="{{href|striptags|trim}}" title="{{title|striptags|trim}}" class="collapsed">
+            {{content}}
+        </a>
+    </li>
+{%- endmacro %}
+{% macro get_icon_attributes(name) -%}
+    {%- set name_sanitized = name|lower|replace('+','-plus')|replace(' ','-') -%}
+    {%- if name_sanitized in ['flickr', 'spotify', 'stack-overflow'] -%}
+        {%- set iconattributes = 'fa fa-' ~ name_sanitized ~ ' fa-lg' -%}
+    {%- else -%}
+        {%- set iconattributes = 'fa fa-' ~ name_sanitized ~ '-square fa-lg' -%}
+    {%- endif -%}
+    {%- if name|lower == 'email' -%}
+        {%- set iconattributes = 'fa fa-envelope-square fa-lg' -%}
+    {%- endif -%}
+    {{iconattributes}}
+{%- endmacro %}
+{% if article or page %}
+    {% set share_url = (SITEURL + '/' + (article.url if article else page.url)) %}
+{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {% if OPEN_GRAPH %}
+    {% include "include/open_graph.html" %}
+    {% endif %}
+
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+
+    <link href="{{ SITEURL }}/theme/css/styles.css" rel="stylesheet" />
+
+<div class="header nosearchhi">
+    <img src="{{ SITEURL }}/theme/images/startdoc2.jpg" width="621" height="90" border="1"><ul class="menu">
+<li class="menu_item menu_home" style="width:13%;">
+    <a href="{{ SITEURL }}/">Home</a>
+</li>
+<li class="menu_item menu_archives" style="width:15%">
+    <a href="{{ SITEURL }}/archive2.html">Archives</a>
+</li>
+<li class="menu_item menu_books" style="width:24%;">
+    <a href="{{ SITEURL }}/books.html">Books &amp; Letters</a>
+</li>
+<li class="menu_item menu_documents" style="width:20%;">
+    <a href="{{ SITEURL }}/17docs.html">Documents</a>
+</li>
+<li class="menu_item menu_maps" style="width:13%;">
+    <a href="{{ SITEURL }}/maps.html">Maps</a>
+</li>
+<li class="menu_item menu_people" style="width:15%;">
+    <a href="{{ SITEURL }}/people?group.num=all">People</a>
+</li>
+</ul>
+</div>
+    <main role="main" id="main">
+    {% block precontent scoped %}
+    {% endblock %}
+    {% block content scoped %}
+    {% endblock %}
+    </main>
+</html>
