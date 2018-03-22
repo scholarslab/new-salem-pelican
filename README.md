@@ -1,10 +1,12 @@
 # new-salem-pelican
 New Salem running on Pelican
 
-## how to run this
+## Initial Set Up
 
 - Clone the repo.
-- After initially cloning the repo, run `pipenv update` to grab dependencies.
+- In the project directory, initialize the theme submodule: `git submodule init && git submodule update`
+- Run `pipenv update` to grab dependencies.
+
+## Running the Project.
 - Open pipenv shell: `pipenv shell`
 - Run the web server: `make devserver`
-
