@@ -12,6 +12,8 @@ THEME = "./pelican-twitchy"
 PATH = 'content'
 TAG_NAMES = json.load(open("tags.json"))
 CAT_NAMES = {"swp":"Salem Witchcraft Papers", "salvrec":"Salem Village Records"}
+CAT_SORT = {"swp":"SLUG", "salvrec":"DATE"}
+
 
 TIMEZONE = 'EST'
 ARTICLE_ORDER_BY = 'basename'
