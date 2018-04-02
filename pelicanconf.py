@@ -14,6 +14,8 @@ TAG_NAMES = json.load(open("tags.json"))
 CAT_NAMES = {"swp":"Salem Witchcraft Papers", "salvrec":"Salem Village Records"}
 CAT_SORT = {"swp":"SLUG", "salvrec":"DATE"}
 
+PAGE_URL = '{slug}.html'
+PAGE_SAVE_AS = '{slug}.html'
 
 TIMEZONE = 'EST'
 ARTICLE_ORDER_BY = 'basename'
