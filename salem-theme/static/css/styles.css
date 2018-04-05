@@ -1,0 +1,140 @@
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,body {
+    margin:0;
+    padding:0;
+}
+
+html {
+}
+
+body {
+    max-width: 900px;
+    margin: 20px auto;
+    color: #2b2b2b;
+}
+
+a:link {
+    color: #000000;
+}
+
+a:active {
+    color: #864654;
+}
+
+a:visited {
+    color: #864654;
+}
+
+a img {
+    border: none;
+}
+
+.menu {
+    width: 100%;
+    display: table;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.menu li {
+    margin:0;
+    padding:0;
+}
+
+.menu_item {
+    float: left;
+    font: 16px arial,helvetica,clean,sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+.menu_item>a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu_item:hover {
+    background-color: navy;
+}
+
+.menu_home {
+    background-color: #ffffcc
+}
+
+.menu_home > a {
+    color: black;
+}
+
+.menu_home:hover>a {
+    color: white;
+}
+
+.menu_archives {
+    background-color: #6584ba;
+}
+
+.menu_books {
+    background-color: #d99c5a
+}
+
+.menu_documents {
+    background-color: #838d75
+}
+
+.menu_maps {
+    background-color: #864654
+}
+
+.menu_people {
+    background-color: #838d75
+}
+
+#main {
+    display:flex;
+}
+
+#main nav a {
+    display:block;
+}
+
+#primary {
+    width: 70%;
+    background: #eee;
+    padding: 10px;
+}
+
+#secondary {
+    width: 30%;
+    background: #6584BA;
+    padding: 10px;
+}
+
+#secondary a:link,
+#secondary a:visited {
+    color: white;
+}
+
+#secondary a:hover,
+#secondary a:focus {
+    color: #eee;
+}
+
+#primary h1,
+#primary nav {
+    margin-left: 200px;
+}
+
+#primary img {
+    float:left;
+}
+
+#primary section {
+    clear:both;
+}
+

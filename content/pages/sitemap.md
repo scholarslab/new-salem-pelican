@@ -1,0 +1,47 @@
+Title: Site Map
+Slug: sitemap
+
+- Home
+  - Project Information
+    - Gallows Hill Research
+    - Introduction
+    - Overview
+      - Further Explanation
+    - Images
+    - Media Reviews
+    - Project Support
+    - Danvers, Mass
+    - Press Archive
+  - Documents & Transcriptions
+    - Court Records
+      - Transcripts
+    - Record Books
+      - Essex County records
+    - Personal Letters
+      - Letter From Rev. John Higginson to His Son Nathaniel Higginson
+      - Letter of Deodat Lawson
+      - To John Cotton, August 5, 1692
+      - To John Cotton, October 20, 1692
+      - To John Foster, August 17, 1692
+      - To John Richards, May 31, 1692
+      - To John Richards, December 14, 1692
+      - To Stephen Sewall, September 20, 1692
+      - To William Stoughton, September 2, 1692
+    - Sermons
+      - September 19, 1689
+      - January 3, 1691
+      - February 14, 1691
+      - March 27, 1692
+      - May 5, 1692
+      - September 11, 1692
+      - October 23, 1692
+    - Diaries
+      - Sewall Diary
+  - Historical Maps
+    - Map of Salem Village, 1692 
+    - Map of Andover
+    - Map of Salem, 1700, by Sydney Perley
+    - Map of Witchcraft Accusations
+    - Province Accusations Map
+    - Township Accusations Map
+

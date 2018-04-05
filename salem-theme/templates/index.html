@@ -5,76 +5,73 @@
 <link rel="canonical" href="{{ SITEURL }}">
 {% endblock %}
 
-{% block collapse_latest %}in{% endblock %}
-
 {% block precontent %}
-<section id="content" class="body">
-    <div class="row">
-        <div class="col-lg-9">
-            <div class="jumbotron">  
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>{{ SITENAME }}</h1>
-                        <p>{{ SITESUBTITLE }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-9">
-            <h2>Recent Articles:</h2>
-        </div>
-    </div>
-</section>
+
 {% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-lg-9">
-    {% if articles %}
-        {% for article in (all_articles if all_articles else articles)[:RECENT_POST_COUNT] %}
-            <article>
-                <h2>
-                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-                    {% include "include/article_info.html" %}
-                </h2>
-                <div class="summary">
-                    {{ article.summary }}
-                </div>
-            </article>
-            {% if not loop.last %}
-            <hr/>
-            {% endif %}
-        {% endfor %}
-        <div class="btn-more text-right">
-            <a class="btn btn-default btn-xs twitchy-background" href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}">
-                View all Articles ...
-            </a>
-        </div>
-    {% endif %}
-    </div>
+<div id="primary">
+<section id="documents-and-transcriptions">
+    <img src="/theme/images/greendoc.gif" alt="">
+    <h1><a href="/17docs.html">Documents &amp; Transcriptions</a></h1>
+    <nav>
+        <a href="/17docs.html">Court Records</a>
+        <a href="/17docs.html">Record Books</a>
+        <a href="/letters/">Personal Letters</a>
+        <a href="/sermons/">Sermons</a>
+        <a href="/diaries/">Diaries</a>
+    </nav>
+</section>
+<section id="historical-maps">
+    <img src="/theme/images/hmburg.gif" alt="">    
+    <h1><a href="/maps.html">Historical Maps</a></h1>
+    <nav>
+        <a href="/maps/index.html">Map of Salem Village, 1692</a>
+        <a href="/maps/andover.html">Map of Andover</a>
+        <a href="/maps/salem.html">Map of Witchcraft</a>
+        <a href="/maps/salem.html">Accusations</a>
+        <a href="/maps.html">More...</a>
+    </nav>
+</section>
+<section id="archival-collections">
+    <img src="/theme/images/people4.gif" alt="">    
+    <h1><a href="/archive2.html">Archival Collections</a></h1>
+    <nav>
+        <a href="#">Boston Public Library</a>
+        <a href="#">Massachusetts Historical Society</a>
+        <a href="#">Essex Institute Archive</a>
+        <a href="#">More</a>
+    </nav>
+</section>
+<section id="contemporary-books">
+    <img src="/theme/images/lit2.gif" alt="">    
+    <h1><a href="/books.html">Contemporary Books</a></h1>
+    <nav>
+        <a href="/archives/ModestEnquiry/index.html">John Hale</a>
+        <a href="/speccol/mather/mather.html">Increase Mather</a>
+        <a href="http://xtf.lib.virginia.edu/xtf/view?docId=modern_english/uvaGenText/tei/BurNarr.xml">George Lincoln Burr</a>
+    </nav>
+</section>
+</div>
+<div id="secondary">
+    <h2>Project Information</h2>
+    <nav>
+        <a href="https://news.virginia.edu/content/uvas-help-salem-finally-discovers-where-its-witches-were-executed">Gallows Hill Research</a>
+        <a href="/intro.html">Introduction</a>
+        <a href="/overview.html">Overview</a>
+        <a href="/generic.html">Images</a>
+        <a href="/scholar.html">Media Reviews</a>
+        <a href="/projectsupport.html">Project Support</a>
+        <a href="/danvers2.html">Danvers, Mass</a>
+        <a href="/press.html">Press Archive</a>
+    </nav>
+    <img src="/theme/images/quill.gif" alt="">
+    <img src="/theme/images/back.gif" alt="">
+    <h2>Published in Partnership</h2>
+    <ul>
+        <li><a href="http://scholarslab.org">Scholars' Lab of the University of Virginia Library</a></li>
+        <li><a href="http://iath.virginia.edu">Institute for Advanced Technology in the Humanities</a></li>
+    </ul>
 </div>
 {% endblock %}
-
-{% block scripts %}
-<script>
-    function FadeInOnScroll(ObjectList){
-        ObjectList.each(function(i) {
-            var bottom_of_object = $(this).position().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-            if( bottom_of_window > bottom_of_object ){
-                $(this).fadeTo(750,1);
-            }
-        });
-    }
-    articles = $("article").fadeTo(0, 0.05);
-    FadeInOnScroll(articles)
-    $(window).scroll(function() {
-        FadeInOnScroll(articles)
-    });
-</script>
-{% endblock %}
-
 
