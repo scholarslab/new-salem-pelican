@@ -52,11 +52,13 @@ a img {
     font: 16px arial,helvetica,clean,sans-serif;
     text-align: center;
     font-weight: bold;
+    padding: 5px 0 !important;
 }
 
 .menu_item>a {
     color: white;
     text-decoration: none;
+    padding: 5px 0;
 }
 
 .menu_item:hover {
