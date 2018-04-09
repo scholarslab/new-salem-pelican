@@ -10,9 +10,12 @@ SITEURL = ''
 THEME = "./pelican-twitchy"
 
 PATH = 'content'
+STATIC_PATHS = ['archives']
+PAGE_EXCLUDES = ['archives']
+ARTICLE_EXCLUDES = ['archives']
 TAG_NAMES = json.load(open("tags.json"))
 CAT_NAMES = {"swp":"Salem Witchcraft Papers", "salvrec":"Salem Village Records"}
-CAT_SORT = {"swp":"SLUG", "salvrec":"DATE"}
+CAT_SORT = {"swp":"TITLE", "salvrec":"DATE"}
 
 PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
