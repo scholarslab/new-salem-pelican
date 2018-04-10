@@ -1,0 +1,4 @@
+s/\.sgm//g;
+s/toccer-new2/toccer-salem/g;
+s/toccer-new/toccer-salem/g;
+s/toccer-salem2/toccer-salem/g;
