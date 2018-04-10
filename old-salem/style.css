@@ -1,0 +1,685 @@
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* ---------->>> Global <<<----------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------- */
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	background-color:#ffffff;
+	color:#2b2b2b;
+	font-family:times, serif;
+	
+}
+
+.doc17 a {
+  color: #fff;
+}
+
+.doc17 a:active, .doc17 a:visited {
+	color: #864654;
+}
+
+a:link {
+	color:#000000;
+}
+a:active {
+	color:#864654;
+}
+a:visited {
+	color:#864654;
+}
+a img {
+	border:none;
+}
+p {
+	padding-top:8px;
+	padding-bottom:8px;
+}
+h1, h2, h3, h4, h5, h6, p, pre,
+blockquote, label, dl, fieldset, address {
+	margin: .25em 0;
+}
+b, strong,h1,h2,h3,h4,h5,h6 {
+	font-weight:bold;
+	text-align:center;
+}
+ul li {
+	list-style-type:none;
+}
+.maptable a:visited{
+	color:white;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* ---------->>> Page Elements <<<----------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------- */
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+.title p{
+  font-size: 1.3em;
+}
+
+.header {
+	margin-left:auto;
+	margin-right:auto;
+	width:624px;
+	border-style:double;
+	border-color:silver;
+	margin-top:20px;
+}
+.menu {
+	width:100%;
+	display:table;
+}
+.menu_item {
+	float:left;
+	font:16px arial,helvetica,clean,sans-serif;
+	text-align:center;
+	font-weight:bold;
+}
+.menu_item>a {
+	color:white;
+	text-decoration:none;
+}
+.menu_item:hover {
+	background-color:navy;
+}
+.menu_home {
+	background-color:#ffffcc
+}
+.menu_home>a {
+	color:black;
+}
+.menu_home:hover>a {
+	color:white;
+}
+.menu_archives {
+	background-color:#6584ba;
+}
+.menu_books {
+	background-color:#d99c5a
+}
+.menu_documents {
+	background-color:#838d75
+}
+.menu_maps {
+	background-color:#864654
+}
+.menu_people {
+	background-color:#838d75
+}
+.content_container {
+	width:996px;
+	background-color:#838d75;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:40px;
+	border:2px solid black;
+	display:table;
+}
+.options {
+	margin-top:10px;
+	text-align:right;
+	font:16px arial,helvetica,clean,sans-serif;
+	font-weight:bold;
+	padding-right:20px;
+	padding-left:20px;
+}
+.options>a {
+	color:white;
+}
+
+/*Table of contents*/
+.toc {
+	margin-left:10px;
+	width:280px;
+	float:left;
+	background-color:#ebebeb;
+	margin-top:10px;
+	padding:5px;
+	border:1px solid black;
+	margin-bottom:10px;
+	font-size:14px;
+  font-family: "Lato", sans-serf;
+}
+
+.toc h3 {
+  padding-top: 10px;
+  margin-left: 0.5em;
+  font-size: 22px;
+  text-align: left;
+}
+
+.toc h4 {
+  padding-top: 15px;
+  padding-bottom: 2px;
+  margin-left: 0.5em;
+  font-size: 18px;
+  text-align: left;
+}
+
+.toc li {
+  line-height: 1.8em;
+  list-style-position: inside;
+  margin-left: 2em;
+   margin-right: 1em;
+  text-indent: -1em;
+}
+
+.toc_header {
+	margin-left:10px;
+	width:280px;
+	float:left;
+	margin-top:10px;
+	padding:5px;
+}
+.content {
+	width:650px;
+	margin-right:10px;
+	float:right;
+	background-color:white;
+	border-style:double;
+	border-color:silver;
+	margin-top:10px;
+	padding:10px;
+	margin-bottom:10px;
+  font-family: 'Merriweather', serif;
+}
+
+.content .identifier {
+  color: #ccc;
+  -webkit-transition: background-color 500ms ease-out 1s;
+  -moz-transition: background-color 500ms ease-out 1s;
+  -o-transition: background-color 500ms ease-out 1s;
+  transition: background-color 500ms ease-out 1s;
+  font-family: "Lato", sans-serif;
+}
+
+.content .identifier:hover {
+  color: #000;
+  cursor: pointer;
+}
+
+
+.content p {
+  line-height: 1.6em;
+  margin: 1.8em;
+}
+
+.footer {
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	margin-top:5px;
+	margin-bottom:40px;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* ---------->>> TEI Display <<<----------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------- */
+.pb {
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.titlepage {
+	padding:10px;
+	background-color:#eeeeee;
+	border-style:double;
+	text-align:center;
+}
+.div2 {
+	display:table;
+	width:100%;
+	margin-bottom:40px;
+}
+.figures {
+	float:right;
+}
+.figure {
+	margin-left:5px;
+	margin-right:5px;
+	padding:5px;
+	margin-bottom:15px;
+	background-color:#cccccc;
+	border:1px solid black;
+	text-align:center;
+	font-size:14px;
+}
+.jqueryLightbox>img {
+	max-width:60px;
+	max-height:60px;
+	border:1px solid black;
+}
+.opener, .closer {
+	margin-left:40px;
+}
+
+.closer {
+  line-height: 2em;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* ---------->>> Search Highlighting <<<----------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------- */
+.searchword {
+	background-color:yellow;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* ---------->>> Names Index <<<----------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------- */
+.search_content {
+	margin-left:10px;
+	margin-right:10px;
+	background-color:white;
+	border-style:double;
+	border-color:silver;
+	margin-top:10px;
+	padding:10px;
+	margin-bottom:10px;
+	min-height:600px;
+}
+.letter_list {
+	display:table;
+}
+.letter {
+	float:left;
+	width:129px;
+	text-align:center;
+	background-color:#cccccc;
+	margin:2px;
+	border:1px solid black;
+	font:16px arial,helvetica,clean,sans-serif;
+	font-weight:bold;
+	color:black;
+}
+.letter_selected {
+	float:left;
+	width:129px;
+	text-align:center;
+	background-color:#ebebeb;
+	margin:2px;
+	border:1px solid black;
+	font:16px arial,helvetica,clean,sans-serif;
+	font-weight:bold;
+	color:black;
+}
+.letter>a, .letter_selected>a {
+	font:16px arial,helvetica,clean,sans-serif;
+	font-weight:bold;
+	color:black;
+}
+.letter:hover, .letter_selected:hover {
+	background-color:#aaaaaa;
+}
+.letter_header {
+	text-align:left;
+}
+.names {
+	width:100%;
+	display:table;
+}
+.names_list {
+	width:100%;
+	display:table;
+}
+.names_column {
+	float:left;
+	width:25%;
+}
+.names_column2 {
+	float:left;
+	width:20%;
+}
+.name {
+	width:100%;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* ---------->>> Search <<<----------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------- */
+#search_form {
+	margin-bottom:10px;
+	padding:20px;
+	border-bottom:1px solid #696969;
+}
+#search_form>select {
+	margin-right:20px;
+}
+#search_button {
+	margin-right:20px;
+}
+#search {
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-left:10px;
+	padding-right:10px;
+}
+.paging_div {
+	width:100%;
+	display:table;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-size:14px;
+}
+.pagingBtn, .pagingSep {
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:2px;
+	padding-bottom:2px;
+	border-bottom:1px solid #696969;
+	border-top:1px solid #696969;
+	border-right:1px solid #696969;
+	background-color:#EBEBEB;
+	text-decoration:none;
+}
+.pagingBtn {
+/* font-weight:bold; */
+}
+.pagingBtn:hover {
+	background-color:#C8C8C8;
+	text-decoration:underline;
+}
+.docs {
+	float:left;
+	width:650px;
+}
+.facets {
+	float:right;
+	width:250px;
+	margin-right:10px;
+}
+.doc {
+	margin-left:20px;
+	margin-bottom:20px;
+	padding-bottom:10px;
+	border-bottom:1px silver dotted;
+}
+.facet {
+	width:100%;
+	display:table;
+	margin-bottom:20px;
+	font-size:14px;
+	padding:5px;
+	border:1px solid #838d75;
+	background-color:#D9DCD9;
+}
+.facet_head {
+	font-weight:bold;
+	font-size:16px;
+	text-transform:capitalize;
+	text-align:center;
+}
+.facet>ul>li {
+	padding-bottom:2px;
+	margin-bottom:2px;
+	border-bottom:1px dotted gray;
+	display:table;
+	width:100%;
+}
+.facet_text {
+	width:220px;
+	float:left;
+}
+.facet_num {
+	width:20px;
+	float:right;
+}
+.toDate_visible {
+	margin-left:20px;
+	display:inline;
+}
+.toDate_hidden {
+	margin-left:20px;
+	display:none;
+}
+.case {
+	font-size:14px;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* ---------->>> Archives <<<----------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------- */
+.archive_content {
+	width:996px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:40px;
+	display:table;
+}
+.document {
+	margin-bottom:25px;
+	display:table;
+	width:100%;
+	padding-bottom:10px;
+	border-bottom:1px dotted gray;
+}
+.thumbnail_container {
+	width:350px;
+	float:left;
+}
+.thumb {
+	padding:2px;
+	font-size:14px;
+	float:left;
+	background-color:#cccccc;
+	border:1px solid gray;
+	margin:0 5px 0 5px;
+	text-align:center;
+}
+.description {
+	margin-left:375px;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* ---------->>> Notable People <<<----------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------- */
+.people_content {
+	margin-left:auto;
+	margin-right:auto;
+	width:996px;
+	margin-top:40px;
+	margin-bottom:40px;
+}
+.section {
+	margin-top:20px;
+}
+.expand {
+	margin-left:10px;
+	text-decoration:underline;
+}
+.expand:hover {
+	font-weight:bold;
+	cursor:pointer;
+}
+.people_menu_item, .people_menu_item_selected {
+	float:left;
+	width:23%;
+	font-family:arial, helvetica, sans-serif;
+	font-size:13px;
+	padding:2px 0 2px 0;
+	border-top:1px solid #ebebeb;
+	border-left:1px solid #ebebeb;
+	border-bottom:1px solid silver;
+	border-right:1px solid silver;
+	margin:2px 5px 2px 0;
+}
+.people_menu_item:hover{
+	background-color:#efefef;
+	color:gray;
+}
+.categories{
+	padding:10px 2px 10px 2px;;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/**
+ * Added for the diaries, sermons, and letters
+ * Author Wayne Graham
+ */
+#wrap {
+    margin: auto !important;
+    width: 621px;
+}
+
+#page_content {
+    width: 621px;
+    margin: auto !important;
+    color: #000;
+    padding-bottom: 2em;
+}
+
+p.div2 {
+    margin-left: 1em;
+}
+
+p.div3 {
+    margin-left: 1.5em;
+}
+p.div4 {
+    margin-left: 2em;
+}
+p.div5 {
+    margin-left: 2.5em;
+}
+p.div6 {
+    margin-left: 1em;
+}
+
+.nav_list {
+    margin-top: 0.8em;
+    margin-left: 0.5em;
+}
+
+.nav_list li {
+    text-transformation: capitalize;
+}
+
+.nav_list li ul {
+    margin-left: 1.1em;
+}
+
+footer, #footer {
+    color: #000;
+    width: 621px;
+    margin: auto !important;
+    border-top: 1px solid #fff;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+
+/*
+  *
+  * jQuery lightBox plugin
+  * This jQuery plugin was inspired and based on Lightbox 2 by Lokesh Dhakar (http://www.huddletogether.com/projects/lightbox2/)
+  * and adapted to me for use like a plugin from jQuery.
+  * @name jquery-lightbox-0.5.css
+  * @author Leandro Vieira Pinho - http://leandrovieira.com
+  * @version 0.5
+  * @date April 11, 2008
+  * @category jQuery plugin
+  * @copyright (c) 2008 Leandro Vieira Pinho (leandrovieira.com)
+  * @license CC Attribution-No Derivative Works 2.5 Brazil - http://creativecommons.org/licenses/by-nd/2.5/br/deed.en_US
+  * @example Visit http://leandrovieira.com/projects/jquery/lightbox/ for more informations about this jQuery plugin
+ */
+#jquery-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 90;
+	width: 100%;
+	height: 500px;
+}
+#jquery-lightbox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	text-align: center;
+	line-height: 0;
+}
+#jquery-lightbox a img {
+	border: none;
+}
+#lightbox-container-image-box {
+	position: relative;
+	background-color: #fff;
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
+}
+#lightbox-container-image {
+	padding: 10px;
+}
+#lightbox-loading {
+	position: absolute;
+	top: 40%;
+	left: 0%;
+	height: 25%;
+	width: 100%;
+	text-align: center;
+	line-height: 0;
+}
+#lightbox-nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+}
+#lightbox-container-image-box > #lightbox-nav {
+	left: 0;
+}
+#lightbox-nav a {
+	outline: none;
+}
+#lightbox-nav-btnPrev, #lightbox-nav-btnNext {
+	width: 49%;
+	height: 100%;
+	zoom: 1;
+	display: block;
+}
+#lightbox-nav-btnPrev {
+	left: 0;
+	float: left;
+}
+#lightbox-nav-btnNext {
+	right: 0;
+	float: right;
+}
+#lightbox-container-image-data-box {
+	font: 10px Verdana, Helvetica, sans-serif;
+	background-color: #fff;
+	margin: 0 auto;
+	line-height: 1.4em;
+	overflow: auto;
+	width: 100%;
+	padding: 0 10px 0;
+}
+#lightbox-container-image-data {
+	padding: 0 10px;
+	color: #666;
+}
+#lightbox-container-image-data #lightbox-image-details {
+	width: 70%;
+	float: left;
+	text-align: left;
+}
+#lightbox-image-details-caption {
+	font-weight: bold;
+}
+#lightbox-image-details-currentNumber {
+	display: block;
+	clear: left;
+	padding-bottom: 1.0em;
+}
+#lightbox-secNav-btnClose {
+	width: 66px;
+	float: right;
+	padding-bottom: 0.7em;
+}
