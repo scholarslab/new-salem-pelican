@@ -1,0 +1,301 @@
+<html>
+<head><title>Index of Andover Map</title>
+</head>
+
+<body>
+<center>
+<h2>Index of Andover Map</h2>
+</center>
+
+<table border>
+<tr>
+<td>79 Abbot, John 2  
+</td><td>95 * Carrier, Thomas  
+</td><td>12 Hutchinson, Samuel 
+</td><td>90 Preston, Samuel 2
+   Preston, John 2
+</td></tr><tr>
+
+<td>78 Abbot, George 2 
+   Abbot, William 2
+</td><td>66 * Chandler, Capt. Thomas 2 
+</td><td>48 Ingalls, Henry 1 
+</td><td>54 Robinson, Joseph
+   Russ, Deborah
+</td></tr><tr>
+
+<td>75 * Abbot, Benjamin 2
+</td><td>61 Chandler, John 3
+</td><td>48 Ingalls, John 2 
+</td><td>94 Russell, Robert 1
+   Russell, Thomas 2
+   Salter, Henry 
+   Sessions, Elizabeth 
+   Singletary, Benjamin 
+</td></tr><tr>
+
+<td>83 Abbot, Timothy 2
+</td><td>76 Chandler, William 3 
+   Chandler, Thomas 3
+</td><td>47 Ingalls, Samuel 2 
+</td><td>20 Stevens, John 2
+</td></tr><tr>
+
+<td>74 Abbot, Thomas 2
+   Abbot, Nathaniel 2
+</td><td>92 Chandler, Henry 3
+</td><td>92 Chandler, Joseph 3
+</td><td>49 Ingalls, Henry 2 
+   Johnson, Thomas 2 
+</td><td>20 Stevens, Elizabeth
+   Stevens, John 3
+</td></tr><tr>
+
+<td>13 Abbot, George, Sr.
+13 Abbot, George, Jr.
+</td><td>88 * Chandler, William 2
+</td><td>42 * Johnson, Francis 3
+42 Johnson, Elizabeth
+</td><td>22 Stevens, Cornet Nathan 3
+   Stevens, Timothy 2
+   Stevens, Nathan 2
+</td></tr><tr>
+
+<td>14 Abbot, John Jr.
+   Abbot, Nehemiah
+   Abbot, Steven
+</td><td>86 Chandler, William 3
+   Chubb, Pascoe 
+   Cromwell, Job
+</td><td>3 *Johnson, Rebecca
+   Johnson, Sgt. William
+   Johnson, John 3
+</td><td>26 Stevens, Ephraim 2
+</td></tr><tr>
+
+<td>35 Abbot, Thomas, Sr.
+35 Abbot, Thomas, Jr.
+</td><td>27 * Dane, Nathaniel 2 
+</td><td>55 * Lacey, Lawrence 
+</td><td>25 Stevens, Joseph 2
+
+</td></tr><tr>
+
+<td>87 Allen, Faith
+87 Allen, Elizabeth
+   Andrew, Joseph
+</td><td>11 Dane, Rev. Francis 1 
+</td><td>81 Lovejoy, William 2 
+</td><td>17 Stevens, Benjamin 2
+   Stone, John 2
+   Stone, Simon 2
+
+</td></tr><tr>
+
+<td>16 Aslebee, John 2 
+</td><td>73 Dane, Francis 2 
+   Davis, Ephraim
+   * Draper, Joseph
+</td><td>69 Lovejoy, Christopher 2 
+</td><td>98 * Swan, Robert 1
+98 Swan, Robert, Jr. 2
+98 Swan, Timothy 2
+98 Swan, John 2
+98 Swan, Samuel 2
+   Toothacker, Allen
+   Tyler, Job 1
+
+</td></tr><tr>
+
+<td>40 Austin, Samuel
+   Austin, Thomas
+</td><td>100 * Eames, Robert 1
+100 * Eames, Daniel 2
+</td><td>24 Lovejoy, Joseph 2 
+24 Lovejoy, Hannah 
+</td><td>1 * Tyler, Moses 2
+  Tyler, Hopestill
+* Tyler, John 2
+
+</td></tr><tr>
+
+<td>99 Ayer, Nathan
+</td><td>96 Emery, Joseph
+</td><td>72 Lovejoy, Nathaniel 2
+   Lovejoy, Ebenezer 2
+   Marble, Samuel
+   Marble, Joseph
+</td><td>80 * Wardwell, Samuel 1
+80 Wardwell, Sarah
+
+</td></tr><tr>
+
+<td>84 Ballard, Joseph 2
+84 Ballard, Grace
+</td><td>28 * Farnum, Ralph I
+</td><td>19 Marston, John 1
+</td><td>67 Wilson, Joseph
+   White, John
+   Whittington, Edward
+   Woodman, Joshua
+
+</td></tr><tr>
+
+<td>82 Ballard, John 2
+</td><td>60 Farnum, Ralph 2
+</td><td>46 * Marston, John 2
+   Marston, Jacob 2
+   Marston, Joseph 2
+</td><td>64 Wright, Walter 1
+64 Wright, Walter 2
+64 Sadie, John, Jr.
+
+</td></tr><tr>
+
+<td>77 Ballard, William 2
+</td><td>39 Farnum, John 2 
+   Farnum, Thomas 
+   Farnum, John 
+</td><td>18 * Martin, Samuel 2
+   Moore, Abraham
+   Nichols, Nicholas 
+   Osgood, Christopher 2
+
+</td></tr><tr>
+
+<td>8 Barker, Richard Sr. 1
+</td><td>53 * Farrington, Edward 
+</td><td>89 Osgood, Thomas 2
+
+</td></tr><tr>
+
+<td>32 Barker, John 2
+</td><td>6 * Faulkner, Francis 2 
+  Faulkner, John 2
+</td><td>5 Osgood, John 2
+
+</td></tr><tr>
+<td>30 * Barker, William 2
+</td><td>93 Foster, Andrew 2
+</td><td>4 Osgood, Samuel 3
+
+</td></tr><tr>
+
+<td>31 * Barker, Ebenezer 2
+</td><td>43 * Foster, Abraham 2
+</td><td>34 Osgood, John 3
+
+</td></tr><tr>
+
+<td>36 Barker, Richard 2
+</td><td>45 * Foster, Ephraim 3
+</td><td>33 Osgood, Timothy 3
+   Osgood, Stephen 3
+   Osgood, Mary
+</td></tr><tr>
+
+<td>44 Barker, Steven 2
+</td><td>51 Frye, Benjamin 2
+</td><td>63 Osgood, Hooker 3
+
+</td></tr><tr>
+
+<td>8 Barker, Benjamin 2
+</td><td>52 Frye, Samuel 2
+</td><td>2 Parker, Stehpen 2
+2 Parker, Mary
+
+</td></tr><tr>
+
+<td>9 Barnard, Rev. Thomas
+  Barnard, Stephen
+</td><td>15 * Frye, James 2 
+15 Frye, Deacon John I
+15 Frye, Eunice
+</td><td>21 Parker, John 2
+21 Parker, Mary
+
+</td></tr><tr>
+
+
+<td>65 Bixby, Daniel 2
+</td><td>37 Granger, John
+</td><td>62 Peters, Andrew 1
+62 Peters, Elizabeth
+   Phelps, Elizabeth
+
+</td></tr><tr>
+
+<td>71 Blanchard, Samuel 1
+   Blanchard, Jonathan 2
+</td><td>41 Graves, Mark 2
+   Graves, Abraham 2
+</td><td>70 Phelps, Samuel 2
+   Phelps, Edward 2
+
+</td></tr><tr>
+
+<td>85 Blunt, William 1
+</td><td>58 Gray, Robert
+</td><td>38 Poor, Daniel 2
+38 Poor, Mary
+
+</td></tr><tr>
+
+<td>97 Bodwell, Henry
+</td><td>91 Gutterson, John
+</td></tr><tr>
+
+<td>23 Bridges, John 2
+23 Post, Susannah
+</td><td>68 Hagget, Moses
+
+</td></tr><tr>
+
+<td>29 Bridges, James 3
+   Bussell, Samuel
+</td><td>57 Holt, Henry 2
+</td></tr><tr>
+
+<td>10 Bradstreet, Dudley 2
+</td><td>56 Holt, Nicholas
+56 Holt, Martha
+56 Holt, Widow Hannah
+   
+
+</td></tr><tr>
+
+<td>7 Carleton, Joseph 2
+</td><td>59 Holt, Samuel 2
+   Hooper, Thomas
+   Hooper, John
+</td></tr><tr>
+
+<td>50 Carleton, John 2
+   Carleton, Edward 2
+   Carleton, Thomas 2
+</td>
+</tr>
+</table>
+
+<p>
+<p>
+
+<ul>
+<li>A Burying Ground Town Center
+
+<li>B Burying Ground West of Shawshin River
+
+<li>C Parker's Mill
+
+<li>D Iron Works
+<li>E Rowell's Folly
+<li>F George Abbot Garrison House
+<li>G Garrison House
+</ul>
+
+</body>
+</html>
+
+
+
