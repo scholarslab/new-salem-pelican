@@ -1,0 +1,9 @@
+AuthUserFile /web/data/salem/witchcraft/.htpasswd
+AuthGroupFile /dev/null
+AuthName ByPassword
+AuthType Basic
+
+
+<Limit GET POST PUT>
+require user salem
+</Limit>

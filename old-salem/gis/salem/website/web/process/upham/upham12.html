@@ -1,0 +1,325 @@
+<html>
+
+<head>
+
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  
+
+<link rel="stylesheet" href="../salemstyle1.css">
+
+  <script language="JavaScript">
+
+function MM_openBrWindow(theURL,winName,features) { //v1.0
+
+  window.open(theURL,winName,features);
+
+}
+
+</script>
+
+<title>Digitizing Upham: L. Results of Registration: Error and Offset</title></head>
+
+<body bgcolor="#FFFFFF" link="#006666" vlink="#808080">
+
+<table border="0" width="600" cellspacing="3" cellpadding="3">
+
+  <tr> 
+
+    <td align="LEFT" valign="TOP"> 
+
+      <h1>Building the Salem Witchcraft GIS </h1>
+
+      <p class="navlink"><a href="upham13.html" target="">Next: Georeferenced 
+        Digitizing </a> | <a href="upham11.html" target="">Previous Screen</a> 
+        | <a href="../proctoc.html">Table of Contents </a>| <a href="../../index.html" target="">Return 
+        to Start</a><br>                                                                                                                                                                                                                            
+      </p>
+
+      <hr NOSHADE>  
+
+    </td>
+
+  </tr>
+
+  <tr> 
+
+    <td align="LEFT" valign="TOP"> 
+
+      <h3>Digitizing the Upham Map</h3>
+      <h4> L. Results of Registration: Error and Offset</h4>
+      <h5>The Effect of Map Scale and Generalization</h5>
+      <p>Map scale and generalization have had a dramatic effect on the accuracy 
+        of this map registration. Upham drew his map at a scale of one inch to 
+        the mile (1:63360), which is a much smaller scale than the aerial photography 
+        with which we identified existing points (1:5000).</p>
+      <p>At such a scale, features are <i>generalized</i>, or drawn with less 
+        precision. Points and symbols Upham used to represent features introduce 
+        much chance of error. If we were to take the scale literally, a church 
+        which Upham drew as symbol 1/4 inch wide would be presumably be 1320 feet 
+        wide in reality. A point 1/8 inch wide representing a dwelling occupies 
+        660 feet according to this scale.</p>
+      <p>Matching relatively large symbols to a precise geographic coordinate 
+        of latitude and longitude, representing a point infinitely small, can 
+        only produce significant offsets, and result in inaccuracy in the data. 
+      </p>
+      <h5>Registration Offset</h5>
+      <p>Offset describes the distance between a point on registered map, and 
+        the &quot;true&quot; location describe by the corresponding control point. 
+        In effect, each registered point affects the accuracy of all others: all 
+        registration links produce offset on other links, as the software attempts 
+        to reconcile the locational data it has been given. Each link pulls on 
+        the others, and affects their ultimate position in geographic space.</p>
+      <p>When more than three points are used to register an image, GIS software 
+        attempts to minimize the offset distance between the point on the image 
+        and geographic coordinate. Offset is a normal and inevitable process, 
+        but it should be minimized to the extent possible by eliminating weak 
+        control points. Our final results were deemed acceptable to us only after 
+        we determined we were using the best set of controls and that offset would 
+        decrease no further. </p>
+      <p>The following table shows the offset distance for the control points 
+        used:</p>
+      <table border=1 bgcolor=#ffffff cellspacing=0>
+        <caption><font face="Verdana" color="#000000"><b><font class="captions">Control 
+        Points Used in Registration of Upham's Map</font></b></font></caption>
+        <thead> 
+        <tr class="DisplayTH"> 
+          <th bgcolor=#c0c0c0 bordercolor=#000000 ><font size="1" face="Verdana" color="#000000">ID#</font></th>
+          <th bgcolor=#c0c0c0 bordercolor=#000000 ><font size="1" face="Verdana" color="#000000">Mapsymbol 
+            </font></th>
+          <th bgcolor=#c0c0c0 bordercolor=#000000 ><font size="1" face="Verdana" color="#000000">name</font></th>
+          <th bgcolor=#c0c0c0 bordercolor=#000000 class="DisplayTH" >offset (meters)</th>
+        </tr>
+        </thead> <tbody> 
+        <tr valign=TOP> 
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">95</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">95</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">Rebecca 
+            Nurse House</font></td>
+          <td bordercolor=#c0c0c0 class="DisplayTD" >83.232</td>
+        </tr>
+        <tr valign=TOP> 
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">93</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">93</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">Sarah 
+            Holten House</font></td>
+          <td bordercolor=#c0c0c0 class="DisplayTD" >104.250</td>
+        </tr>
+        <tr valign=TOP> 
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">68</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">68</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">Bridget 
+            Bishop (Edward Bishop)House</font></td>
+          <td bordercolor=#c0c0c0 class="DisplayTD" >50.387</td>
+        </tr>
+        <tr valign=TOP> 
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">48</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">48</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">Parsonage</font></td>
+          <td bordercolor=#c0c0c0 class="DisplayTD" >128.849</td>
+        </tr>
+        <tr valign=TOP> 
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">151</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">151</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">Jonathan 
+            Corwin House</font></td>
+          <td bordercolor=#c0c0c0 class="DisplayTD" >134.047</td>
+        </tr>
+        <tr valign=TOP> 
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">185</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">none</font></td>
+          <td bordercolor=#c0c0c0 class="DisplayTD" >Will's Hill</td>
+          <td bordercolor=#c0c0c0 class="DisplayTD" >221.724</td>
+        </tr>
+        <tr valign=TOP> 
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">107</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">107</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">John 
+            Hale House</font></td>
+          <td bordercolor=#c0c0c0 class="DisplayTD" >141.052</td>
+        </tr>
+        <tr valign=TOP> 
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">188</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">none</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">Humphrey's 
+            Pond Island</font></td>
+          <td bordercolor=#c0c0c0 class="DisplayTD" >105.784</td>
+        </tr>
+        <tr valign=TOP> 
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">186</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">none</font></td>
+          <td bordercolor=#c0c0c0 ><font size="1" face="Verdana" color="#000000">Wenham 
+            Lake </font></td>
+          <td bordercolor=#c0c0c0 class="DisplayTD" >101.787</td>
+        </tr>
+        </tbody> <tfoot></tfoot> 
+      </table>
+      <h5>Comparative Distance Measures</h5>
+      <p> Upham's map appears to be most accurate in the east, less accurate in 
+        the west. The relative shape/distribution of the points on the map and 
+        the control points match fairly well: there are no dramatic surprises. 
+      </p>
+      <p>However, distances are off quite a bit in comparison between the Upham 
+        map and known control points. Wills Hill to Hathorne Hill, Hathorne Hill 
+        to 39, and Wills to 39 all present quite a bit of difference. It seems 
+        that the actual distance is much farther in those cases than Upham's map 
+        depicts. </p>
+      <table border="0" width="350">
+        <tr> 
+          <td colspan="2" class="DisplayTH">Wills Hill to 39</td>
+        </tr>
+        <tr> 
+          <td class="DisplayTD">Registered image</td>
+          <td class="DisplayTD">4642.14 meters</td>
+        </tr>
+        <tr> 
+          <td class="DisplayTD">Control points</td>
+          <td class="DisplayTD">5072.30 meters</td>
+        </tr>
+      </table>
+      <table border="0" width="350">
+        <tr> 
+          <td colspan="2" class="DisplayTH">Hathorne's Hill to 39</td>
+        </tr>
+        <tr> 
+          <td class="DisplayTD">Registered image</td>
+          <td class="DisplayTD">614.70 meters</td>
+        </tr>
+        <tr> 
+          <td class="DisplayTD">Control points</td>
+          <td class="DisplayTD">790.52 meters</td>
+        </tr>
+      </table>
+      <table border="0" width="590" cellspacing="2" cellpadding="2">
+        <tr>
+          <td><img src="images/northwest_edit.jpg" width="600" height="292"></td>
+        </tr>
+        <tr>
+          <td class="captions"><b>ABOVE:</b> Northwestern areas of the Upham Map, 
+            showing known control points (in red) and their corresponding points 
+            on the Upham map. Upham underestimated the distance between Will's 
+            Hill and point 39, as well as the distance between Hathorne's Hill 
+            and 39. </td>
+        </tr>
+      </table>
+      <p>Similar problems appear in the center of the map, where Upham has placed 
+        more distance between features than actually exist.</p>
+      <table border="0" width="350">
+        <tr> 
+          <td colspan="2" class="DisplayTH">S. Parris to Ingersoll ([P to +)</td>
+        </tr>
+        <tr> 
+          <td class="DisplayTD">Registered image</td>
+          <td class="DisplayTD">200.65 meters</td>
+        </tr>
+        <tr> 
+          <td class="DisplayTD">Control points</td>
+          <td class="DisplayTD">139.90 meters</td>
+        </tr>
+      </table>
+      <table border="0" width="350">
+        <tr> 
+          <td colspan="2" class="DisplayTH">Ingersoll to 1702 Meeting House (+ 
+            to church)</td>
+        </tr>
+        <tr> 
+          <td class="DisplayTD">Registered image</td>
+          <td class="DisplayTD">224.89 meters</td>
+        </tr>
+        <tr> 
+          <td class="DisplayTD">Control points</td>
+          <td class="DisplayTD">57.30 meters</td>
+        </tr>
+      </table>
+      <p>However, Upham is fairly accurate in some cases. </p>
+      <table border="0" width="350">
+        <tr> 
+          <td colspan="2" class="DisplayTH">Holton house to Nurse House (93 to 
+            95)</td>
+        </tr>
+        <tr> 
+          <td class="DisplayTD">Registered image</td>
+          <td class="DisplayTD">644.27 meters</td>
+        </tr>
+        <tr> 
+          <td class="DisplayTD">Control points</td>
+          <td class="DisplayTD">627.37 meters</td>
+        </tr>
+      </table>
+      <table border="0" width="590" cellspacing="2" cellpadding="2">
+        <tr>
+          <td><img src="images/center.jpg" width="403" height="358"></td>
+        </tr>
+        <tr>
+          <td><b>ABOVE:</b> Detail of central areas of Upham's map, showing control 
+            points (in green with red labels), and their corresponding features 
+            on Upham's map. While Upham was close in estimating the difference 
+            between 93 and 95, he was quite far off in drawing pinpointing Nathanial 
+            Ingersoll (+) and the 1702 Meetinghouse (the church to Ingersoll's 
+            southeast. Map scale and generalization of features play a role here, 
+            but that accounts for only part of the error. </td>
+        </tr>
+      </table>
+      <h5>Average Pixel Resolution</h5>
+      <p>Average pixel resolution of the registered Upham map is 4.691 meters/pixel. 
+        As a point of comparison, the aerial photography which we used to match 
+        control points is much more finely detailed: 1 meter/pixel.</p>
+      </td>
+
+  </tr>
+
+  <tr> 
+
+    <td align="LEFT" valign="TOP"> 
+
+      <hr NOSHADE>
+      <p class="navlink"><a href="upham13.html" target="">Next: Georeferenced 
+        Digitizing </a> | <a href="upham11.html" target="">Previous Screen</a> 
+        | <a href="../proctoc.html">Table of Contents </a>| <a href="../../index.html" target="">Return 
+        to Start</a></p>
+
+      <p class="navlink"><span class="navlink"><a href="http://etext.virginia.edu/salem/witchcraft/texts/">Salem 
+
+        Witchcraft Papers</a> | <a href="http://jefferson.village.virginia.edu/%7Ebcr/salem/salem.html">March 
+
+        1692 Animated</a> | The Putnam Family</span></p>
+
+      <p class="navlink"><a href="http://fisher.lib.virginia.edu">Geostat</a> 
+        | <a>IATH</a> | <a href="http://www.ias.berkeley.edu/ecai/">ECAI</a> 
+        | <a href="http://www.lib.virginia.edu" target="">U of Virginia Library</a>|<a href="http://www.virginia.edu">U 
+        of Virginia</a></p>
+
+    </td>
+
+  </tr>
+
+  <tr>
+
+    <td align="LEFT" valign="TOP"> 
+
+      <p class="copyright">LAST MODIFIED:<!--#config timefmt="%A, %B %d, %Y"--><!--#echo var="LAST_MODIFIED" --><br>
+
+        MAINTAINED BY: <a href="mailto:geostat@virginia.edu">geostat@virginia.edu</a></p>
+
+      <p class="copyright">&copy; Copyright 1999 The Rector and Visitors of the 
+
+        University of Virginia<br>
+
+        ArcInfo is a trademark of the <a href="http://www.esri.com">ESRI Corporation;</a> 
+
+        Access is a trademark of <a href="http://www.microsoft.com">Microsoft 
+
+        Corporation</a></p>
+
+    </td>
+
+  </tr>
+
+</table>
+
+</body>
+
+</html>
+

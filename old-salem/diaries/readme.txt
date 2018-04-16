@@ -1,0 +1,1 @@
+XML files are in the XML directory; xsl to generate the HTML is in the XML/diaries directory as well.

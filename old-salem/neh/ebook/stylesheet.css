@@ -1,0 +1,48 @@
+body{font-size:small}
+
+h2{display:block;text-align:center;font-size:small;margin-bottom:20px}
+
+sp{display:block;margin-top:20px}
+pb{}
+stage{display:block;text-indent:10px;font-style:italic}
+speaker{display:block;font-style:italic}
+p{text-indent:2em}
+ul{}
+li{}
+h1{}
+hi{font-style:italic}
+
+argument{text-indent:0px;display:block;margin-left:20px;margin-right:20px;font-size:x-small}
+note{display:block}
+div{page-break-after:always}
+div0{page-break-after:always}
+div.contents{display:none}
+div.illustrations{display:none}
+div.cover{}
+div.illus{display:none}
+div.index{display:none}
+note{display:none}
+div.titlepage{display:block;text-align:center; margin-top:20px; page-break-after:always}
+titlepage{display:block;text-align:center}
+
+div.dedication{display:block;text-align:center;margin-top:20px;page-break-before:always}
+titlepage{display:block;text-align:center; margin-top:20px; page-break-after:always}
+titlepart{display:block;text-align:center}
+doctitle{display:block;text-align:center;margin-bottom:20px}
+byline{display:block;text-align:center;margin-bottom:20px}
+docauthor{display:block;text-align:center;margin-bottom:20px}
+imprint{display:block;text-align:center}
+pubplace{display:block;text-align:center}
+
+
+tr{margin-left:5px; margin-right:5px}
+
+trailer{ display:block ;margin-top:20px ;text-align:center }
+
+blockquote{display:block;font-size:small}
+lg{display:block;margin-top:15px; margin-bottom:15px; margin-left:15px}
+p.line{text-indent:0em;margin-left:15px}
+
+epigraph{font-size:x-small;display:block;margin-left:15px;margin-right:15px}
+bibl{font-style:italics}
+signed{display:block}
