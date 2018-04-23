@@ -10,9 +10,9 @@ SITEURL = ''
 THEME = "./salem-theme"
 
 PATH = 'content'
-STATIC_PATHS = ['archives']
-PAGE_EXCLUDES = ['archives']
-ARTICLE_EXCLUDES = ['archives']
+STATIC_PATHS = ['search']
+PAGE_EXCLUDES = ['search']
+ARTICLE_EXCLUDES = ['search']
 TAG_NAMES = json.load(open("tags.json"))
 CAT_NAMES = {"swp":"Salem Witchcraft Papers", "salvrec":"Salem Village Records"}
 CAT_SORT = {"swp":"TITLE", "salvrec":"DATE"}
