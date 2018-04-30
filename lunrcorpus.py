@@ -1,6 +1,7 @@
 from pathlib import Path
 from bs4 import BeautifulSoup
 import json
+import markdown
 import re
 
 pathlist = Path("content/").glob('**/*.md')
@@ -19,9 +20,17 @@ for path in pathlist:
                 break
             if ":" in line:
                 metadata[line.split(":",1)[0].lower()] = line.split(":",1)[1].strip()
-        text = " ".join(page.read().split())
-        corpus.append({"id": metadata["slug"],"slug": metadata["slug"],"title":metadata["title"],"content":text})
-        #soup = BeautifulSoup(page, 'html.parser')
+        md = page.read()
+        if len(md.split("\n\n# Document: "))>1:
+            for doc in md.split("\n\n# Document: "):
+                doc_id = doc[:doc.find("\n\n")]
+                doc_html = markdown.markdown(doc[doc.find("\n\n")+2:])
+                doc_text = ''.join(BeautifulSoup(doc_html).findAll(text=True))
+                corpus.append({"id": doc_id,"slug": metadata["slug"],"title":metadata["title"],"content":doc_text})
+        else:
+            html = markdown.markdown(md)
+            text = ''.join(BeautifulSoup(html).findAll(text=True))
+            corpus.append({"id": metadata["slug"],"slug": metadata["slug"],"title":metadata["title"],"content":text})
 
 print("Writing to corpus")
 with open("corpus.json", 'w') as cout:
