@@ -67,8 +67,8 @@ html:
 	if test -d $(BASEDIR)/static-salem; then cp -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 
 html-old:
-		$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 		if test -d $(BASEDIR)/old-salem; then rsync -tHav $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
+		$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 		if test -d $(BASEDIR)/static-salem; then cp -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 
 clean:
