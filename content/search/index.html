@@ -52,7 +52,7 @@ jQuery(function() {
         a.textContent = doc.title.toUpperCase();
 
         p1.dataset.field = 'content';
-        p1.textContent = doc.content.substring(doc.content.lastIndexOf("-") + 1);
+        p1.textContent = doc.content;
         p1.style.textOverflow = 'ellipsis';
         p1.style.overflow = 'hidden';
         p1.style.whiteSpace = 'nowrap';
@@ -110,7 +110,7 @@ jQuery(function() {
             matches = matches.sort(function(a, b) {
                 return a[0] - b[0]
             }).slice(),
-            previousMatch = [-1, - 1],
+            previousMatch = [-2, - 2],
             match = matches.shift(),
             walker
         if (element instanceof Element) {
@@ -160,5 +160,3 @@ jQuery(function() {
 <input type="search" id="search-input">
 
 <ul id="search-list"></ul>
-
-

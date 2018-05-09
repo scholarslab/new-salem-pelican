@@ -25,7 +25,7 @@ for path in pathlist:
             for doc in md.split("\n\n# Document: "):
                 doc_id = doc[:doc.find("\n\n")]
                 doc_html = markdown.markdown(doc[doc.find("\n\n")+2:])
-                doc_text = ''.join(BeautifulSoup(doc_html).findAll(text=True))
+                doc_text = ''.join(BeautifulSoup(doc_html).findAll(text=True)).replace("\n","").replace("\t","")
                 corpus.append({"id": doc_id,"slug": metadata["slug"],"title":metadata["title"],"content":doc_text})
         else:
             html = markdown.markdown(md)
