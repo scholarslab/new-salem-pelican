@@ -41,7 +41,8 @@ help:
 	@echo 'Makefile for a pelican Web site                                           '
 	@echo '                                                                          '
 	@echo 'Usage:                                                                    '
-	@echo '   make html                           (re)generate the web site          '
+	@echo '   make html                           regenerate site, exc. old salem static content'
+	@echo '   make html-old                       regenerate site, inc. old salem static content'
 	@echo '   make clean                          remove the generated files         '
 	@echo '   make regenerate                     regenerate files upon modification '
 	@echo '   make publish                        generate using production settings '
@@ -63,7 +64,12 @@ help:
 
 html:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
-	if test -d $(BASEDIR)/old-salem; then cp -R $(BASEDIR)/old-salem/* $(OUTPUTDIR)/; fi
+	if test -d $(BASEDIR)/static-salem; then cp -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
+
+html-old:
+		$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+		if test -d $(BASEDIR)/old-salem; then rsync -tHav $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
+		if test -d $(BASEDIR)/static-salem; then cp -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
