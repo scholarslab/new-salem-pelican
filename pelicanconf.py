@@ -7,7 +7,7 @@ import json
 AUTHOR = ''
 SITENAME = 'New Salem - Pelican'
 SITEURL = ''
-THEME = "./pelican-twitchy"
+THEME = "./salem-theme"
 
 PATH = 'content'
 STATIC_PATHS = ['search','people']
