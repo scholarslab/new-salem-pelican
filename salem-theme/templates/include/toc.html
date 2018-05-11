@@ -1,7 +1,9 @@
-{% if article.toc %}
-    <div id="scrollspy">
-        <div class="col-lg-3 nav nav-stacked hidden-xs hidden-sm" data-spy="affix" data-offset-top="135">
-            {{article.toc}}
-        </div>
-    </div>
-{% endif %}
+<div class="toc nosearchhi">
+    <ul>
+    {% if articles %}
+        {% for article in (articles_page.object_list if articles_page else articles) %}
+        <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+        {% endfor %}
+    {% endif %}
+    </ul>
+</div>

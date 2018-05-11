@@ -42,6 +42,7 @@
     {% endif %}
 
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+<link href="http://fonts.googleapis.com/css?family=Lato:400,700|Merriweather" rel="stylesheet" type="text/css">
 
     <link href="{{ SITEURL }}/style.css" rel="stylesheet" />
 </head>
@@ -69,11 +70,9 @@
 			</li>
 		</ul>
 	</div>
-    <div style="margin-left:auto;margin-right:auto;width:632px">
     {% block precontent scoped %}
     {% endblock %}
     {% block content scoped %}
     {% endblock %}
-    </div>
 </body>
 </html>
