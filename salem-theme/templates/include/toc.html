@@ -1,9 +1,23 @@
 <div class="toc nosearchhi">
     <ul>
-    {% if articles %}
-        {% for article in (articles_page.object_list if articles_page else articles) %}
-        <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+    {% if articles and CAT_SORT[category]=="SLUG" %}
+        {% for a in (articles_page.object_list|sort(attribute='slug') if articles_page else articles|sort(attribute='slug')) %}
+            {% if (article and article.category==a.category) or not article %}
+                <li><a href="{{ SITEURL }}/{{ a.url }}">{{ a.title }}</a></li>
+            {% endif %}
         {% endfor %}
-    {% endif %}
+    {% elif articles and CAT_SORT[category]=="DATE" %}
+        {% for a in (articles_page.object_list|sort(attribute='date', reverse = False) if articles_page else articles|sort(attribute='date', reverse = False)) %}
+            {% if (article and article.category==a.category) or not article %}
+                <li><a href="{{ SITEURL }}/{{ a.url }}">{{ a.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+    {% elif articles%} {# Default title sort #}
+         {% for a in (articles_page.object_list|sort(attribute='title') if articles_page else articles|sort(attribute='title')) %}
+            {% if (article and article.category==a.category) or not article %}
+                <li><a href="{{ SITEURL }}/{{ a.url }}">{{ a.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+     {% endif %}
     </ul>
 </div>

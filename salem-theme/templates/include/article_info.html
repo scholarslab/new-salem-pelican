@@ -5,13 +5,13 @@
                 <i class="fa fa-calendar padding-small"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
             </span>
             <span class="category">
-                <i class="fa fa-folder-open padding-small"></i><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+                <i class="fa fa-folder-open padding-small"></i><a href="{{ SITEURL }}/{{ article.category.url }}">{{ CAT_NAMES[article.category] }}</a>
             </span>
             {% if article.tags %}
             <span class="tags">
                 <i class="fa fa-tags padding-small"></i>
             {% for tag in article.tags %}
-                <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %} / {% endif %}
+                <a href="{{ SITEURL }}/{{ tag.url }}">{{ TAG_NAMES[tag] }}</a>{% if not loop.last %} / {% endif %}
             {% endfor %}
             </span>
             {% endif %}
