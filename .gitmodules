@@ -1,4 +1,0 @@
-[submodule "pelican-twitchy"]
-	path = pelican-twitchy
-	url = https://github.com/scholarslab/pelican-twitchy.git
-	branch = master
