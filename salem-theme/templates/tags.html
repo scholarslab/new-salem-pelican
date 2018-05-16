@@ -1,12 +1,6 @@
-{% extends "base.html" %}
-
-{% block content %}
-<h1>Tags</h1>
-<div class="text-center">
-<ul class="tagcloud">
-	{% for tag in tags %}
-	<li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0 }}</a></li>
-	{% endfor %}
-</ul>
-</div>
-{% endblock %}
+{% extends "base.html" %} {% block title %}{{ SITENAME }} - Tags{% endblock %} {% block content %}
+<h1>Tags for {{ SITENAME }}</h1>
+{%- for tag, articles in tags|sort %}
+<li>
+	<a href="{{ SITEURL }}/{{ tag.url }}">{{ TAG_NAMES[tag] }}</a> ({{ articles|count }})</li>
+{% endfor %} {% endblock %}

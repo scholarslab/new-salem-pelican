@@ -15,7 +15,7 @@ PAGE_EXCLUDES = ['search','people']
 ARTICLE_EXCLUDES = ['search','people']
 TAG_NAMES = json.load(open("tags.json"))
 CAT_NAMES = {"swp":"Salem Witchcraft Papers", "salvrec":"Salem Village Records"}
-CAT_SORT = {"swp":"TITLE", "salvrec":"DATE"}
+CAT_SORT = {"swp": "TITLE", "salvrec": "DATEGROUP"}
 
 PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
