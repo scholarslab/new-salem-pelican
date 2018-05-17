@@ -1,6 +1,13 @@
 {% extends "base.html" %} {% block title %}{{ SITENAME }} - Tags{% endblock %} {% block content %}
 <h1>Tags for {{ SITENAME }}</h1>
-{%- for tag, articles in tags|sort %}
-<li>
-	<a href="{{ SITEURL }}/{{ tag.url }}">{{ TAG_NAMES[tag] }}</a> ({{ articles|count }})</li>
-{% endfor %} {% endblock %}
+	{% for tag_letter, tags in tags|groupby('0.name.0')|sort %}
+		<div id="tag_{{tag_letter.0.0}}">
+			<em>Names starting with {{tag_letter.0.0}}</em>
+			{% for tag, articles in tags %}
+				<li>
+					<a href="{{ SITEURL }}/{{ tag.url }}">{{ TAG_NAMES[tag] }}</a> ({{ articles|count }})</li>
+				</li>
+			{% endfor %}
+		</div>
+	{% endfor %}
+{% endblock %}
