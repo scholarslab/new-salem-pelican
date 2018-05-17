@@ -1,20 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row">
-    <div class="col-lg-9">
     {% if articles %}
+    <div class="docs">
         {% for article in (articles_page.object_list if articles_page else articles) %}
-            <article>
-                <h4>
-                    <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
-                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-                </h4>
-            </article>
+            <div class="doc">
+                <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
+                <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+            </div>
         {% endfor %}
     {% endif %}
-    </div>
-</div>
 {% endblock %}
 
 {% block scripts %}
