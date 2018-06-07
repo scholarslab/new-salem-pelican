@@ -64,15 +64,15 @@ help:
 
 html:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
-	if test -d $(BASEDIR)/static-salem; then cp --verbose -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
+	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 
 html-static:
-	if test -d $(BASEDIR)/static-salem; then cp --verbose -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
+	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 	
 html-old:
 		if test -d $(BASEDIR)/old-salem; then rsync -tHav $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
 		$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
-		if test -d $(BASEDIR)/static-salem; then cp -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
+		if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
