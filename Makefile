@@ -8,22 +8,9 @@ OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
-FTP_HOST=localhost
-FTP_USER=anonymous
-FTP_TARGET_DIR=/
-
-SSH_HOST=localhost
+SSH_HOST=corgi.lib.virginia.edu
 SSH_PORT=22
-SSH_USER=root
-SSH_TARGET_DIR=/var/www
-
-S3_BUCKET=my_s3_bucket
-
-CLOUDFILES_USERNAME=my_rackspace_username
-CLOUDFILES_API_KEY=my_rackspace_api_key
-CLOUDFILES_CONTAINER=my_cloudfiles_container
-
-DROPBOX_DIR=~/Dropbox/Public/
+SSH_TARGET_DIR=/var/www/newsalem.scholarslab.org
 
 GITHUB_PAGES_BRANCH=gh-pages
 
@@ -70,9 +57,9 @@ html-static:
 	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 	
 html-old:
-		if test -d $(BASEDIR)/old-salem; then rsync -tHav $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
-		$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
-		if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
+	if test -d $(BASEDIR)/old-salem; then rsync -tHav $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
+	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
@@ -94,7 +81,6 @@ else
 	cd $(OUTPUTDIR) && $(PY) -m pelican.server 80 0.0.0.0
 endif
 
-
 devserver:
 ifdef PORT
 	$(BASEDIR)/develop_server.sh restart $(PORT)
@@ -107,26 +93,16 @@ stopserver:
 	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
 
 publish:
+	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)/*
+	if test -d $(BASEDIR)/old-salem; then rsync -tHav $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
-	if test -d $(BASEDIR)/old-salem/; then cp -R $(BASEDIR)/old-salem/* $(OUTPUTDIR)/; fi
+	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 
 ssh_upload: publish
-	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
+	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_HOST):$(SSH_TARGET_DIR)
 
 rsync_upload: publish
-	rsync -e "ssh -p $(SSH_PORT)" -P -rvzc --delete $(OUTPUTDIR)/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR) --cvs-exclude
-
-dropbox_upload: publish
-	cp -r $(OUTPUTDIR)/* $(DROPBOX_DIR)
-
-ftp_upload: publish
-	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
-
-s3_upload: publish
-	s3cmd sync $(OUTPUTDIR)/ s3://$(S3_BUCKET) --acl-public --delete-removed --guess-mime-type --no-mime-magic --no-preserve
-
-cf_upload: publish
-	cd $(OUTPUTDIR) && swift -v -A https://auth.api.rackspacecloud.com/v1.0 -U $(CLOUDFILES_USERNAME) -K $(CLOUDFILES_API_KEY) upload -c $(CLOUDFILES_CONTAINER) .
+	rsync -e "ssh -p $(SSH_PORT)" -P -rvzc --delete $(OUTPUTDIR)/ $(SSH_HOST):$(SSH_TARGET_DIR) --cvs-exclude
 
 github: publish
 	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
