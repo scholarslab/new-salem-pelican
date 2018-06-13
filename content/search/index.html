@@ -27,11 +27,35 @@ jQuery(function() {
             window.documents.push(doc);
         });
     });
-    // Event when the form is submitted
 
-    $("#search-input").on('change', function(event) {
+    // Event when the form is submitted
+    $("#search_button").on('click', function(event) {
         event.preventDefault();
-        var query = $("#search-input").val(); // the value for the text field
+        var query,queryArray,terms,datevalues,year,month,day,datequery;
+        queryArray = new Array();
+        datevalues = new Array();
+        year = $('#year').val();
+        month = $('#month').val();
+        day = $('#day').val();
+        datequery = '';
+
+        // UGH
+        if (year) {
+            datequery = 'date:';
+            datevalues.push(year);
+            if (month) {
+                datevalues.push(month);
+                if (day) {
+                    datevalues.push(day);
+                }
+            }
+            datequery = datequery + datevalues.join('-');
+            queryArray.push(datequery);
+        }
+
+        terms = $("#search-input").val(); // the value for the text field
+        queryArray.push(terms);
+        query = queryArray.join(' ');
         window.index = lunr.Index.load(window.idx);
         var results = window.index.search(query);
         // Get lunr to perform a search
@@ -185,8 +209,47 @@ jQuery(function() {
 <div class="content_container">
     <div class="search_content" style="overflow:hidden;">
         <h1>Search the Salem Witchcraft Papers</h1>
-        <form id="search_form">
-        <label for="search-input">Search for word or phrase:</label> <input type="search" name="search-input" id="search-input">
+        <form id="search_form" action="/search/">
+            <label for="search-input">Search for word or phrase:</label> <input type="search" name="search-input" id="search-input"><br>
+            and/or documents dated (1692/1693, excluding some undated items)<br>
+            year
+        <select id="year">
+            <option value="">any</option>
+            <option value="1692">1692</option>
+            <option value="1693">1693</option>
+            <option value="1696">1696</option>
+            <option value="1697">1697</option>
+            <option value="1702">1702</option>
+            <option value="1703">1703</option>
+            <option value="1709">1709</option>
+            <option value="1710">1710</option>
+            <option value="1711">1711</option>
+            <option value="1712">1712</option>
+            <option value="1713">1713</option>
+            <option value="1717">1717</option>
+            <option value="1718">1718</option>
+            <option value="1750">1750</option>
+        </select>
+        month
+        <select id="month">
+            <option value="">any</option>
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select>
+        day
+        <select id="day"><option value="">any</option><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option></select><br>
+        <input type="submit" value="Search" id="search_button">
+        <input type="button" value="Clear Results">
         </form>
         <div id="search">
             <div class="docs" id="search-list"></div>
