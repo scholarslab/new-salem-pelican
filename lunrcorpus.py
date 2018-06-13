@@ -68,7 +68,7 @@ with open("./content/search/corpus.json", 'w') as cout:
     cout.write(json.dumps(corpus))
 print("Running index script")
 os.system("cat content/search/corpus.json | scripts/build-index > content/search/idx.json")
-print("\n\n###### SWP documents with suspected wrong formating #######\n\n")
+print("\n\n###### SWP documents with suspected wrong formatting #######\n\n")
 for doc in wrong_dates:
     print(doc)
 print("\n\n###### SWP documents with no canonical date found #######\n\n")
