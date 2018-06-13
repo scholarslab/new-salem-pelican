@@ -36,7 +36,7 @@ for path in pathlist:
                 doc_id = doc[:doc.find("\n")].strip()
                 # regex full date match
                 date_match = re.search(
-                    r'\[\+*\?*\=*\s*\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|July|August|Aug|September|Sept|October|Oct|November|Nov|December|Dec)\b\s*[\d]{1,2}\s*[\,\.]?\s*\d{4}\s*', doc)
+                    r'\[\+*\?*\=*\s*\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|July|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\b\s*[\d]{1,2}\s*[\,\.]?\s*\d{4}\s*', doc)
                 if date_match:
                     date = re.search(r'[a-zA-Z0-9 ,.]{9,}', date_match.group()).group().strip()
                     datestr = parse(
@@ -44,7 +44,7 @@ for path in pathlist:
                 else:
                     #regex month only match
                     month_match = re.search(
-                        r'\[\+*\?*\=*\s*\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|July|August|Aug|September|Sept|October|Oct|November|Nov|December|Dec)\b\s*[\,\.]?\s*\d{4}\s*', doc)
+                        r'\[\+*\?*\=*\s*\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|July|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\b\s*[\,\.]?\s*\d{4}\s*', doc)
                     if month_match:
                         date = re.search(
                             r'[a-zA-Z0-9 ,]{9,}', month_match.group()).group().strip()
