@@ -39,8 +39,11 @@ for path in pathlist:
                     r'\[\+*\?*\=*\s*\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|July|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\b\s*[\d]{1,2}\s*[\,\.]?\s*\d{4}\s*', doc)
                 if date_match:
                     date = re.search(r'[a-zA-Z0-9 ,.]{9,}', date_match.group()).group().strip()
-                    datestr = parse(
-                        date, default=datetime.datetime(1691, 1, 1)).strftime("%Y-%m-%d")
+                    datestr = parse(date, default=datetime.datetime(
+                        1691, 1, 1)).strftime("%Y-%m-%d")
+                    year = parse(date, default=datetime.datetime(1691, 1, 1)).strftime("%Y")
+                    month = parse(date, default=datetime.datetime(1691, 1, 1)).strftime("%m")
+                    day = parse(date, default=datetime.datetime(1691, 1, 1)).strftime("%d")
                 else:
                     #regex month only match
                     month_match = re.search(
@@ -48,8 +51,10 @@ for path in pathlist:
                     if month_match:
                         date = re.search(
                             r'[a-zA-Z0-9 ,]{9,}', month_match.group()).group().strip()
-                        datestr = parse(
-                            date, default=datetime.datetime(1691, 1, 1)).strftime("%Y-%m")
+                        datestr = parse(date, default=datetime.datetime(
+                            1691, 1, 1)).strftime("%Y-%m")
+                        year = parse(date, default=datetime.datetime(1691, 1, 1)).strftime("%Y")
+                        month = parse(date, default=datetime.datetime(1691, 1, 1)).strftime("%m")
                     else:
                         if re.search(r'\]\n', doc):
                             wrong_dates.append(doc_id)
@@ -58,7 +63,7 @@ for path in pathlist:
                 doc_html = markdown.markdown(doc[doc.find("\n\n")+2:])
                 doc_text = ''.join(BeautifulSoup(doc_html,"lxml").findAll(text=True)).replace("\n","").replace("\t","")
                 corpus.append(
-                    {"id": doc_id, "slug": metadata["slug"], "title": metadata["title"], "content": doc_text, "date": datestr})
+                    {"id": doc_id, "slug": metadata["slug"], "title": metadata["title"], "content": doc_text, "date": datestr, "year":year, "month":month,"day":day})
         else:
             html = markdown.markdown(md)
             text = ''.join(BeautifulSoup(html).findAll(text=True))
