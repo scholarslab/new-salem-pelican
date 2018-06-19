@@ -21,6 +21,9 @@ stdin.on('end', function () {
     builder.field('slug')
     builder.field('content')
     builder.field('date')
+    builder.field('year')
+    builder.field('month')
+    builder.field('day')
     // This is required to provide the position of terms in
     // in the index. Currently position data is opt-in due
     // to the increase in index size required to store all
