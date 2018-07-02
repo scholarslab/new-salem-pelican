@@ -82,7 +82,7 @@ jQuery(function() {
 
         em.textContent = doc.date;
         a.dataset.field = 'name';
-        a.href += '/' + doc.slug + '.html';
+        a.href += '/' + doc.slug + '.html#'+doc.id;
         a.textContent = doc.title.toUpperCase();
         
         p1.dataset.field = 'content';
