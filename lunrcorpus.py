@@ -9,15 +9,15 @@ import os
 
 pathlist = Path("content/").glob('**/*.md')
 corpus = []
-wrong_dates = []
+wrong_dates = {}
 no_dates = []
+count_dates = 0
 for path in pathlist:
     # because path is object not string
     pathstr = str(path)[7:]
     if "tag/" in pathstr or "SalVRec" in pathstr:
         continue
     with open("content"+pathstr, 'r') as page:
-        print("Parsing: "+pathstr)
         metadata = {}
         while 1:
             line = page.readline()
@@ -39,11 +39,12 @@ for path in pathlist:
                     text=True)).replace("\n", "").replace("\t", "")
                 # regex full date match
                 date_match = re.search(
-                    r'\[\+*\?*\=*\s*\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|July|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\b\s*[\d]{1,2}\s*[\,\.]?\s*\d{4}\s*', doc)
+                    r'\n\n\[[\+\? ]*\=*\s*\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|July|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\b\s*[\d]{1,2}\s*[\,\.]?\s*\d{4}\.?\s*\]\n\n', doc)
                 #regex month only match
                 month_match = re.search(
-                    r'\[\+*\?*\=*\s*\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|July|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\b\s*[\,\.]?\s*\d{4}\s*', doc)
+                    r'\n\n\[[\+\? ]*\=*\s*\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|July|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\b\s*[\,\.]?\s*\d{4}\.?\s*\]\n\n', doc)
                 if date_match:
+                    count_dates +=1
                     date = re.search(r'[a-zA-Z0-9 ,.]{9,}', date_match.group()).group().strip()
                     datestr = parse(date, default=datetime.datetime(
                         1691, 1, 1)).strftime("%Y-%m-%d")
@@ -64,10 +65,9 @@ for path in pathlist:
                 else:
                     corpus.append(
                         {"id": doc_id, "slug": metadata["slug"], "title": metadata["title"], "content": doc_text })
-                    if re.search(r'\]\n', doc):
-                        wrong_dates.append(doc_id)
-                        date = None
-                        datestr = None
+                    wrong_date = re.search(r'\n\[[A-Za-z?+ .,0-9\'\(\)]*\]\n', doc)
+                    if wrong_date:
+                        wrong_dates[doc_id] = wrong_date.group().strip()
                     else:
                         no_dates.append(doc_id)
         else:
@@ -81,7 +81,10 @@ print("Running index script")
 os.system("cat content/search/corpus.json | scripts/build-index > content/search/idx.json")
 print("\n\n###### SWP documents with suspected wrong formatting #######\n\n")
 for doc in wrong_dates:
-    print(doc)
+    print(doc + ": "+wrong_dates[doc])
 print("\n\n###### SWP documents with no canonical date found #######\n\n")
 for doc in no_dates:
     print(doc)
+print("Documents with dates: "+str(count_dates))
+print("Documents with date errors: "+str(len(wrong_dates)))
+print("Documents without dates: "+str(len(no_dates)))
