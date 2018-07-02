@@ -19,10 +19,10 @@
                 {% for month, month_articles in year_articles|groupby('date.month')|sort(reverse=False) %}
                     <dl>
                     <dt><em>{{ month_articles[0].date.strftime('%Y, %B') }}</em></dt>
-                    {% for article in month_articles %}
-                    <dd>
+                    {% for article in (month_articles |sort(attribute='date', reverse = False))%}
+                    <li>
                         <a href="{{ SITEURL }}/{{ article.url }}" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
-                    </dd>
+                    </li>
                     {% endfor %}
                     </dl>
                 {% endfor %}
