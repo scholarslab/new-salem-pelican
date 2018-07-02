@@ -23,6 +23,10 @@ jQuery(function() {
                 'content': key[1].content,
                 'title': key[1].title,
                 'slug': key[1].slug,
+                'date': key[1].date,
+                'year': key[1].year,
+                'month': key[1].month,
+                'day': key[1].day,
             };
             window.documents.push(doc);
         });
@@ -31,31 +35,33 @@ jQuery(function() {
     // Event when the form is submitted
     $("#search_button").on('click', function(event) {
         event.preventDefault();
-        var query,queryArray,terms,datevalues,year,month,day,datequery;
-        queryArray = new Array();
-        datevalues = new Array();
-        year = $('#year').val();
-        month = $('#month').val();
-        day = $('#day').val();
-        datequery = '';
+        var query,
+            terms = $("#search-input").val(),
+            queryArray = new Array(),
+            year = $('#year').val(),
+            month = $('#month').val()
+            day = $('#day').val();
 
         // UGH
         if (year) {
-            datequery = 'date:';
-            datevalues.push(year);
+            yearquery = '+year:'+year;
+            queryArray.push(yearquery);
             if (month) {
-                datevalues.push(month);
+                monthquery = '+month:'+month;
+                queryArray.push(monthquery);
                 if (day) {
-                    datevalues.push(day);
+                    dayquery = '+day:'+day;
+                    queryArray.push(dayquery);
                 }
             }
-            datequery = datequery + datevalues.join('-');
-            queryArray.push(datequery);
         }
-
-        terms = $("#search-input").val(); // the value for the text field
-        queryArray.push(terms);
+        if(terms) {
+            termsArray = terms.split(' ');
+            termsQuery = '+'+termsArray.join(' +');
+            queryArray.push(termsQuery);
+        }
         query = queryArray.join(' ');
+        console.log(query);        
         window.index = lunr.Index.load(window.idx);
         var results = window.index.search(query);
         // Get lunr to perform a search
@@ -69,14 +75,16 @@ jQuery(function() {
             article = document.createElement('article'),
             header = document.createElement('header'),
             section = document.createElement('section'),
+            em = document.createElement('em'),
             h2 = document.createElement('h2'),
             a = document.createElement('a'),
             p1 = document.createElement('p')
 
+        em.textContent = doc.date;
         a.dataset.field = 'name';
         a.href += '/' + doc.slug + '.html';
         a.textContent = doc.title.toUpperCase();
-
+        
         p1.dataset.field = 'content';
         p1.textContent = doc.content;
         p1.style.textOverflow = 'ellipsis';
@@ -87,6 +95,7 @@ jQuery(function() {
         div.appendChild(article);
         article.appendChild(header);
         article.appendChild(section);
+        header.appendChild(em);
         header.appendChild(h2);
         h2.appendChild(a);
         section.appendChild(p1);
