@@ -4,7 +4,7 @@
     {% if articles %}
     <div class="docs">
         {% for article in (articles_page.object_list|sort(attribute='date', reverse = False) if articles_page else articles|sort(attribute='date',
-        reverse = False)) %}
+        reverse = True)) %}
             <div class="doc">
                 <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
                 <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>

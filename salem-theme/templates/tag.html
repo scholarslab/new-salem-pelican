@@ -1,5 +1,5 @@
 {% extends "include/article_list.html" %}
-{% block title %}Documents related to {{ TAG_NAMES[tag] }} - {{ SITENAME }}{% endblock %}
+{% block title %}Case files referencing {{ TAG_NAMES[tag] }} - {{ SITENAME }}{% endblock %}
 {% block meta %}
     <meta name="keywords" content="{{ tag }}" />
 {% endblock %}
@@ -10,7 +10,7 @@
 <div class="content_container">
     {% include 'include/category-options.html' %}
     <div class="search_content">
-        <h1>Documents Related to {{ TAG_NAMES[tag] }}</h1>
+        <h1>Case files referencing {{ TAG_NAMES[tag] }}</h1>
          {% if tag in BIOS %}
             <div class="bios_link">
                 <a href="/people/#{{ tag }}">Biographical entry for {{ TAG_NAMES[tag] }}</a>
