@@ -9,7 +9,7 @@
 {% block precontent %}
 <div class="content_container">
     {% include 'include/category-options.html' %}
-    <div class="search_content">
+    <div class="search_content" style="overflow:hidden;">
         <h1>Case files referencing {{ TAG_NAMES[tag] }}</h1>
          {% if tag in BIOS %}
             <div class="bios_link">
