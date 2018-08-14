@@ -45,6 +45,23 @@
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700|Merriweather" rel="stylesheet" type="text/css">
 
     <link href="{{ SITEURL }}/style.css" rel="stylesheet" />
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+    <script>
+    $(document).ready(function () {
+        var hash = window.location.hash.substring(1);
+        if (hash) {
+            console.log(hash);
+            $('.publish-info-block').hide();
+            $('.doc').filter(function() {
+                return $(this).attr('id') !== hash;
+            }).hide();
+        }
+    });
+    </script>
 </head>
 <body topmargin="0" leftmargin="0" bgcolor="#FFFFFF" link="#000099" marginheight="0" marginwidth="0" text="#000000" vlink="#006633">
 	<div class="header nosearchhi">
