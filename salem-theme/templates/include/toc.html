@@ -1,5 +1,5 @@
 <div class="toc nosearchhi">
-    <h2>{{ CAT_NAMES[category] }}</h2>
+    <h2><a href="{{ SITEURL }}/category/{{category}}.html">{{ CAT_NAMES[category] }}</a></h2>
     <ul>
     {% if articles and CAT_SORT[category]=="SLUG" %}
         {% for a in (articles_page.object_list|sort(attribute='slug') if articles_page else articles|sort(attribute='slug')) %}
