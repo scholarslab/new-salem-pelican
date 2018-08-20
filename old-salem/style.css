@@ -524,6 +524,14 @@ ul li {
     width: 621px;
 }
 
+#page_description {
+    width: 621px;
+    margin: auto !important;
+    color: #000;
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+
 #page_content {
     width: 621px;
     margin: auto !important;
