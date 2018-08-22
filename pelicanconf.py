@@ -10,9 +10,9 @@ SITEURL = ''
 THEME = "./salem-theme"
 
 PATH = 'content'
-STATIC_PATHS = ['search','people']
-PAGE_EXCLUDES = ['search','people']
-ARTICLE_EXCLUDES = ['search','people']
+STATIC_PATHS = ['search', 'people']
+PAGE_EXCLUDES = ['search', 'people', 'SalVRec']
+ARTICLE_EXCLUDES = ['search', 'people', 'SalVRec']
 
 # Salem-specific globals
 TAG_NAMES = json.load(open("tags.json"))
