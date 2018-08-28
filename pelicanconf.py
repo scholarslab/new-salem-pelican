@@ -17,8 +17,9 @@ ARTICLE_EXCLUDES = ['search', 'people', 'SalVRec']
 # Salem-specific globals
 TAG_NAMES = json.load(open("tags.json"))
 BIOS = json.load(open("bios.json"))
-CAT_NAMES = {"swp":"Salem Witchcraft Papers", "salvrec":"Salem Village Records"}
-CAT_SORT = {"swp": "TITLE", "salvrec": "DATEGROUP"}
+CAT_NAMES = {"swp": "Salem Witchcraft Papers",
+             "salvrec": "Salem Village Records", "uph1wit": "Upham: Salem Witchcraft"}
+CAT_SORT = {"swp": "TITLE", "salvrec": "DATEGROUP", "uph1wit":"TITLE"}
 
 PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
