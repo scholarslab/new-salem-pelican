@@ -49,16 +49,19 @@ html:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-salvrec; then cp -v -R $(BASEDIR)/static-salvrec/* $(OUTPUTDIR)/; fi
+	if test -d $(BASEDIR)/static-uph1wit; then cp -v -R $(BASEDIR)/static-uph1wit/* $(OUTPUTDIR)/; fi
 
 html-static:
 	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-salvrec; then cp -v -R $(BASEDIR)/static-salvrec/* $(OUTPUTDIR)/; fi
+	if test -d $(BASEDIR)/static-uph1wit; then cp -v -R $(BASEDIR)/static-uph1wit/* $(OUTPUTDIR)/; fi
 	
 html-old:
 	if test -d $(BASEDIR)/old-salem; then rsync -tHa --stats $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-salvrec; then cp -v -R $(BASEDIR)/static-salvrec/* $(OUTPUTDIR)/; fi
+	if test -d $(BASEDIR)/static-uph1wit; then cp -v -R $(BASEDIR)/static-uph1wit/* $(OUTPUTDIR)/; fi
 
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
@@ -97,6 +100,7 @@ publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-salvrec; then cp -v -R $(BASEDIR)/static-salvrec/* $(OUTPUTDIR)/; fi
+	if test -d $(BASEDIR)/static-uph1wit; then cp -v -R $(BASEDIR)/static-uph1wit/* $(OUTPUTDIR)/; fi
 
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_HOST):$(SSH_TARGET_DIR)
