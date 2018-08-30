@@ -10,3 +10,6 @@ New Salem running on Pelican
 ## Running the Project.
 - Open pipenv shell: `pipenv shell`
 - Run the web server: `make devserver`
+
+## Documentation
+[Documentation for the Salem Witchcraft Papers](docs/SWPdocs.md)
