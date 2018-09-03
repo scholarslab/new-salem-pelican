@@ -72,5 +72,5 @@ This document is a quick reference glossary of the markdown syntax and HTML tags
 
 * `<span>`
 	
-	The HTML `<span>` tag is used to style image figures included in the document. See Image Link entry above.
+	The HTML `<span>` tag is used to style image figures included in the document. See _Image Link_ entry above.
 
