@@ -2,7 +2,7 @@
 
 This document is a quick reference glossary of the markdown syntax and HTML tags used in the SWP files on the Salem Witchcraft Trials site.
 
-* `<div>`
+* **`<div>`**
 	
 	The `<div>` tag is an HTML tag used to wrap contents of case documents in SWP files and the case document title. The contents of this tag drive keyword searching, and the tag must be formatted exactly as in these examples
 	
@@ -20,7 +20,7 @@ This document is a quick reference glossary of the markdown syntax and HTML tags
 		
 	Note that this tag is closed after the text of the document title.
 
-* Front Matter
+* **Front Matter**
 	
 	The front matter is markdown style metadata about the case transcribed in the markdown file. These fields are required, and must be the top five lines of the file, formatted exactly as shown in the example. Each label described below should be separated from the contents of the label by a colon.
 	
@@ -42,7 +42,7 @@ This document is a quick reference glossary of the markdown syntax and HTML tags
 	tags: aldjoh, wilabi, warmar, hilzeb, noynic, carmar1, ricsar, ricnic, chesam1, hawjoh, walmar, ricjoh, corjoh, wilnat, booeli, putann2, arnjoh, stough, lewmer, gidbar
 	```
 
-* Heading
+* **Heading**
 	
 	The `#` character followed by a space creates a level 1 heading. This is used for the titles in case documents.
 	
@@ -50,7 +50,7 @@ This document is a quick reference glossary of the markdown syntax and HTML tags
 	
 	`# (Complaint v. [Joan Peney](/tag/penjoa.html) & Statement of Bond to Prosecute )`
 
-* Image Link
+* **Image Link**
 	
 	To include a link to the page image of a case document, use the following code
 	
@@ -60,7 +60,7 @@ This document is a quick reference glossary of the markdown syntax and HTML tags
 	
 	`<span markdown class="figure">[![Figure B29r](archives/BPL/gifs/B29A.gif)](archives/BPL/LARGE/B29A.jpg)</span>`
 
-* Name Link
+* **Name Link**
 	
 	To make proper names from the case documents searchable, they must be linked to the official tag list of person ids using the following code
 	
@@ -70,7 +70,7 @@ This document is a quick reference glossary of the markdown syntax and HTML tags
 	
 	`[Zebulon Hill](/tag/hilzeb.html)`
 
-* `<span>`
+* **`<span>`**
 	
-	The HTML `<span>` tag is used to style image figures included in the document. See _Image Link_ entry above.
+	The HTML `<span>` tag is used to style image figures included in the document. See **Image Link** entry above.
 
