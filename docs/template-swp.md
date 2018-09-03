@@ -2,7 +2,7 @@ title: SWP No. ##: First Last
 date: YYYY-MM-DD
 slug: n##
 category: swp
-tags: insert comma separated list of name tags for all names in document from the official tag list
+tags: insert comma separated list of name tags for all names in document from the official person id list
 
 
 
