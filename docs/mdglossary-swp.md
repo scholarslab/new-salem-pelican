@@ -45,6 +45,10 @@ This document is a quick reference glossary of the markdown syntax and HTML tags
 * Heading
 	
 	The `#` character followed by a space creates a level 1 heading. This is used for the titles in case documents.
+	
+	ex.
+	
+	`# (Complaint v. [Joan Peney](/tag/penjoa.html) & Statement of Bond to Prosecute )`
 
 * Image Link
 	
