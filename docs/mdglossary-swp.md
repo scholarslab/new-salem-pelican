@@ -8,18 +8,16 @@ This document is a quick reference glossary of the markdown syntax and HTML tags
 	
 	ex. Case Document 
 		
-		```
 		<div markdown class="doc" id="n6.1">
 			Text of case document
 		</div>
-		```
+		
 	Note that the closing `</div>` tag is placed at the end of the section of text comprising the case document.
 	
 	ex. Title of A Case Document
 		
-		```
 		<div class="doc_id">SWP No. 6.1</div>
-		```
+		
 	Note that this tag is closed after the text of the document title.
 
 * Front Matter
