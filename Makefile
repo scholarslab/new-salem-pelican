@@ -28,9 +28,8 @@ help:
 	@echo 'Makefile for a pelican Web site                                           '
 	@echo '                                                                          '
 	@echo 'Usage:                                                                    '
-	@echo '   make html                           regenerate site, copy over new static content'
+	@echo '   make html                           copy over old salem static content, regenerate site, copy over new static content'
 	@echo '   make html-static                    only copy over new static content'
-	@echo '   make html-old                       copy over old salem static content, regenerate site, copy over new static content'
 	@echo '   make clean                          remove the generated files         '
 	@echo '   make regenerate                     regenerate files upon modification '
 	@echo '   make publish                        generate using production settings '
@@ -46,19 +45,13 @@ help:
 	@echo '                                                                          '
 
 html:
+	if test -d $(BASEDIR)/old-salem; then rsync -tHa --stats $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-salvrec; then cp -v -R $(BASEDIR)/static-salvrec/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-uph1wit; then cp -v -R $(BASEDIR)/static-uph1wit/* $(OUTPUTDIR)/; fi
 
 html-static:
-	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
-	if test -d $(BASEDIR)/static-salvrec; then cp -v -R $(BASEDIR)/static-salvrec/* $(OUTPUTDIR)/; fi
-	if test -d $(BASEDIR)/static-uph1wit; then cp -v -R $(BASEDIR)/static-uph1wit/* $(OUTPUTDIR)/; fi
-	
-html-old:
-	if test -d $(BASEDIR)/old-salem; then rsync -tHa --stats $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-salvrec; then cp -v -R $(BASEDIR)/static-salvrec/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-uph1wit; then cp -v -R $(BASEDIR)/static-uph1wit/* $(OUTPUTDIR)/; fi
