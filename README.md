@@ -23,15 +23,12 @@ The order that these files should be loaded into the output directory is:
 2. Pelican-built content
 3. `static-salem`, `static-salvrec`, `static-uph1wit` (implying that none of these files should conflict)
 
-Because the old-salem directory contains many thousands of files, it can be slow to rsync over to the `output` directory. And because it is the first to be loaded and therefore the lowest priority when it comes to duplicate files, we should only need to copy it into `output` once every `clean`. 
+These map over to the following Make targets:
 
-`make html-old` performs steps 1, 2, and 3.
-`make html` performs steps 2 and 3. 
-`make html-static` performs only step 3
-`make devserver` extends `make html`
+`make html` performs steps 1, 2, and 3. 
+`make html-static` performs only step 3, in case the pelican build overwrites something in static-salem.
+`make devserver` extends `make html-old`
 `make publish` and its child targets clean the output directory and then perform steps 1, 2, and 3.
-
-Clear as mud? You're probably safe doing `make html` every time. If none of the styling and images show up, do a `make html-old` once. Everything is terrible, I know.
 
 ## Documentation
 [Documentation for the Salem Witchcraft Papers](docs/SWPdocs.md)
