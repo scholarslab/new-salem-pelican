@@ -25,10 +25,10 @@ The order that these files should be loaded into the output directory is:
 
 These map over to the following Make targets:
 
-`make html` performs steps 1, 2, and 3. 
-`make html-static` performs only step 3, in case the pelican build overwrites something in static-salem.
-`make devserver` extends `make html-old`
-`make publish` and its child targets clean the output directory and then perform steps 1, 2, and 3.
+* `make html` performs steps 1, 2, and 3. 
+* `make html-static` performs only step 3, in case the pelican build overwrites something in static-salem.
+* `make devserver` extends `make html-old`
+* `make publish` and its child targets clean the output directory and then perform steps 1, 2, and 3.
 
 ## Documentation
 [Documentation for the Salem Witchcraft Papers](docs/SWPdocs.md)
