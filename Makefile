@@ -9,6 +9,7 @@ CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
 SSH_HOST=corgi.lib.virginia.edu
+SSH_HOST_NAME=corgi
 SSH_PORT=22
 SSH_TARGET_DIR=/var/www/newsalem.scholarslab.org
 
@@ -97,6 +98,9 @@ publish:
 
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_HOST):$(SSH_TARGET_DIR)
+
+ssh_config_upload: publish
+	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_HOST_NAME):$(SSH_TARGET_DIR)
 
 rsync_upload: publish
 	rsync -e "ssh -p $(SSH_PORT)" -P -rvzc --stats --delete $(OUTPUTDIR)/ $(SSH_HOST):$(SSH_TARGET_DIR) --cvs-exclude
