@@ -41,30 +41,30 @@ Because the SWP markdown files essentially serve as a bridge between the older C
 
 Each document is wrapped within an HTML div tag:
 
-'<div markdown class="doc" id="n6.1">'
+`<div markdown class="doc" id="n6.1">`
 
 This formatting must be exactly reproduced in order for the keyword search to function.
 
 Figures use the markdown syntax to reference image locations, but are wrapped in HTML span tags for styling reasons:
 
-'<span markdown class="figure">[![Figure ecca2107r](archives/ecca/thumb/ecca2107r.jpg)](archives/ecca/large/ecca2107r.jpg)</span>'
+`<span markdown class="figure">[![Figure ecca2107r](archives/ecca/thumb/ecca2107r.jpg)](archives/ecca/large/ecca2107r.jpg)</span>`
 
 There is some latitude to the formating of the definitive, bracketed dates for each document. However, that format must still be machine-readable as a full date. Archaic spelling or formatting, extraneous or missing characters or punctuation, two-digit years, and the such will all confuse the software designed to parse modern date strings.
 
 This is an example of a good date:
 
-'[+ May 3, 1693 ]'
+`[+ May 3, 1693 ]`
 
 These are bad dates:
 
-'[+ January 13, 1693 '
-'[this 28 of June An'o 1692 ]'
-'[MAy 13, 1692]'
-'[May the 23, 1692 ]'
-'[September 9, 92 ]'
-'[10 August 1692. ]'
-'[2. May 2, 1692]'
-'[Passed November 2.]'
+`[+ January 13, 1693 `
+`[this 28 of June An'o 1692 ]`
+`[MAy 13, 1692]`
+`[May the 23, 1692 ]`
+`[September 9, 92 ]`
+`[10 August 1692. ]`
+`[2. May 2, 1692]`
+`[Passed November 2.]`
 
 Bad dates will not show up on the search, but will not otherwise break the site. The search generator produces a list of bracketed entries that look like dates but that it can't understand and also a list of documents that are missing dates entirely, so bad dates should be easy to discover.
 
