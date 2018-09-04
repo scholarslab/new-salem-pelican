@@ -83,7 +83,7 @@ else
 	cd $(OUTPUTDIR) && $(PY) -m pelican.server 80 0.0.0.0
 endif
 
-devserver:
+devserver: html
 ifdef PORT
 	$(BASEDIR)/develop_server.sh restart $(PORT)
 else
