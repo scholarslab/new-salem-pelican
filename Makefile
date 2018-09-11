@@ -104,6 +104,9 @@ ssh_config_upload: publish
 rsync_upload: publish
 	rsync -e "ssh -p $(SSH_PORT)" -P -rvzc --stats --delete $(OUTPUTDIR)/ $(SSH_HOST):$(SSH_TARGET_DIR) --cvs-exclude
 
+rsync_config_upload: publish
+	rsync -e "ssh -p $(SSH_PORT)" -P -rvzc --stats --delete $(OUTPUTDIR)/ $(SSH_HOST_NAME):$(SSH_TARGET_DIR) --cvs-exclude
+
 github: publish
 	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
 	git push origin $(GITHUB_PAGES_BRANCH)
