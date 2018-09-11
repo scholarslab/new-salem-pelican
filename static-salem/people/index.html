@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Search the Salem Witchcraft Papers</title>
-        <link rel="stylesheet" href="/style.css">
+		<link rel="stylesheet" href="/style.css">
     </head>
 <body topmargin="0" leftmargin="0" bgcolor="#FFFFFF" link="#000099" marginheight="0" marginwidth="0" text="#000000" vlink="#006633">
 	<div class="header nosearchhi">
@@ -28,9 +28,23 @@
 			</li>
 		</ul>
 	</div>
+
+<script>
+	function showHide(expander) {
+		content = expander.nextElementSibling;
+		console.log(content)
+		if (content.style.display === "none") {
+			content.style.display = "block";
+		} else {
+			content.style.display = "none";
+		}
+	}
+
+</script>
+
 <div class="people_content">
         <h2>Important Persons in the Salem Court Records</h2>
-<div class="person" data-cats="G01" data-name="Bridget Bishop" data-residence="Salem" id="bisbri">
+<br><br><div class="person" data-cats="G01" data-name="Bridget Bishop" data-residence="Salem" id="bisbri">
 <div>
 <h3>Bridget Bishop</h3>
 <p> Bridget Bishop was the first person to be executed during the 
@@ -42,8 +56,8 @@
   spirit that could not be crushed by the court of Oyer and Terminer. </p>
 </div>
 <div class="section">
-<b>Images</b><span class="expand" id="expand_pics" title="expand">+</span>
-<div id="pics" style="display:none">
+<b>Images</b><span class="expand" onclick="showHide(this)" onclick="showHide(this)" title="expand">+</span>
+<div  style="display:none">
 <table>
 <tr>
 <td style="width:240px;text-align:center;border:1px solid silver;padding:5px;"><a class="personsLightbox" href="../images/people/btrial2.jpg"><img src="../images/people/btrial1.jpg"/></a></td><td style="padding:5px;border:1px solid silver">
@@ -92,8 +106,8 @@
 </div>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)" title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Bridget Bishop
 		</h3>
@@ -188,8 +202,8 @@
 </div>
 </div>
 <div class="section">
-<b>Courtroom Exam</b><span class="expand" id="expand_crt" title="expand">+</span>
-<div id="crt" style="display:none">
+<b>Courtroom Exam</b><span class="expand" onclick="showHide(this)" title="expand">+</span>
+<div style="display:none">
 <h3>Bridget Bishop</h3>
 <p>Written By Sarah Nell Walsh</p>
 <p>Bridget Bishop was a self-assertive woman who had been accused of witchcraft 
@@ -290,7 +304,7 @@ trials. </p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/bisbri.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01 G06" data-name="Rev. George Burroughs" data-residence="Wells,Maine" id="burgeo">
+<div class="link"><br><a href="../tag/bisbri.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01 G06" data-name="Rev. George Burroughs" data-residence="Wells,Maine" id="burgeo">
 <div>
 <h3>George Burroughs</h3>
 <p>George Burroughs was the only Puritan minister indicted and executed 
@@ -309,8 +323,8 @@ trials. </p>
   who urged the sympathetic crowd against him. </p>
 </div>
 <div class="section">
-<b>Images</b><span class="expand" id="expand_pics" title="expand">+</span>
-<div id="pics" style="display:none">
+<b>Images</b><span class="expand" onclick="showHide(this)"   title="expand">+</span>
+<div  style="display:none">
 <table>
 <tr>
 <td style="width:240px;text-align:center;border:1px solid silver;padding:5px;"><a class="personsLightbox" href="../images/people/burroughs2.jpg"><img src="../images/people/burroughs.jpg"/></a></td><td style="padding:5px;border:1px solid silver">
@@ -334,8 +348,8 @@ trials. </p>
 </div>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			George Burroughs
 		</h3>
@@ -444,7 +458,7 @@ trials. </p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/burgeo.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01" data-name="Martha Carrier" data-residence="Andover" id="carmar1">
+<div class="link"><br><a href="../tag/burgeo.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01" data-name="Martha Carrier" data-residence="Andover" id="carmar1">
 <div>
 <h3>Martha Carrier</h3>
 <p> Calling her a "rampant hag" and the "Queen of Hell," the Reverend 
@@ -461,8 +475,8 @@ trials. </p>
   the most plausible explanation. </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Martha Carrier
 		</h3>
@@ -533,7 +547,7 @@ trials. </p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/carmar1.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01" data-name="Giles Cory" data-residence="Salem Farms" id="corgil">
+<div class="link"><br><a href="../tag/carmar1.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01" data-name="Giles Cory" data-residence="Salem Farms" id="corgil">
 <div>
 <h3>Giles Corey</h3>
 <p>Ann Putnam, Jr., Marcy Lewis, Abigail Williams, Mary Walcott 
@@ -551,8 +565,8 @@ trials. </p>
   </p>
 </div>
 <div class="section">
-<b>Images</b><span class="expand" id="expand_pics" title="expand">+</span>
-<div id="pics" style="display:none">
+<b>Images</b><span class="expand" onclick="showHide(this)"   title="expand">+</span>
+<div  style="display:none">
 <table>
 <tr>
 <td style="width:240px;text-align:center;border:1px solid silver;padding:5px;"><a class="personsLightbox" href="../images/people/cw1.jpg"><img src="../images/people/cw2.jpg"/></a></td><td style="padding:5px;border:1px solid silver">
@@ -613,8 +627,8 @@ trials. </p>
 </div>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Giles Corey
 		</h3>
@@ -713,7 +727,7 @@ trials. </p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/corgil.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01" data-name="Martha Cory" data-residence="Salem Village" id="cormar">
+<div class="link"><br><a href="../tag/corgil.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01" data-name="Martha Cory" data-residence="Salem Village" id="cormar">
 <div>
 <h3>Martha Cory</h3>
 <p> The accusation of Martha Corey marked a turning point in the Salem witch trials crisis of 1692 in Massachusetts. 
@@ -729,8 +743,8 @@ trials. </p>
     </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Martha Cory
 		</h3>
@@ -831,7 +845,7 @@ trials. </p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/cormar.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01" data-name="Mary Easty" data-residence="Topsfield" id="easmar">
+<div class="link"><br><a href="../tag/cormar.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01" data-name="Mary Easty" data-residence="Topsfield" id="easmar">
 <div>
 <h3>Mary Easty</h3>
 <p>The story of Mary Easty, the 58-year-old sister of Rebecca Nurse 
@@ -842,8 +856,8 @@ trials. </p>
 </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Mary Easty
 		</h3>
@@ -946,7 +960,7 @@ trials. </p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/easmar.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01" data-name="Sarah Good" data-residence="Salem Village" id="goosar">
+<div class="link"><br><a href="../tag/easmar.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01" data-name="Sarah Good" data-residence="Salem Village" id="goosar">
 <div>
 <h3>Sarah Good</h3>
 <p>
@@ -965,8 +979,8 @@ trials. </p>
   </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Sarah Good
 		</h3>
@@ -1046,7 +1060,7 @@ trials. </p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/goosar.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01" data-name="George Jacobs Sr." data-residence="Salem" id="jacgeo1">
+<div class="link"><br><a href="../tag/goosar.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01" data-name="George Jacobs Sr." data-residence="Salem" id="jacgeo1">
 <div>
 <h3>George Jacobs, Sr.</h3>
 <p>George Jacobs, Sr. was about 72 years old when he was hanged 
@@ -1059,8 +1073,8 @@ trials. </p>
     women. </p>
 </div>
 <div class="section">
-<b>Images</b><span class="expand" id="expand_pics" title="expand">+</span>
-<div id="pics" style="display:none">
+<b>Images</b><span class="expand" onclick="showHide(this)"   title="expand">+</span>
+<div  style="display:none">
 <table>
 <tr>
 <td style="width:240px;text-align:center;border:1px solid silver;padding:5px;"><a class="personsLightbox" href="../images/people/mjacobs2.jpg"><img src="../images/people/mjacobs3.jpg"/></a></td><td style="padding:5px;border:1px solid silver">
@@ -1129,8 +1143,8 @@ trials. </p>
 </div>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			George Jacobs, Sr.
 		</h3>
@@ -1243,7 +1257,7 @@ trials. </p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/jacgeo1.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01" data-name="Susannah Martin" data-residence="Amesbury" id="marsus">
+<div class="link"><br><a href="../tag/jacgeo1.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01" data-name="Susannah Martin" data-residence="Amesbury" id="marsus">
 <div>
 <h3>Susannah Martin</h3>
 <p>The sixty-seven year old widow Susannah Martin of Amesbury was 
@@ -1257,8 +1271,8 @@ trials. </p>
     dispute over her father's will. </p>
 </div>
 <div class="section">
-<b>Images</b><span class="expand" id="expand_pics" title="expand">+</span>
-<div id="pics" style="display:none">
+<b>Images</b><span class="expand" onclick="showHide(this)"   title="expand">+</span>
+<div  style="display:none">
 <table>
 <tr>
 <td style="width:240px;text-align:center;border:1px solid silver;padding:5px;"><a class="personsLightbox" href="../images/people/smartin2whit.jpg"><img src="../images/people/smartin2whit.gif"/></a></td><td style="padding:5px;border:1px solid silver">
@@ -1299,8 +1313,8 @@ trials. </p>
 </div>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Susannah Martin
 		</h3>
@@ -1373,7 +1387,7 @@ trials. </p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/marsus.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01" data-name="Rebecca Nurse" data-residence="Salem Village" id="nurreb">
+<div class="link"><br><a href="../tag/marsus.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01" data-name="Rebecca Nurse" data-residence="Salem Village" id="nurreb">
 <div>
 <h3>Rebecca Nurse</h3>
 <p>Rebecca Nurse was an elderly and respected member of the Salem Village community. 
@@ -1390,8 +1404,8 @@ cemetery on the grounds.
 </p>
 </div>
 <div class="section">
-<b>Images</b><span class="expand" id="expand_pics" title="expand">+</span>
-<div id="pics" style="display:none">
+<b>Images</b><span class="expand" onclick="showHide(this)"   title="expand">+</span>
+<div  style="display:none">
 <table>
 <tr>
 <td style="width:240px;text-align:center;border:1px solid silver;padding:5px;"><a class="personsLightbox" href="../images/people/nursecourt1.jpg"><img src="../images/people/nursecourt1.gif"/></a></td><td style="padding:5px;border:1px solid silver">
@@ -1474,8 +1488,8 @@ cemetery on the grounds.
 </div>
 </div>
 <div class="section">
-<b>Courtroom Exam</b><span class="expand" id="expand_crt" title="expand">+</span>
-<div id="crt" style="display:none">
+<b>Courtroom Exam</b><span class="expand" onclick="showHide(this)" title="expand">+</span>
+<div style="display:none">
 <h3>Rebecca Nurse</h3>
 <p>Written by Matt Madden </p>
 <p>Pre-Trial Examination: March 24, 1692</p>
@@ -1563,7 +1577,7 @@ of practicing witchcraft.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/nurreb.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01" data-name="Mary Parker" data-residence="Andover" id="parmar">
+<div class="link"><br><a href="../tag/nurreb.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01" data-name="Mary Parker" data-residence="Andover" id="parmar">
 <div>
 <h3>Mary Parker</h3>
 <p>Mary Ayer Parker of Andover came to trial in Salem
@@ -1574,8 +1588,8 @@ court of Oyer and Terminer, but she asserted the court had the wrong woman.
 "There is another woman of the same name in Andover," she proclaimed. </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>"The Untold Story of Mary Ayer Parker: Gossip and Confusion in
 			1692"</h3>
 <p>Written by Jacqueline Kelly (copyright, 2005&gt;</p>
@@ -2029,7 +2043,7 @@ court of Oyer and Terminer, but she asserted the court had the wrong woman.
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/parmar.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01" data-name="John Proctor, Sr." data-residence="Salem Farms" id="projoh">
+<div class="link"><br><a href="../tag/parmar.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01" data-name="John Proctor, Sr." data-residence="Salem Farms" id="projoh">
 <div>
 <h3>John Proctor</h3>
 <p>John Proctor was an elderly man of 60 years of age when accused, tried,
@@ -2041,8 +2055,8 @@ accurate depiction, The Crucible does bring attention to the story of
 John Proctor and his struggle as an innocent man.</p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			John Proctor
 		</h3>
@@ -2109,7 +2123,7 @@ John Proctor and his struggle as an innocent man.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/projoh.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01" data-name="Ann Pudeator" data-residence="Salem" id="pudann">
+<div class="link"><br><a href="../tag/projoh.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01" data-name="Ann Pudeator" data-residence="Salem" id="pudann">
 <div>
 <h3>Ann Pudeator</h3>
 <p>Executed on Sept. 22, 1692, the widow Ann Greenslit Pudeator 
@@ -2127,8 +2141,8 @@ John Proctor and his struggle as an innocent man.</p>
     at the hands of false accusations. </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Ann Pudeator
 		</h3>
@@ -2222,7 +2236,7 @@ John Proctor and his struggle as an innocent man.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/pudann.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01" data-name=" Margaret Scott" data-residence="Rowley" id="scomar">
+<div class="link"><br><a href="../tag/pudann.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01" data-name=" Margaret Scott" data-residence="Rowley" id="scomar">
 <div>
 <h3>Margaret Scott</h3>
 <p>The witchcraft accusations and trial of Margaret Scott, executed on
@@ -2232,8 +2246,8 @@ events associated with Margaret Scott's trial can now be examined and
 the mystery surrounding her can be solved. </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>Spectors, Maleficium, and Margaret Scott
 		</h3>
 <p>Written by Mark Rice (Copyright, 2005)</p>
@@ -2616,7 +2630,7 @@ the mystery surrounding her can be solved. </p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/scomar.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01" data-name="Samuel Wardwell" data-residence="Andover" id="warsam">
+<div class="link"><br><a href="../tag/scomar.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01" data-name="Samuel Wardwell" data-residence="Andover" id="warsam">
 <div>
 <h3>Samuel Wardwell</h3>
 <p>Samuel Wardwell was born on May 16, 1643 to a modest Quaker family in Boston. 
@@ -2633,8 +2647,8 @@ He was hanged on September 22, 1692.
 </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Samuel Wardwell
 		</h3>
@@ -2726,7 +2740,7 @@ He was hanged on September 22, 1692.
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/warsam.html">Find in the Court Records</a></div></div><div class="person" data-cats="G01" data-name="John Willard" data-residence="Salem Village" id="wiljoh4">
+<div class="link"><br><a href="../tag/warsam.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G01" data-name="John Willard" data-residence="Salem Village" id="wiljoh4">
 <div>
 <h3>John Willard</h3>
 <p>John Willard was accused of witchcraft at the end of April 1692, after
@@ -2739,8 +2753,8 @@ widespread fear that occurred in Salem during withc trials.  Willard was
 hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			John Willard
 		</h3>
@@ -2815,7 +2829,7 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/wiljoh4.html">Find in the Court Records</a></div></div><div class="person" data-cats="G02" data-name="Sarah Osborne" data-residence="Salem Village" id="osbsar">
+<div class="link"><br><a href="../tag/wiljoh4.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G02" data-name="Sarah Osborne" data-residence="Salem Village" id="osbsar">
 <div>
 <h3>Sarah Osborne</h3>
 <p>In February of 1692, Sarah Osborne became one of the first three 
@@ -2828,8 +2842,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
     of witchcraft by the Putnam family. She died in prison on May 10, 1692. </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Sarah Osborne
 		</h3>
@@ -2897,7 +2911,7 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/osbsar.html">Find in the Court Records</a></div></div><div class="person" data-cats="G03" data-name="Gov. Sir William Phips" data-residence="Boston" id="phiwil">
+<div class="link"><br><a href="../tag/osbsar.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G03" data-name="Gov. Sir William Phips" data-residence="Boston" id="phiwil">
 <div>
 <h3>Sir William Phips</h3>
 <p>Sir William Phips was appointed Governor of Massachusetts 
@@ -2910,8 +2924,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </p>
 </div>
 <div class="section">
-<b>Images</b><span class="expand" id="expand_pics" title="expand">+</span>
-<div id="pics" style="display:none">
+<b>Images</b><span class="expand" onclick="showHide(this)"   title="expand">+</span>
+<div  style="display:none">
 <table>
 <tr>
 <td style="width:240px;text-align:center;border:1px solid silver;padding:5px;"><a class="personsLightbox" href="../images/people/phips2.jpg"><img src="../images/people/phips2.gif"/></a></td><td style="padding:5px;border:1px solid silver">
@@ -2931,8 +2945,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Governor, Sir William Phips
 		</h3>
@@ -3017,7 +3031,7 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/phiwil.html">Find in the Court Records</a></div></div><div class="person" data-cats="G03" data-name="Sir William Phips" data-residence="Boston" id="phiwil">
+<div class="link"><br><a href="../tag/phiwil.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G03" data-name="Sir William Phips" data-residence="Boston" id="phiwil">
 <div>
 <h3>Sir William Phips</h3>
 <p>Sir William Phips was appointed Governor of Massachusetts 
@@ -3030,8 +3044,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </p>
 </div>
 <div class="section">
-<b>Images</b><span class="expand" id="expand_pics" title="expand">+</span>
-<div id="pics" style="display:none">
+<b>Images</b><span class="expand" onclick="showHide(this)"   title="expand">+</span>
+<div  style="display:none">
 <table>
 <tr>
 <td style="width:240px;text-align:center;border:1px solid silver;padding:5px;"><a class="personsLightbox" href="../images/people/phips2.jpg"><img src="../images/people/phips2.gif"/></a></td><td style="padding:5px;border:1px solid silver">
@@ -3051,8 +3065,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Governor, Sir William Phips
 		</h3>
@@ -3137,7 +3151,7 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/phiwil.html">Find in the Court Records</a></div></div><div class="person" data-cats="G03" data-name="Associate Magistrate John Hathorne" data-residence="Salem" id="hawjoh">
+<div class="link"><br><a href="../tag/phiwil.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G03" data-name="Associate Magistrate John Hathorne" data-residence="Salem" id="hawjoh">
 <div>
 <h3>John Hathorne</h3>
 <p>Born into a well-established Salem family on August 5, 1641, 
@@ -3153,8 +3167,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
     Nathaniel Hawthorne. </p>
 </div>
 <div class="section">
-<b>Images</b><span class="expand" id="expand_pics" title="expand">+</span>
-<div id="pics" style="display:none">
+<b>Images</b><span class="expand" onclick="showHide(this)"   title="expand">+</span>
+<div  style="display:none">
 <table>
 <tr>
 <td style="width:240px;text-align:center;border:1px solid silver;padding:5px;"><a class="personsLightbox" href="../images/people/jhathorngrv.jpg"><img src="../images/people/jhathorngrv2.jpg"/></a></td><td style="padding:5px;border:1px solid silver">
@@ -3204,8 +3218,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			John Hathorne
 		</h3>
@@ -3280,14 +3294,14 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/hawjoh.html">Find in the Court Records</a></div></div><div class="person" data-cats="G03" data-name="Associate Magistrate Samuel Sewall" data-residence="Boston" id="sewsam">
+<div class="link"><br><a href="../tag/hawjoh.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G03" data-name="Associate Magistrate Samuel Sewall" data-residence="Boston" id="sewsam">
 <div>
 <h3>Samuel Sewall</h3>
 <p>Born in England in 1652, Samuel Sewall moved to America at the age of nine and obtained two degrees from Harvard before marrying into a wealthy family. As a prominent member of the merchant class, Sewall was selected by Governor Phips to sit as a judge for the witchcraft trials on the Court of Oyer and Terminer. Five years after the trials concluded, Sewall issued a public confession demonstrating personal remorse, taking in his words the "Blame and Shame" for his part in condemning innocent people. He was the only judge to do so.</p>
 </div>
 <div class="section">
-<b>Images</b><span class="expand" id="expand_pics" title="expand">+</span>
-<div id="pics" style="display:none">
+<b>Images</b><span class="expand" onclick="showHide(this)"   title="expand">+</span>
+<div  style="display:none">
 <table>
 <tr>
 <td style="width:240px;text-align:center;border:1px solid silver;padding:5px;"><a class="personsLightbox" href="../images/people/sewallportr.gif"><img src="../images/people/sewallportr.gif"/></a></td><td style="padding:5px;border:1px solid silver">
@@ -3330,8 +3344,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Samuel Sewall
 		</h3>
@@ -3457,7 +3471,7 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/sewsam.html">Find in the Court Records</a></div></div><div class="person" data-cats="G03" data-name="William Stoughton" data-residence="Boston" id="stough">
+<div class="link"><br><a href="../tag/sewsam.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G03" data-name="William Stoughton" data-residence="Boston" id="stough">
 <div>
 <h3>William Stoughton</h3>
 <p>Lieutenant Governor William Stoughton was appointed Chief Justice of the court
@@ -3473,8 +3487,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
         never apologized for his role in the trials.</p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div style="display:none">
 <h3>
 			William Stoughton: Chief Justice of the Court of Oyer and Terminer
 		</h3>
@@ -3989,7 +4003,7 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/stough.html">Find in the Court Records</a></div></div><div class="person" data-cats="G03 G04" data-name="John Hathorne" data-residence="Salem" id="hawjoh">
+<div class="link"><br><a href="../tag/stough.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G03 G04" data-name="John Hathorne" data-residence="Salem" id="hawjoh">
 <div>
 <h3>John Hathorne</h3>
 <p>Born into a well-established Salem family on August 5, 1641, 
@@ -4005,8 +4019,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
     Nathaniel Hawthorne. </p>
 </div>
 <div class="section">
-<b>Images</b><span class="expand" id="expand_pics" title="expand">+</span>
-<div id="pics" style="display:none">
+<b>Images</b><span class="expand" onclick="showHide(this)"   title="expand">+</span>
+<div  style="display:none">
 <table>
 <tr>
 <td style="width:240px;text-align:center;border:1px solid silver;padding:5px;"><a class="personsLightbox" href="../images/people/jhathorngrv.jpg"><img src="../images/people/jhathorngrv2.jpg"/></a></td><td style="padding:5px;border:1px solid silver">
@@ -4056,8 +4070,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			John Hathorne
 		</h3>
@@ -4132,14 +4146,14 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/hawjoh.html">Find in the Court Records</a></div></div><div class="person" data-cats="G03" data-name="Samuel Sewall" data-residence="Boston" id="sewsam">
+<div class="link"><br><a href="../tag/hawjoh.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G03" data-name="Samuel Sewall" data-residence="Boston" id="sewsam">
 <div>
 <h3>Samuel Sewall</h3>
 <p>Born in England in 1652, Samuel Sewall moved to America at the age of nine and obtained two degrees from Harvard before marrying into a wealthy family. As a prominent member of the merchant class, Sewall was selected by Governor Phips to sit as a judge for the witchcraft trials on the Court of Oyer and Terminer. Five years after the trials concluded, Sewall issued a public confession demonstrating personal remorse, taking in his words the "Blame and Shame" for his part in condemning innocent people. He was the only judge to do so.</p>
 </div>
 <div class="section">
-<b>Images</b><span class="expand" id="expand_pics" title="expand">+</span>
-<div id="pics" style="display:none">
+<b>Images</b><span class="expand" onclick="showHide(this)"   title="expand">+</span>
+<div  style="display:none">
 <table>
 <tr>
 <td style="width:240px;text-align:center;border:1px solid silver;padding:5px;"><a class="personsLightbox" href="../images/people/sewallportr.gif"><img src="../images/people/sewallportr.gif"/></a></td><td style="padding:5px;border:1px solid silver">
@@ -4182,8 +4196,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Samuel Sewall
 		</h3>
@@ -4309,7 +4323,7 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/sewsam.html">Find in the Court Records</a></div></div><div class="person" data-cats="G05" data-name="Thomas Brattle" data-residence="Boston" id="bratho2">
+<div class="link"><br><a href="../tag/sewsam.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G05" data-name="Thomas Brattle" data-residence="Boston" id="bratho2">
 <div>
 <h3>Thomas Brattle</h3>
 <p>Thomas Brattle (1658 - 1713) was a well-educated and prosperous 
@@ -4328,8 +4342,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Thomas Brattle
 		</h3>
@@ -4429,7 +4443,7 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/bratho2.html">Find in the Court Records</a></div></div><div class="person" data-cats="G06" data-name="Francis Dane" data-residence="Andover" id="danfra1">
+<div class="link"><br><a href="../tag/bratho2.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G06" data-name="Francis Dane" data-residence="Andover" id="danfra1">
 <div>
 <h3>Francis Dane</h3>
 <p>Francis Dane was born about 1615 in England and died on February 
@@ -4447,8 +4461,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
   the hero of Andover during the Witch Trials of 1692. </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Rev. Francis Dane
 		</h3>
@@ -4540,7 +4554,7 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/danfra1.html">Find in the Court Records</a></div></div><div class="person" data-cats="G06" data-name="Cotton Mather" data-residence="Boston" id="matcot">
+<div class="link"><br><a href="../tag/danfra1.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G06" data-name="Cotton Mather" data-residence="Boston" id="matcot">
 <div>
 <h3>Cotton Mather</h3>
 <p>Cotton Mather, one of the most famous (and infamous) figures 
@@ -4562,8 +4576,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
     1728. </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Cotton Mather 
 		</h3>
@@ -4677,7 +4691,7 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/matcot.html">Find in the Court Records</a></div></div><div class="person" data-cats="G06" data-name="Increase Mather" data-residence="Boston" id="matinc">
+<div class="link"><br><a href="../tag/matcot.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G06" data-name="Increase Mather" data-residence="Boston" id="matinc">
 <div>
 <h3>Increase Mather</h3>
 <p>INCREASE MATHER (1639-1723): Mather, an influential Boston minister 
@@ -4694,8 +4708,8 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
     of his time." </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Increase Mather
 		</h3>
@@ -4816,7 +4830,7 @@ hanged on August 19, 1692, maintaining his innocence until his death.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/matinc.html">Find in the Court Records</a></div></div><div class="person" data-cats="G06 G08" data-name="Samuel Parris" data-residence="Salem Village" id="parsam">
+<div class="link"><br><a href="../tag/matinc.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G06 G08" data-name="Samuel Parris" data-residence="Salem Village" id="parsam">
 <div>
 <h3>Samuel Parris</h3>
 <p>One of the most notorious personalities in Salem, the Rev. Samuel Parris represents
@@ -4830,8 +4844,8 @@ responsibility that Parris, who began preaching about the work of the
 Devil in his parish holds for the events of 1692.</p>
 </div>
 <div class="section">
-<b>Images</b><span class="expand" id="expand_pics" title="expand">+</span>
-<div id="pics" style="display:none">
+<b>Images</b><span class="expand" onclick="showHide(this)"   title="expand">+</span>
+<div  style="display:none">
 <table>
 <tr>
 <td style="width:240px;text-align:center;border:1px solid silver;padding:5px;"><a class="personsLightbox" href="../images/people/parris.jpg"><img src="../images/people/parris.jpg"/></a></td><td style="padding:5px;border:1px solid silver">
@@ -4846,8 +4860,8 @@ Devil in his parish holds for the events of 1692.</p>
 </div>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Rev. Samuel Parris
 		</h3>
@@ -4935,7 +4949,7 @@ Devil in his parish holds for the events of 1692.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/parsam.html">Find in the Court Records</a></div></div><div class="person" data-cats="G06" data-name="Samuel Willard" data-residence="Boston" id="wilsam2">
+<div class="link"><br><a href="../tag/parsam.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G06" data-name="Samuel Willard" data-residence="Boston" id="wilsam2">
 <div>
 <h3>Samuel Willard</h3>
 <p>Samuel Willard played an important role in the halting of the Salem witch trials. 
@@ -4949,8 +4963,8 @@ between the pro-Parris and anti-Parris factions of Salem Village.
 </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Samuel Willard
 		</h3>
@@ -5038,7 +5052,7 @@ between the pro-Parris and anti-Parris factions of Salem Village.
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/wilsam2.html">Find in the Court Records</a></div></div><div class="person" data-cats="G07" data-name="Sarah Churchill" data-residence="Salem Village" id="chusar">
+<div class="link"><br><a href="../tag/wilsam2.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G07" data-name="Sarah Churchill" data-residence="Salem Village" id="chusar">
 <div>
 <h3>Sarah Churchill</h3>
 <p>Sarah Churchill (or Churchwell), a 25 year-old woman originally from Maine, was both an
@@ -5049,8 +5063,8 @@ to witchcraft was a pretense to save herself from the gallows -- a
 strategy that succeeded.</p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Sarah Churchill (or Churchwell)
 		</h3>
@@ -5130,7 +5144,7 @@ strategy that succeeded.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/chusar.html">Find in the Court Records</a></div></div><div class="person" data-cats="G07" data-name="Elizabeth Hubbard" data-residence="Salem Village" id="hubeli">
+<div class="link"><br><a href="../tag/chusar.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G07" data-name="Elizabeth Hubbard" data-residence="Salem Village" id="hubeli">
 <div>
 <h3>Elizabeth Hubbard</h3>
 <p>Elizabeth Hubbard was seventeen in the spring of 1692 when she 
@@ -5143,8 +5157,8 @@ strategy that succeeded.</p>
 </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Elizabeth Hubbard
 		</h3>
@@ -5239,7 +5253,7 @@ strategy that succeeded.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/hubeli.html">Find in the Court Records</a></div></div><div class="person" data-cats="G07" data-name="Mercy Lewis" data-residence="Salem Village" id="lewmer">
+<div class="link"><br><a href="../tag/hubeli.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G07" data-name="Mercy Lewis" data-residence="Salem Village" id="lewmer">
 <div>
 <h3>Mercy Lewis</h3>
 
@@ -5255,8 +5269,8 @@ Salem.
 
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Mercy Lewis
 		</h3>
@@ -5342,7 +5356,7 @@ Salem.
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/lewmer.html">Find in the Court Records</a></div></div><div class="person" data-cats="G07" data-name="Elizabeth Parris" data-residence="Salem Village" id="pareli">
+<div class="link"><br><a href="../tag/lewmer.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G07" data-name="Elizabeth Parris" data-residence="Salem Village" id="pareli">
 <div>
 <h3>Elizabeth Parris</h3>
 <p>At nine years old, Elizabeth Parris, daughter of Salem Village 
@@ -5357,8 +5371,8 @@ Salem.
       and most deadly witch-hunt in American history. </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Elizabeth Parris
 		</h3>
@@ -5439,7 +5453,7 @@ Salem.
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/pareli.html">Find in the Court Records</a></div></div><div class="person" data-cats="G07" data-name="Ann Putnam Jr." data-residence="Salem Village" id="putann2">
+<div class="link"><br><a href="../tag/pareli.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G07" data-name="Ann Putnam Jr." data-residence="Salem Village" id="putann2">
 <div>
 <h3>Ann Putnam, Jr.</h3>
 <p>Ann Putnam, Jr. played a crucial role in the witchcraft trials of 1692. 
@@ -5455,8 +5469,8 @@ influenced by her parents and other adults.  Fourteen years later she
 admitted that she had lied, deluded by the Devil.</p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Ann Putnam, Jr.
 		</h3>
@@ -5521,7 +5535,7 @@ admitted that she had lied, deluded by the Devil.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/putann2.html">Find in the Court Records</a></div></div><div class="person" data-cats="G07" data-name="Mary Warren" data-residence="Salem Village" id="warmar">
+<div class="link"><br><a href="../tag/putann2.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G07" data-name="Mary Warren" data-residence="Salem Village" id="warmar">
 <div>
 <h3>Mary Warren</h3>
 <p>Born twenty years before the Salem Witch Trials began, Mary 
@@ -5537,8 +5551,8 @@ admitted that she had lied, deluded by the Devil.</p>
     the Procters. She was released from jail in June, 1692.</p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Mary Warren
 		</h3>
@@ -5629,7 +5643,7 @@ admitted that she had lied, deluded by the Devil.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/warmar.html">Find in the Court Records</a></div></div><div class="person" data-cats="G07" data-name="Mary Walcott" data-residence="Salem Village" id="walmar">
+<div class="link"><br><a href="../tag/warmar.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G07" data-name="Mary Walcott" data-residence="Salem Village" id="walmar">
 <div>
 <h3>Mary Walcott</h3>
 <p>Mary Walcott, the daughter of Jonathan Walcott, commander of the Village militia 
@@ -5641,8 +5655,8 @@ spectral torturers.
 </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Mary Walcott
 		</h3>
@@ -5698,7 +5712,7 @@ spectral torturers.
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/walmar.html">Find in the Court Records</a></div></div><div class="person" data-cats="G07" data-name="Abigail Williams" data-residence="Salem Village" id="wilabi">
+<div class="link"><br><a href="../tag/walmar.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G07" data-name="Abigail Williams" data-residence="Salem Village" id="wilabi">
 <div>
 <h3>Abigail Williams</h3>
 <p>Abigail Williams was one of the main accusers in the Salem Witch trials.
@@ -5709,8 +5723,8 @@ formal testimony at 7 cases, and she was involved in as many as 17
 capital cases.</p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Abigail Williams
 		</h3>
@@ -5791,7 +5805,7 @@ capital cases.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/wilabi.html">Find in the Court Records</a></div></div><div class="person" data-cats="G08" data-name="Tituba" data-residence="Salem Village" id="tituba">
+<div class="link"><br><a href="../tag/wilabi.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G08" data-name="Tituba" data-residence="Salem Village" id="tituba">
 <div>
 <h3>Tituba</h3>
 <p>Tituba Indian holds one of the most infamous (yet still debated) places in the 
@@ -5809,8 +5823,8 @@ Village. Nothing is known about her life beyond Salem Village.
 </p>
 </div>
 <div class="section">
-<b>Images</b><span class="expand" id="expand_pics" title="expand">+</span>
-<div id="pics" style="display:none">
+<b>Images</b><span class="expand" onclick="showHide(this)"   title="expand">+</span>
+<div  style="display:none">
 <table>
 <tr>
 <td style="width:240px;text-align:center;border:1px solid silver;padding:5px;"><a class="personsLightbox" href="../images/people/tituba.jpg"><img src="../images/people/tituba.gif"/></a></td><td style="padding:5px;border:1px solid silver">
@@ -5909,8 +5923,8 @@ Village. Nothing is known about her life beyond Salem Village.
 </div>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Tituba
 		</h3>
@@ -5997,7 +6011,7 @@ Village. Nothing is known about her life beyond Salem Village.
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/tituba.html">Find in the Court Records</a></div></div><div class="person" data-cats="G09" data-name="Ann Dolliver" data-residence id="dolann">
+<div class="link"><br><a href="../tag/tituba.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G09" data-name="Ann Dolliver" data-residence id="dolann">
 <div>
 <h3>Ann Dolliver</h3>
 <p>The deserted wife of William Dolliver of Gloucester and the 
@@ -6010,8 +6024,8 @@ Village. Nothing is known about her life beyond Salem Village.
 </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Ann Dolliver
 		</h3>
@@ -6097,7 +6111,7 @@ Village. Nothing is known about her life beyond Salem Village.
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/dolann.html">Find in the Court Records</a></div></div><div class="person" data-cats="G09" data-name="Philip English" data-residence id="engphi">
+<div class="link"><br><a href="../tag/dolann.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G09" data-name="Philip English" data-residence id="engphi">
 <div>
 <h3>Philip English</h3>
 <p>Philip English, the most successful merchant in Salem Town, 
@@ -6112,8 +6126,8 @@ Village. Nothing is known about her life beyond Salem Village.
   </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Philip English
 		</h3>
@@ -6221,7 +6235,7 @@ Village. Nothing is known about her life beyond Salem Village.
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/engphi.html">Find in the Court Records</a></div></div><div class="person" data-cats="G09" data-name="Mary Ireson" data-residence id="iremar">
+<div class="link"><br><a href="../tag/engphi.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G09" data-name="Mary Ireson" data-residence id="iremar">
 <div>
 <h3>Mary Ireson</h3>
 <p>Mary Ireson is one of the minor characters of the Salem witch trials. 
@@ -6232,8 +6246,8 @@ sway a jury, and how petrified the accused "witches" must have been
 during their trials.</p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Mary Ireson
 		</h3>
@@ -6318,7 +6332,7 @@ during their trials.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/iremar.html">Find in the Court Records</a></div></div><div class="person" data-cats="G09" data-name="Margaret Jacobs" data-residence id="jacmar">
+<div class="link"><br><a href="../tag/iremar.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G09" data-name="Margaret Jacobs" data-residence id="jacmar">
 <div>
 <h3>Margaret Jacobs</h3>
 <p>Although she was only seventeen at the time of the Salem Witch Trials, Margaret 
@@ -6335,8 +6349,8 @@ accusations and confession of witchcraft.
 </p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Margaret Jacobs
 		</h3>
@@ -6395,7 +6409,7 @@ accusations and confession of witchcraft.
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/jacmar.html">Find in the Court Records</a></div></div><div class="person" data-cats="G09 G11" data-name="Children" data-residence id="childrn">
+<div class="link"><br><a href="../tag/jacmar.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G09 G11" data-name="Children" data-residence id="childrn">
 <div>
 <h3>Children</h3>
 <p>The witchcraft crisis in Essex County, Massachusetts in 1692 has long
@@ -6411,8 +6425,8 @@ witches will provide a vantage point from which to examine the dynamics
 of family and community that shaped the witchcraft crisis.</p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Children
 		</h3>
@@ -6804,7 +6818,7 @@ of family and community that shaped the witchcraft crisis.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/childrn.html">Find in the Court Records</a></div></div><div class="person" data-cats="G09 G11" data-name="Gloucester Women" data-residence="Gloucester" id="gloswom">
+<div class="link"><br><a href="../tag/childrn.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G09 G11" data-name="Gloucester Women" data-residence="Gloucester" id="gloswom">
 <div>
 <h3>Gloucester Women</h3>
 <p>Most scholarship on the Salem Witchcraft crisis has focused on Salem
@@ -6816,8 +6830,8 @@ experienced witchcraft allegations, some of which produced trials and
 even executions.  One of these towns was Gloucester.</p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>"The Geography and Genealogy of Gloucester Witchcraft"</h3>
 <p>Written by Jedediah Drolet (copyright, 2005)</p>
 <p>History 209, An Undergraduate Course, Cornell Univeristy</p>
@@ -7186,7 +7200,7 @@ even executions.  One of these towns was Gloucester.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/gloswom.html">Find in the Court Records</a></div></div><div class="person" data-cats="G09" data-name="John Alden" data-residence id="aldjoh">
+<div class="link"><br><a href="../tag/gloswom.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G09" data-name="John Alden" data-residence id="aldjoh">
 <div>
 <h3>John Alden</h3>
 <p>A member of the Boston elite, Captain John Alden was accused on May
@@ -7198,8 +7212,8 @@ involvement with the Indian Wars which orphaned several of the accusers
 likely contributed to the accusations against him.</p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			John Alden
 		</h3>
@@ -7257,14 +7271,14 @@ likely contributed to the accusations against him.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/aldjoh.html">Find in the Court Records</a></div></div><div class="person" data-cats="G08" data-name="Thomas Putnam" data-residence id="puttho">
+<div class="link"><br><a href="../tag/aldjoh.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats="G08" data-name="Thomas Putnam" data-residence id="puttho">
 <div>
 <h3>Thomas Putnam</h3>
 <p>Although Thomas Putnam's role in initiating legal proceedings has been generally recognized as important to the escalation of the witchcraft crisis in Salem in 1692, the immense influence Putnam had on the shape of the trials has not been widely recognized.  Putnam was the father of Ann Putnam Jr., the most prolific accuser in the entire proceedings. Putnam’s importance is generally seen in the fact that he, along with other adults, gave his daughter’s accusations legal weight in first seeking warrants against the accused witches in February, 1692.    Through his work in writing down the depositions of many of the "afflicted" girls in Salem village and his letters of encouragement to the judges, Putnam was one of the major advocates of the trials and sought to exert influence on the proceedings as one of the most prosperous residents and influential church members in Salem Village.</p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Thomas Putnam
 		</h3>
@@ -7372,14 +7386,14 @@ likely contributed to the accusations against him.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/puttho.html">Find in the Court Records</a></div></div><div class="person" data-cats data-name="William Griggs" data-residence id="griwil">
+<div class="link"><br><a href="../tag/puttho.html">Find in the Court Records</a></div></div><br><hr><br><div class="person" data-cats data-name="William Griggs" data-residence id="griwil">
 <div>
 <h3>Dr. William Griggs</h3>
 <p>Dr. William Griggs of Salem Village, though not referred to by name in the court documents, is generally accepted by historians as the doctor who made the diagnosis that the afflictions of the girls in Salem village were caused by “an evil hand,” not by natural causes.  His diagnosis triggered a sequence of events that began with the making of a witch cake and led to hundreds of accusations of witchcraft.</p>
 </div>
 <div class="section">
-<b>Full Essay</b><span class="expand" id="expand_bio" title="expand">+</span>
-<div id="bio" style="display:none">
+<b>Full Essay</b><span class="expand" onclick="showHide(this)"  title="expand">+</span>
+<div  style="display:none">
 <h3>
 			Dr. William Griggs
 		</h3>
@@ -7529,7 +7543,7 @@ likely contributed to the accusations against him.</p>
 </div>
 </div>
 </div>
-<div class="link"><a href="../tag/griwil.html">Find in the Court Records</a></div></div>
+<div class="link"><br><a href="../tag/griwil.html">Find in the Court Records</a></div></div>
 </div>
 </body>
 </html>
