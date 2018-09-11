@@ -5,14 +5,14 @@
 New-Salem-Pelican presents the Salem Witchcraft Papers through the Pelican Static Site generator. The SWP documents are encoded in the simple Markdown format. Pelican then builds these documents into interlinked static HTML files. By default, Pelican keeps all content files in the [content directory](https://github.com/scholarslab/new-salem-pelican/tree/master/content). The New Salem content directory contains three discrete sets of markdown files:
 
 * [swp (Salem Witchcraft Papers)](https://github.com/scholarslab/new-salem-pelican/tree/master/content/swp)
-* [SalVRec (Salem Village Records)](https://github.com/scholarslab/new-salem-pelican/tree/master/content/SalVRec)
+* [salvrec (Salem Village Records)](https://github.com/scholarslab/new-salem-pelican/tree/master/content/salvrec)
 * [upham (Upham's Salem Watchcraft)](https://github.com/scholarslab/new-salem-pelican/tree/master/content/upham)
 
 It also contains one directory of non-markdown files:
 
 * [search (SWP search index and corpus)](https://github.com/scholarslab/new-salem-pelican/tree/master/content/search)
 
-Of these, the site is normally configured to only build content from swp and search. Since the other markdown sets (SalVRec and upham) are not in regular development and isolated from the rest of the site's content, we keep their markdown sources here for archival purposes and simply load in pre-built static html content to make builds faster and simpler.
+Of these, the site is normally configured to only build content from swp and search. Since the other markdown sets (salvrec and upham) are not in regular development and isolated from the rest of the site's content, we keep their markdown sources here for archival purposes and simply load in pre-built static html content to make builds faster and simpler.
 
 The [swp directory](https://github.com/scholarslab/new-salem-pelican/tree/master/content/swp) contains 140 markdown files. Each file contains all the documents in a specific SWP case. [Here is an example](https://raw.githubusercontent.com/scholarslab/new-salem-pelican/master/content/swp/n6.md).
 
