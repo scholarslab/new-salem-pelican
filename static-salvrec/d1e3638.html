@@ -26,6 +26,19 @@
                 return $(this).attr('id') !== hash;
             }).hide();
         }
+
+        var query = window.location.search.substring(1);
+        if (query) {
+            var vars = query.split("&");
+            for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+                if(pair[0] == 'tag'){
+                    console.log( pair[1] );
+                    $('.doc a[href*="'+pair[1]+'"]').css('background-color','yellow');
+                }
+            }
+            return(false);
+        }
     });
     </script>
 </head>
@@ -57,7 +70,7 @@
     <div class="content">
         <h1>[37] Thee eighteenth: Day of Feberary: 1686/7</h1>
             <small>
-<div class="post-info">
+ <div class="post-info">
     <div class="case-link-block" style="display: none;">
         <a class="case-link" href="/d1e3638.html">View Entire Case File</a>
     </div>
@@ -71,7 +84,7 @@
             </span>
         </small>
     </div>
-</div><!-- /.post-info -->            </small>
+</div><!-- /.post-info -->             </small>
         </h1>
     <div class="doc" id="d1e3638">
 <h1>[37] Thee eighteenth: Day of Feberary: 1686/7</h1>
@@ -90,7 +103,7 @@
 </div>
 </div>
 <div class="toc nosearchhi">
-    <h2><a href="/category/SalVRec.html">Salem Village Records</a></h2>
+    <h2><a href="/category/salvrec.html">Salem Village Records</a></h2>
     <ul>
                     <dl>
                     <dt><em>1672, March</em></dt>
@@ -569,10 +582,10 @@
                         <a href="/d1e5748.html" title="Permalink to At a Generall meeting of the Inhabetants of Salem village the 8th of January 1691-92">At a Generall meeting of the Inhabetants of Salem village the 8th of January 1691-92</a>
                     </li>
                     <li>
-                        <a href="/n131.html" title="Permalink to SWP No. 131: Martha Tyler">SWP No. 131: Martha Tyler</a>
+                        <a href="/d1e5739.html" title="Permalink to "></a>
                     </li>
                     <li>
-                        <a href="/d1e5739.html" title="Permalink to "></a>
+                        <a href="/n131.html" title="Permalink to SWP No. 131: Martha Tyler">SWP No. 131: Martha Tyler</a>
                     </li>
                     <li>
                         <a href="/d1e5760.html" title="Permalink to Salem Vilage the 23 January 1691-92.">Salem Vilage the 23 January 1691-92.</a>
@@ -1691,10 +1704,10 @@
                     <dl>
                     <dt><em>1708, March</em></dt>
                     <li>
-                        <a href="/d1e27109.html" title="Permalink to Datt ye 16th of march 1707-8">Datt ye 16th of march 1707-8</a>
+                        <a href="/d1e27099.html" title="Permalink to "></a>
                     </li>
                     <li>
-                        <a href="/d1e27099.html" title="Permalink to "></a>
+                        <a href="/d1e27109.html" title="Permalink to Datt ye 16th of march 1707-8">Datt ye 16th of march 1707-8</a>
                     </li>
                     </dl>
                     <dl>
