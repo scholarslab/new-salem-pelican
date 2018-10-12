@@ -33,10 +33,22 @@ for path in pathlist:
                     #Ignore single lines (incl. the first split single div line)
                     continue
                 doc_id = doc[:doc.find('">\n')].strip()
+                
+                try:
+                    doc_title = metadata["title"]
+                    doc_title = re.search(r'\n# (.*)', doc).group(1)
+                    # strip out links
+                    doc_title = re.sub(
+                        r'\]\([^)]*\)', '', doc_title).replace('[', '').split(": ")[-1]                    
+                except:
+                    print("Failed to get document title for document ",doc_id, ". Using doc id as title.")
+                    doc_title = doc_id
+
                 doc = doc.replace("](/tag/", "] _").replace(".html)", " ")
                 doc_html = markdown.markdown(doc[doc.find("\n\n")+2:])
                 doc_text = ''.join(BeautifulSoup(doc_html, "lxml").findAll(
                     text=True)).replace("\n", "").replace("\t", "")
+                
                 # regex full date match
                 date_match = re.search(
                     r'\n\n\[[\+\? ]*\=*\s*\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|July|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\b\s*[\d]{1,2}\s*[\,\.]?\s*\d{4}\.?\s*\]\n\n', doc)
@@ -52,7 +64,7 @@ for path in pathlist:
                     month = parse(date, default=datetime.datetime(1691, 1, 1)).strftime("%m")
                     day = parse(date, default=datetime.datetime(1691, 1, 1)).strftime("%d")
                     corpus.append(
-                        {"id": doc_id, "slug": metadata["slug"], "title": metadata["title"], "content": doc_text, "date": datestr, "year": year, "month": month, "day": day})
+                        {"id": doc_id, "case_id": metadata["slug"], "case_title": metadata["title"], "slug": metadata["slug"], "title": doc_title, "content": doc_text, "date": datestr, "year": year, "month": month, "day": day})
                 elif month_match:
                     date = re.search(
                         r'[a-zA-Z0-9 ,]{9,}', month_match.group()).group().strip()
@@ -61,10 +73,10 @@ for path in pathlist:
                     year = parse(date, default=datetime.datetime(1691, 1, 1)).strftime("%Y")
                     month = parse(date, default=datetime.datetime(1691, 1, 1)).strftime("%m")
                     corpus.append(
-                        {"id": doc_id, "slug": metadata["slug"], "title": metadata["title"], "content": doc_text, "date": datestr, "year": year, "month": month})
+                        {"id": doc_id, "case_id": metadata["slug"], "case_title": metadata["title"], "slug": metadata["slug"], "title": doc_title, "content": doc_text, "date": datestr, "year": year, "month": month})
                 else:
                     corpus.append(
-                        {"id": doc_id, "slug": metadata["slug"], "title": metadata["title"], "content": doc_text })
+                        {"id": doc_id, "case_id": metadata["slug"], "case_title": metadata["title"], "slug": metadata["slug"], "title": doc_title, "content": doc_text})
                     wrong_date = re.search(r'\n\[[A-Za-z?+ .,0-9\'\(\)]*\]\n', doc)
                     if wrong_date:
                         wrong_dates[doc_id] = wrong_date.group().strip()
