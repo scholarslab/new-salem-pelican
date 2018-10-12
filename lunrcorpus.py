@@ -33,7 +33,7 @@ for path in pathlist:
                     #Ignore single lines (incl. the first split single div line)
                     continue
                 doc_id = doc[:doc.find('">\n')].strip()
-                doc = doc.replace("](/tag/", "] .").replace(".html)", ". ")
+                doc = doc.replace("](/tag/", "] _").replace(".html)", " ")
                 doc_html = markdown.markdown(doc[doc.find("\n\n")+2:])
                 doc_text = ''.join(BeautifulSoup(doc_html, "lxml").findAll(
                     text=True)).replace("\n", "").replace("\t", "")
