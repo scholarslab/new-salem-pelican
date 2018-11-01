@@ -120,7 +120,9 @@
             });
         })
     ).done(function() {
-        displaySearchResults(search);
+        if (search) {
+            displaySearchResults(search);
+        }
     });
 
     function buildLunrQueryString(query) {
