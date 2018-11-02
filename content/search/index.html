@@ -80,6 +80,7 @@
         </form>
         <div id="search">
             <div class="docs" id="search-list"></div>
+            <div class="facets"><div class="facet"><ul id="case-list"></ul></div>
         </div>
     </div>
 </div>
@@ -89,7 +90,7 @@
     idxFile = '/search/idx.json';
     corpusFile = '/search/corpus.json';
     search = window.location.search.substring(1);
-
+    
     if (search) {
         var searchVars = search.split('&');
         for (var i=0;i<searchVars.length;i++) {
@@ -125,26 +126,40 @@
         }
     });
 
+    function returnQueryArray(query_string) {
+        var query_array = new Array();
+        var searchVars = query_string.split('&');
+        if (searchVars) {
+            for (var i=0; i<searchVars.length;i++) {
+                var pair = searchVars[i].split("=");
+                query_array[pair[0]] = pair[1];
+            }
+        }
+        return query_array;
+    }
+
+    console.log(returnQueryArray(search));
+
     function buildLunrQueryString(query) {
         var queryArray = new Array(),
             queryString = '',
-            vars = query.split("&");
+            vars = returnQueryArray(query);
         if (vars) {
-            for (var i=0;i<vars.length;i++) {
-                var pair = vars[i].split("=");
-                if (pair[1] != '') {
-                    if (pair[0] == 'terms') {
-                        termsArray = pair[1].split(' ');
+            for (var key in vars) {
+                value = vars[key];
+                console.log(value);
+                if (value != '') {
+                    if (key == 'terms') {
+                        termsArray = value.split(' ');
                         queryVariable = '+'+termsArray.join(' +');
                     } else {
-                        queryVariable = "+"+pair[0]+":"+pair[1];
+                        queryVariable = "+"+key+":"+value;
                     }
                     queryArray.push(queryVariable);
                 }
             }
             queryString = queryArray.join(" ");
         }
-        console.log(queryString);
         return queryString;
     }
 
@@ -155,10 +170,17 @@
     }
 
     function displaySearchResults(query) {
-        results = getSearchResults(query);
-        var search_results = $("#search-list");
+        var results = getSearchResults(query),
+            search_list = $("#search-list"),
+            case_list = $("#case-list"),
+            results_cases = [],
+            lookup = {};
+
+        var noCaseIds = [];
+
         if (results.length) {
-            search_results.empty(); // Clear any old results
+            search_list.empty(); // Clear any old results
+            case_list.empty();
             results.forEach(function(result) {
                 var item = window.documents.filter(doc => doc.id === result.ref);
                 var li = buildSearchResult(item[0]) // Build a snippet of HTML for this result
@@ -169,7 +191,33 @@
                             wrapTerms(field, positions);
                     });
                 });
-                search_results.append(li);
+
+                var case_id = item[0].case_id;
+                
+                if (case_id !== null) {
+                    var case_title = item[0].case_title;
+                        
+                    if (!(case_id in lookup)) {
+                        lookup[case_id] = 1;
+                        documentCase = new Object();
+                        documentCase.case_id = case_id;
+                        documentCase.case_title = case_title;
+                        documentCase.document_count = 1;
+                        results_cases.push(documentCase);
+                    } else {
+                        case_result = results_cases.find( casefile => casefile.case_id === case_id)
+                        case_result.document_count += 1;
+                    }
+                }
+                search_list.append(li);
+            });
+
+            results_cases.sort(function (a, b) {
+                return b.document_count - a.document_count;
+            });
+            results_cases.forEach(function(casefile) {
+                var li = buildCaseResult(casefile);
+                case_list.append(li);
             });
         } else {
             // If there are no results, let the user know.
@@ -211,6 +259,37 @@
         section.appendChild(p1);
 
         return div;
+    }
+
+    function buildCaseResult(casefile) {
+        var case_item = document.createElement('li'),
+            case_link = document.createElement('a'),
+            case_text = document.createElement('div'),
+            case_num = document.createElement('div'),
+            queryString = '',
+            queryArray = new Array(),
+            vars = returnQueryArray(search);
+        
+        vars['case_id'] = casefile.case_id;
+
+        for (var key in vars) {
+            var value = vars[key];
+            string = key+'='+value;
+            queryArray.push(string);
+        }
+
+        queryString = queryArray.join("&");
+        $(case_text).addClass('facet_text');
+        $(case_num).addClass('facet_num');
+        case_link.href += '/search/?'+queryString;
+        console.log(case_link.href);
+        case_link.textContent = ''+casefile.case_title;
+        case_text.appendChild(case_link);
+        case_item.appendChild(case_text);
+        case_num.textContent = ''+casefile.document_count;
+        case_item.appendChild(case_num);
+
+        return case_item;
     }
 
     // Wraps matching search terms with mark element.
