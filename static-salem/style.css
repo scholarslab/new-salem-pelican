@@ -691,3 +691,22 @@ footer, #footer {
     margin-bottom: 2em;
 }
 
+#search-list > div + div{
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-top:10px;
+}
+
+#search-list header h2 {
+    font-size: 18px;
+    text-align:left;
+    margin:0;
+}
+
+#search-list header p,
+#search-list header em {
+    margin:0;
+    font-size:14px;
+    color: #777;
+}
+
