@@ -7,7 +7,7 @@ from dateutil.parser import parse
 import datetime
 import os
 
-pathlist = Path("content/").glob('**/*.md')
+pathlist = Path("content/swp").glob('*.md')
 corpus = []
 wrong_dates = {}
 no_dates = []
