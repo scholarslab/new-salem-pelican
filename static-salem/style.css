@@ -710,3 +710,15 @@ footer, #footer {
     color: #777;
 }
 
+.post-info {
+    text-align:center;
+    margin: 20px 0;
+    border-top:1px silver dotted;
+    padding: 20px 0 0;
+}
+
+.doc h1 {
+    font-size: 150%;
+    text-align:left;
+}
+

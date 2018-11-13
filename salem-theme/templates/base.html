@@ -60,6 +60,9 @@
             $('.doc').filter(function() {
                 return $(this).attr('id') !== hash;
             }).hide();
+            $('.doc h1').css('font-size', '200%');
+            $('.content > h1').css('font-size', '125%');
+
         }
 
         var query = window.location.search.substring(1);
