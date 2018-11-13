@@ -2,6 +2,11 @@
 {% block title %}Case files referencing {{ TAG_NAMES[tag] }} - {{ SITENAME }}{% endblock %}
 {% block meta %}
     <meta name="keywords" content="{{ tag }}" />
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
 {% endblock %}
 
 {% block collapse_tags %}in{% endblock %}
@@ -18,17 +23,25 @@
          {% endif %}
 {% endblock %}
 
-{% block content %} {% if articles %}
-<div class="docs">
-    {% for article in (articles_page.object_list|sort(attribute='date', reverse = False) if articles_page else articles|sort(attribute='date',
-    reverse = True)) %}
-    <div class="doc">
-        <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
-        <a href="{{ SITEURL }}/{{ article.url }}?tag={{tag}}">{{ article.title }}</a>
-    </div>
-    {% endfor %} {% endif %} {% endblock %}
+{% block content %}
+        <div id="search">
+            <div class="docs" id="search-list"></div>
+            <div class="facets"><div class="facet"><ul id="case-list"></ul></div>
+        </div>
+{% endblock %}
 
 {% block postcontent %}
     </div>
 </div>
+
+<script src="https://unpkg.com/lunr/lunr.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+    var filename = window.location.pathname.split('/').pop();
+    var tagname = filename.split('.');
+    tagname = tagname[0];
+    var search = 'terms=_'+tagname;
+</script>
+<script src="/search/search.js" type="text/javascript"></script>
+
 {% endblock %}

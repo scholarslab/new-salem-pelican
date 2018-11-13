@@ -1,6 +1,5 @@
     idxFile = '/search/idx.json';
     corpusFile = '/search/corpus.json';
-    search = window.location.search.substring(1);
     
     if (search) {
         var searchVars = search.split('&');
