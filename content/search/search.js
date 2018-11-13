@@ -144,19 +144,13 @@
             em = document.createElement('em'),
             h2 = document.createElement('h2'),
             courtcase = document.createElement('p'),
-            a = document.createElement('a'),
-            p1 = document.createElement('p')
+            a = document.createElement('a');
         
         em.textContent = doc.date;
         a.dataset.field = 'name';
         a.href += '/' + doc.slug + '.html#'+doc.id;
         a.textContent = doc.title.toUpperCase();
         courtcase.textContent = 'Case: ' + doc.case_title;
-        p1.dataset.field = 'content';
-        p1.textContent = doc.content;
-        p1.style.textOverflow = 'ellipsis';
-        p1.style.overflow = 'hidden';
-        p1.style.whiteSpace = 'nowrap';
 
         div.class = 'doc';
         div.appendChild(article);
@@ -166,7 +160,6 @@
         header.appendChild(h2);
         header.appendChild(courtcase);
         h2.appendChild(a);
-        section.appendChild(p1);
 
         return div;
     }
