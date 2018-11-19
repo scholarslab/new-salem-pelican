@@ -485,6 +485,10 @@ ul li {
 	margin-top:40px;
 	margin-bottom:40px;
 }
+.bios_link {
+	font-weight:bold;
+	text-align:center;
+}
 .section {
 	margin-top:20px;
 }
