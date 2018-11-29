@@ -84,23 +84,23 @@
             search_list = $("#search-list"),
             case_list = $("#case-list"),
             results_cases = [],
+            results_docs = [],
+            results_docs_undated = [],
             lookup = {};
 
         var noCaseIds = [];
 
         if (results.length) {
             search_list.empty(); // Clear any old results
-            case_list.empty();
+            case_list.empty();            
             results.forEach(function(result) {
                 var item = window.documents.filter(doc => doc.id === result.ref);
-                var li = buildSearchResult(item[0]) // Build a snippet of HTML for this result
-                Object.keys(result.matchData.metadata).forEach(function(term) {
-                    Object.keys(result.matchData.metadata[term]).forEach(function(fieldName) {
-                        var field = li.querySelector('[data-field=' + fieldName + ']'),
-                            positions = result.matchData.metadata[term][fieldName].position
-                            wrapTerms(field, positions);
-                    });
-                });
+                if (item[0].date == undefined){
+                    results_docs_undated.push(item)
+                }
+                else{
+                    results_docs.push(item)
+                }
 
                 var case_id = item[0].case_id;
                 
@@ -119,6 +119,27 @@
                         case_result.document_count += 1;
                     }
                 }
+            });
+
+            results_docs.sort(function(a,b){
+                if (a[0].date == b[0].date){
+                    return 0
+                }
+                else if (a[0].date > b[0].date) {
+                    return 1
+                }
+                else{
+                    return -1
+                }
+            });
+
+
+            results_docs.forEach(function(doc){
+                var li = buildSearchResult(doc[0]) // Build a snippet of HTML for this result
+                search_list.append(li);
+            });
+            results_docs_undated.forEach(function (doc) {
+                var li = buildSearchResult(doc[0]) // Build a snippet of HTML for this result
                 search_list.append(li);
             });
 
