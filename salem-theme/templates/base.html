@@ -52,18 +52,17 @@
     </script>
     <script>
     $(document).ready(function () {
-        var hash = window.location.hash.substring(1);
-        if (hash) {
-            console.log(hash);
-            $('.publish-info-block').hide();
-            $('.case-link-block').show();
-            $('.doc').filter(function() {
-                return $(this).attr('id') !== hash;
-            }).hide();
-            $('.content > h1').css('font-size', '125%');
-
-        }
-
+        {% if article and article.category == 'swp' %}
+            var hash = window.location.hash.substring(1);
+            if (hash) {
+                $('.publish-info-block').hide();
+                $('.case-link-block').show();
+                $('.doc').filter(function() {
+                    return $(this).attr('id') !== hash;
+                }).hide();
+                $('.content > h1').css('font-size', '125%');
+            }
+        {% endif %}
         var query = window.location.search.substring(1);
         if (query) {
             var vars = query.split("&");
