@@ -251,6 +251,9 @@ ul li {
 	text-align:center;
 	font-size:14px;
 }
+.figure img {
+    width:100px;
+}
 .figure p {
     margin:0;
 }
