@@ -38,7 +38,7 @@ p {
 }
 h1, h2, h3, h4, h5, h6, p, pre,
 blockquote, label, dl, fieldset, address {
-	margin: .25em 0;
+	margin: 1.25em 0;
 }
 b, strong,h1,h2,h3,h4,h5,h6 {
 	font-weight:bold;
@@ -47,6 +47,13 @@ b, strong,h1,h2,h3,h4,h5,h6 {
 ul li {
 	list-style-type:none;
 }
+
+.content ul li{
+	list-style-type: circle;
+	line-height: 2.0em;
+    margin: 0.5em 1.0em 0.5em 3.5em;
+}
+
 .maptable a:visited{
 	color:white;
 }
