@@ -11,7 +11,7 @@ PUBLISHCONF=$(BASEDIR)/publishconf.py
 SSH_HOST=corgi.lib.virginia.edu
 SSH_HOST_NAME=corgi
 SSH_PORT=22
-SSH_TARGET_DIR=/var/www/newsalem.scholarslab.org
+SSH_TARGET_DIR=/websites/salem.lib.virginia.edu
 
 GITHUB_PAGES_BRANCH=gh-pages
 
