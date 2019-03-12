@@ -39,7 +39,7 @@ This document is a quick reference glossary of the markdown syntax and HTML tags
 	date: 1692-05-31
 	slug: n6
 	category: swp
-	tags: aldjoh, wilabi, warmar, hilzeb, noynic, carmar1, ricsar, ricnic, chesam1, hawjoh, walmar, ricjoh, corjoh, wilnat, booeli, putann2, arnjoh, stough, lewmer, gidbar
+	tags: walcott_mary, noyes_nicholas, booth_elizabeth, putnam_ann_jr, lewis_mercy, hill_zebulon, stoughton_william,  	williams_nathaniel, rice_nicholas, checkley_samuel, carrier_martha, williams_abigail, richards_john, gidney_bartholomew, warren_mary, arnold_john, rice_sarah, corwil_jonathan, hathorn_john, alden_john
 	```
 
 * **Heading**
