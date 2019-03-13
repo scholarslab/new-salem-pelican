@@ -2,6 +2,26 @@
 
 This document is a quick reference glossary of the markdown syntax and HTML tags used in the SWP files on the Salem Witchcraft Trials site.
 
+* **Dates**
+	There is some latitude to the formating of the definitive, bracketed dates for each document. However, that format must still be machine-readable as a full date. Archaic spelling or formatting, extraneous or missing characters or punctuation, two-digit years, and the such will all confuse the software designed to parse modern date strings.
+
+	ex. Well formatted date:
+
+		[+ May 3, 1693 ]
+
+	ex. Incorrectly formatted dates
+
+		[+ January 13, 1693 
+		[this 28 of June An'o 1692 ] 
+		[MAy 13, 1692] 
+		[May the 23, 1692 ] 
+		[September 9, 92 ] 
+		[10 August 1692. ] 
+		[2. May 2, 1692] 
+		[Passed November 2.]
+
+	Bad dates will not show up on the search, but will not otherwise break the site. The search generator produces a list of bracketed entries that look like dates but that it can't understand and also a list of documents that are missing dates entirely, so bad dates should be easy to discover.
+
 * **`<div>`**
 	
 	The `<div>` tag is an HTML tag used to wrap contents of case documents in SWP files and the case document title. The contents of this tag drive keyword searching, and the tag must be formatted exactly as in these examples
