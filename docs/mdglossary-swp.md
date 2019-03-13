@@ -4,7 +4,7 @@ This document is a quick reference glossary of the markdown syntax and HTML tags
 
 * **Dates**
 	
-	There is some latitude to the formating of the definitive, bracketed dates for each document. However, that format must still be machine-readable as a full date. Archaic spelling or formatting, extraneous or missing characters or punctuation, two-digit years, and the such will all confuse the software designed to parse modern date strings.
+	There is some latitude to the formatting of the definitive, bracketed dates for each document. However, that format must still be machine-readable as a full date. Archaic spelling or formatting, extraneous or missing characters or punctuation, two-digit years, and the such will all confuse the software designed to parse modern date strings.
 
 	ex. Well formatted date
 
@@ -21,7 +21,7 @@ This document is a quick reference glossary of the markdown syntax and HTML tags
 		[2. May 2, 1692] 
 		[Passed November 2.]
 
-	Bad dates will not show up on the search, but will not otherwise break the site. The search generator produces a list of bracketed entries that look like dates but that it can't understand and also a list of documents that are missing dates entirely, so bad dates should be easy to discover.
+	Bad dates will not show up on the search, but will not otherwise break the site. The search generator produces a list of bracketed entries that look like dates, but that it can't understand, and also a list of documents that are missing dates entirely, so bad dates should be easy to discover.
 
 * **`<div>`**
 	
