@@ -6,7 +6,7 @@ This document is a quick reference glossary of the markdown syntax and HTML tags
 	
 	There is some latitude to the formating of the definitive, bracketed dates for each document. However, that format must still be machine-readable as a full date. Archaic spelling or formatting, extraneous or missing characters or punctuation, two-digit years, and the such will all confuse the software designed to parse modern date strings.
 
-	ex. Well formatted date:
+	ex. Well formatted date
 
 		[+ May 3, 1693 ]
 
