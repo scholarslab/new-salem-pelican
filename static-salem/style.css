@@ -261,6 +261,12 @@ ul li {
 .figure img {
     width:100px;
 }
+
+img[alt~="Figure"] {
+    width:100px;
+}
+
+
 .figure p {
     margin:0;
 }
