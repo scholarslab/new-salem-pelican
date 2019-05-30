@@ -8,6 +8,7 @@
             $('#'+pair[0]).val(pair[1]);
         }
     }
+    $("#search_form").hide();
     $.when(
         $.getJSON(idxFile, function(data) {
             window.idx = data;
@@ -31,6 +32,8 @@
             });
         })
     ).done(function() {
+        $("#search_loading").hide();
+        $("#search_form").show();
         if (search) {
             displaySearchResults(search);
         }

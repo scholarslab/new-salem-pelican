@@ -36,6 +36,16 @@
 <div class="content_container">
     <div class="search_content" style="overflow:hidden;">
         <h1>Search the Salem Witchcraft Papers</h1>
+        <div id="search_loading">
+            <h2>Loading search index ...</h2>
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
         <form id="search_form" action="/search/" method="GET">
             <label for="terms">Search for word or phrase:</label> <input type="search" name="terms" id="terms"><br>
             and/or documents dated (1692/1693, excluding some undated items)<br>
