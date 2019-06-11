@@ -272,3 +272,9 @@
         }
     }
 
+    function clear_form(){
+        $("#search_form")[0].reset();
+        $("#search-list").empty();
+        $("#case-list").empty();
+    }
+
