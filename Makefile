@@ -46,6 +46,7 @@ help:
 	@echo '                                                                          '
 
 html:
+	python lunrcorpus.py
 	if test -d $(BASEDIR)/old-salem; then rsync -tHa --stats --delete $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
@@ -89,6 +90,7 @@ stopserver:
 	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
 
 publish:
+	python lunrcorpus.py
 	if test -d $(BASEDIR)/old-salem; then rsync -tHa --stats --delete $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
