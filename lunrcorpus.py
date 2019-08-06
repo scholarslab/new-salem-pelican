@@ -90,7 +90,7 @@ print("Writing to corpus")
 with open("./content/search/corpus.json", 'w') as cout:
     cout.write(json.dumps(corpus))
 print("Running index script")
-os.system("cat content/search/corpus.json | scripts/build-index > content/search/idx.json")
+
 print("\n\n###### SWP documents with suspected wrong formatting #######\n\n")
 for doc in wrong_dates:
     print(doc + ": "+wrong_dates[doc])
