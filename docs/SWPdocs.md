@@ -74,6 +74,10 @@ New Salem Pelican uses a tagging system to track which people appear in which ca
 
 This file must be updated to alter a person's ID or canonical name. If an entry is not found, no text will be displayed. This won't totally break the site, but will result in some links that can no longer be seen or clicked.
 
+To add new references (linked text) to Persons, just create a a link in markdown format (e.g. `[Goody Johnson](/tag/johnson_elizabeth_sr.html)`) and, if the reference is the first to appear for that person in the case file, add it to the tag list in the front matter. So long as the link is correct, it will appear in the master names index (tags.html) and in the search results for that name ID.
+
+To add a new person entry, a mapping of that person's unique ID and cononical full name must be appended to the [tags.json file](https://github.com/scholarslab/new-salem-pelican/blob/master/tags.json). The person must appear in the front matter tag list of *at least one case* to be generated as an entry in the master names index and name entry.
+
 ## Keyword Search
 
 NSP uses the [Lunr.js](https://github.com/olivernn/lunr.js) client-side search library to perform searches. For this to work, a corpus and index must be generated from the source documents ahead of time. If documents do not appear in the keyword/date search, it is likely because this has not yet been done (or there is a bug in the corpus/index generation).
