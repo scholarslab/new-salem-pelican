@@ -3,34 +3,34 @@
 <head>
 <title>Regional Accusations</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <link rel="stylesheet" href="http://staging.salem.lib.virginia.edu/regional.css" type="text/css"/>
 <style type="text/css">
-#salem_regional_map
+#salem_regional_map 
 {
 	height: 580px;
 	width: 520px;
 	margin-top: 24px;
 }
 </style>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 </head>
 <body>
 <div id="page_container">
-
+    
     <div id="page_header">
     	<a class="logo" href="index.html">Regional Accusations</a>
     </div>
-
+    
     <div id="page_core">
-
+        
     	<div id="salem_regional_map"> </div>
-
+        
         <div id="date_string_and_total">
         	<div id="date_string">1692</div>
         	<div id="events_total"><span class="events_total_label">Total:</span> 0</div>
         </div>
-
+        
         <table id="month_totals">
         	<tr>
             	<th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th>
@@ -39,16 +39,16 @@
             	<td id="month_feb"> </td><td id="month_mar"> </td><td id="month_apr"> </td><td id="month_may"> </td><td id="month_jun"> </td><td id="month_jul"> </td><td id="month_aug"> </td><td id="month_sep"> </td><td id="month_oct"> </td><td id="month_nov"> </td>
             </tr>
         </table>
-
+        
         <div id="date_range_div">
         	<form>
             	<input type="range" id="date_range" min="0" value="0" max="303" step="1" onchange="update_map(this.value)" oninput="update_map(this.value)" />
                 <input id="play_button" type="button" value="Play" onclick="step_toggle();" />
             </form>
         </div>
-
+        
     </div>
-
+    
     <div id="page_footer">
 	</div>
 
@@ -59,7 +59,7 @@
 
 	var stepping = false;
 	var step_interval_id = null;
-
+	
 	function step_and_update()
 	{
 		if(document.getElementById('date_range').value < 303)
@@ -69,7 +69,7 @@
 		}
 		else { stop_stepping(); }
 	}
-
+	
 	function step_toggle()
 	{
 		if(stepping) { stop_stepping(); }
@@ -80,55 +80,56 @@
 			document.getElementById('play_button').value = 'Pause';
 		}
 	}
-
+	
 	function stop_stepping()
 	{
 			clearInterval(step_interval_id);
 			stepping = false;
 			document.getElementById('play_button').value = 'Play';
 	}
-
+	
 	//var stamen_terrain_background = L.tileLayer( 'http://{s}.tile.stamen.com/terrain-background/{z}/{x}/{y}.jpg', {
 	//attribution: 'Tiles <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> | Data &copy; <a href="http://osm.org/copyright">OpenStreetMap</a>',
 	//subdomains: ['a','b','c']
 	//});
-
+	
 	//var stamen_watercolor = L.tileLayer( 'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg', {
 	//attribution: 'Tiles <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> | Data &copy; <a href="http://osm.org/copyright">OpenStreetMap</a>',
 	//subdomains: ['a','b','c']
 	//});
-
-	var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+	
+	var osm_sat = L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | Tiles <a href="http://www.mapquest.com/">MapQuest</a>',
+	subdomains: ['otile1','otile2','otile3','otile4']
 	});
-
+		
 	//var osm_hot = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
 	//attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
 	//subdomains: ['a','b','c']
 	//});
-
+	
 	//light_all
 	//var cartodb_positron = L.tileLayer( 'http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
 	//attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
 	//subdomains: ['a','b','c']
 	//});
-
+	
 	//dark_all
 	//var cartodb_darkmatter = L.tileLayer( 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
 	//attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
 	//subdomains: ['a','b','c']
 	//});
-
+	
 	var imageUrl = 'http://www2.iath.virginia.edu/bcr/maps/regional/salemElev3Drk.jpg';
 	var imageBounds = L.latLngBounds([[41.9994444435, -72.0005555556], [44.0005555546, -69.9994444444]]);
 	var map_image = L.imageOverlay(imageUrl, imageBounds);
 	//map_image.addTo(map);
-
+		
 	var baseLayers = {
 			'Terrain': map_image,
-			'Today (Satellite)': Esri_WorldImagery
+			'Today (Satellite)': osm_sat
 		};
-
+		
 	//town label icons
 	var icon_amesbury = L.divIcon({className: 'town_primary', html: '<div>Amesbury</div>'});
 	var icon_andover = L.divIcon({className: 'town_primary', html: '<div>Andover</div>'});
@@ -155,7 +156,7 @@
 	var icon_topsfield = L.divIcon({className: 'town_primary', html: '<div>Topsfield</div>'});
 	var icon_wells_me = L.divIcon({className: 'town_primary', html: '<div>Wells</div>'});
 	var icon_woburn = L.divIcon({className: 'town_primary', html: '<div>Woburn</div>'});
-
+	
 	//town label markers
 	var label_amesbury = L.marker([42.858394, -70.930038], {icon: icon_amesbury});
 	var label_andover = L.marker([42.6495835, -71.166032], {icon: icon_andover});
@@ -182,37 +183,37 @@
 	var label_topsfield = L.marker([42.637595, -70.949505], {icon: icon_topsfield});
 	var label_wells_me = L.marker([43.322236, -70.580521], {icon: icon_wells_me});
 	var label_woburn = L.marker([42.479258, -71.152276], {icon: icon_woburn});
-
+	
 	var towns_primary = L.layerGroup(
 		[
-			label_amesbury,
-			label_andover,
-			label_beverly,
-			label_billerica,
-			label_boston,
-			label_boxford,
-			label_charlestown,
-			label_gloucester,
-			label_haverhill,
-			label_ipswich,
-			label_lynn,
-			label_malden,
+			label_amesbury, 
+			label_andover, 
+			label_beverly, 
+			label_billerica, 
+			label_boston, 
+			label_boxford, 
+			label_charlestown, 
+			label_gloucester, 
+			label_haverhill, 
+			label_ipswich, 
+			label_lynn, 
+			label_malden, 
 			label_manchester,
-			label_marblehead,
-			label_piscataqua_nh,
-			label_reading,
-			label_rowley,
-			label_rumney_marsh,
-			label_salem_farms,
-			label_salem_town,
-			label_salem_village,
-			label_salisbury,
-			label_topsfield,
-			label_wells_me,
+			label_marblehead, 
+			label_piscataqua_nh, 
+			label_reading, 
+			label_rowley, 
+			label_rumney_marsh, 
+			label_salem_farms, 
+			label_salem_town, 
+			label_salem_village, 
+			label_salisbury, 
+			label_topsfield, 
+			label_wells_me, 
 			label_woburn
 		]);
-
-	//secondary town label icons
+		
+	//secondary town label icons	
 	var icon_chelmsford = L.divIcon({className: 'town_secondary', html: '<div>Chelmsford</div>'});
 	var icon_dorchester = L.divIcon({className: 'town_secondary', html: '<div>Dorchester</div>'});
 	var icon_dunstable = L.divIcon({className: 'town_secondary', html: '<div>Dunstable</div>'});
@@ -224,7 +225,7 @@
 	var icon_sudbury = L.divIcon({className: 'town_secondary', html: '<div>Sudbury</div>'});
 	//var icon_wrentham = L.divIcon({className: 'town_secondary', html: '<div>Wrentham</div>'});
 	var icon_york_me = L.divIcon({className: 'town_secondary', html: '<div>York</div>'});
-
+	
 	//secondary town label markers
 	var label_chelmsford = L.marker([42.599722, -71.367778], {icon: icon_chelmsford});
 	var label_dorchester = L.marker([42.3017475, -71.056296], {icon: icon_dorchester});
@@ -248,9 +249,9 @@
 			label_sudbury,
 			label_york_me
 		]);
-
+	
 	var overlayLayers = { "Primary Towns": towns_primary, "Secondary Towns": towns_secondary };
-
+	
 	var map = L.map('salem_regional_map', {
 			center: [42.79, -70.89],
 			maxBounds: [[42.20207, -71.60339], [43.37112, -70.17517]],
@@ -259,15 +260,15 @@
 			maxZoom: 13,
 			layers: [map_image, towns_primary, towns_secondary]
 		});
-
+	
 	//var max_bounds = map.getBounds();
 	//var sw = max_bounds.getSouthWest();
-	//var ne = max_bounds.getNorthEast();
+	//var ne = max_bounds.getNorthEast();	
 	//document.getElementById('page_footer').innerHTML = 'SW: ' + sw + ' NE: ' + ne;
 	//SW: LatLng(42.20207, -71.60339) NE: LatLng(43.37112, -70.17517)
-
+	
 	L.control.layers(baseLayers, overlayLayers).addTo(map);
-
+	
 	//circle icons
 	var icon_00 = L.divIcon({className: 'circle_icon', iconSize: [1, 1], html: '<div></div>'});
 	var icon_01 = L.divIcon({className: 'circle_icon', iconSize: [4, 4], html: '<div>1</div>'});
@@ -318,7 +319,7 @@
 	var icon_46 = L.divIcon({className: 'circle_icon', iconSize: [184, 184], html: '<div>46</div>'});
 	var icon_47 = L.divIcon({className: 'circle_icon', iconSize: [188, 188], html: '<div>47</div>'});
 	var icon_48 = L.divIcon({className: 'circle_icon', iconSize: [192, 192], html: '<div>48</div>'});
-
+	
 	//towns
 	var marker_amesbury = L.marker([42.858394, -70.930038], {icon: icon_00, title: 'Amesbury'});
 	var marker_andover = L.marker([42.6495835, -71.166032], {icon: icon_00, title: 'Andover'});
@@ -345,7 +346,7 @@
 	var marker_topsfield = L.marker([42.637595, -70.949505], {icon: icon_00, title: 'Topsfield'});
 	var marker_wells_me = L.marker([43.322236, -70.580521], {icon: icon_00, title: 'Wells'});
 	var marker_woburn = L.marker([42.479258, -71.152276], {icon: icon_00, title: 'Woburn'});
-
+	
 	//secondary towns
 	var marker_chelmsford = L.marker([42.599722, -71.367778], {icon: icon_00, title: 'Chelmsford'});
 	var marker_dorchester = L.marker([42.3017475, -71.056296], {icon: icon_00, title: 'Dorchester'});
@@ -358,7 +359,7 @@
 	var marker_sudbury = L.marker([42.383333, -71.416667], {icon: icon_00, title: 'Sudbury'});
 	var marker_wrentham = L.marker([42.05756, -71.3494134], {icon: icon_00, title: 'Wrentham'});
 	var marker_york_me = L.marker([43.1619261, -70.6564632], {icon: icon_00, title: 'York'});
-
+	
 	marker_amesbury.addTo(map);
 	marker_andover.addTo(map);
 	marker_beverly.addTo(map);
@@ -396,7 +397,7 @@
 	marker_sudbury.addTo(map);
 	//marker_wrentham.addTo(map);
 	marker_york_me.addTo(map);
-
+	   
 	function update_map(num)
 	{
 		var the_date = '';
@@ -412,7 +413,7 @@
 		var events_sep = 0;
 		var events_oct = 0;
 		var events_nov = 0;
-
+		
 		switch(parseInt(num))
 		{
 			case 0:
@@ -457,7 +458,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -485,7 +486,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -513,7 +514,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -541,7 +542,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -569,7 +570,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -597,7 +598,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -625,7 +626,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -653,7 +654,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -681,7 +682,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -709,7 +710,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -737,7 +738,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -765,7 +766,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -793,7 +794,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -821,7 +822,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -849,7 +850,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -877,7 +878,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -905,7 +906,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -933,7 +934,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -961,7 +962,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -989,7 +990,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1017,7 +1018,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1045,7 +1046,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1073,7 +1074,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1101,7 +1102,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1129,7 +1130,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1157,7 +1158,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1185,7 +1186,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1214,7 +1215,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1243,7 +1244,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1272,7 +1273,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1301,7 +1302,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1330,7 +1331,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1359,7 +1360,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1388,7 +1389,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1417,7 +1418,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1446,7 +1447,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1475,7 +1476,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1504,7 +1505,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1533,7 +1534,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1562,7 +1563,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1591,7 +1592,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1620,7 +1621,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1649,7 +1650,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1678,7 +1679,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1707,7 +1708,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1736,7 +1737,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1766,7 +1767,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1796,7 +1797,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1826,7 +1827,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1856,7 +1857,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1887,7 +1888,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1918,7 +1919,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1948,7 +1949,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -1978,7 +1979,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2008,7 +2009,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2038,7 +2039,7 @@
 				marker_ipswich.setIcon(icon_00);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2069,7 +2070,7 @@
 				marker_ipswich.setIcon(icon_01); //+1
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2099,7 +2100,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2129,7 +2130,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2159,7 +2160,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2189,7 +2190,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2219,7 +2220,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2250,7 +2251,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2281,7 +2282,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2312,7 +2313,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2343,7 +2344,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2374,7 +2375,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2405,7 +2406,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2436,7 +2437,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2468,7 +2469,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2499,7 +2500,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2530,7 +2531,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2561,7 +2562,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2592,7 +2593,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2623,7 +2624,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2654,7 +2655,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2686,7 +2687,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2717,7 +2718,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2748,7 +2749,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2780,7 +2781,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2811,7 +2812,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2842,7 +2843,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2873,7 +2874,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2904,7 +2905,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2935,7 +2936,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2966,7 +2967,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -2997,7 +2998,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -3028,7 +3029,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_00);
@@ -3060,7 +3061,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_01); //+1
@@ -3091,7 +3092,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_01);
@@ -3122,7 +3123,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_01);
@@ -3153,7 +3154,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_01);
@@ -3184,7 +3185,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_01);
@@ -3215,7 +3216,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_01);
@@ -3246,7 +3247,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_01);
@@ -3277,7 +3278,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_01);
@@ -3309,7 +3310,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_02); //+1
@@ -3341,7 +3342,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_02);
@@ -3374,7 +3375,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_02);
@@ -3406,7 +3407,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_02);
@@ -3439,7 +3440,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_00);
 				marker_reading.setIcon(icon_02);
@@ -3472,7 +3473,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_00);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01); //+1
 				marker_reading.setIcon(icon_02);
@@ -3505,7 +3506,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_02); //+2
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_03); //+1
@@ -3537,7 +3538,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_02);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_03);
@@ -3569,7 +3570,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_02);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_03);
@@ -3601,7 +3602,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_02);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_03);
@@ -3634,7 +3635,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_02);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_03);
@@ -3666,7 +3667,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_02);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_03);
@@ -3698,7 +3699,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_02);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_03);
@@ -3731,7 +3732,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_03); //+1
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_03);
@@ -3763,7 +3764,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_03);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_03);
@@ -3796,7 +3797,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_04); //+1
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_03);
@@ -3828,7 +3829,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_04);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_03);
@@ -3860,7 +3861,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_04);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_03);
@@ -3892,7 +3893,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_04);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_03);
@@ -3924,7 +3925,7 @@
 				marker_ipswich.setIcon(icon_01);
 				marker_lynn.setIcon(icon_04);
 				marker_malden.setIcon(icon_00);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_00);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_03);
@@ -3957,7 +3958,7 @@
 				marker_ipswich.setIcon(icon_02); //+1
 				marker_lynn.setIcon(icon_04);
 				marker_malden.setIcon(icon_01); //+1
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01); //+1
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04); //+1
@@ -3989,7 +3990,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_04);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4022,7 +4023,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_04);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4054,7 +4055,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_04);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4086,7 +4087,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_04);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4118,7 +4119,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_04);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4150,7 +4151,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_04);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4183,7 +4184,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05); //+1
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4216,7 +4217,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4250,7 +4251,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4283,7 +4284,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4316,7 +4317,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4349,7 +4350,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4382,7 +4383,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4415,7 +4416,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4448,7 +4449,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4481,7 +4482,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4514,7 +4515,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4547,7 +4548,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4580,7 +4581,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4613,7 +4614,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4646,7 +4647,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4679,7 +4680,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4712,7 +4713,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4745,7 +4746,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4778,7 +4779,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4811,7 +4812,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4844,7 +4845,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4877,7 +4878,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4910,7 +4911,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4943,7 +4944,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -4976,7 +4977,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5009,7 +5010,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5042,7 +5043,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5076,7 +5077,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5111,7 +5112,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5145,7 +5146,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5179,7 +5180,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5213,7 +5214,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5247,7 +5248,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5281,7 +5282,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5315,7 +5316,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5349,7 +5350,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5383,7 +5384,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5417,7 +5418,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5451,7 +5452,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5485,7 +5486,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5519,7 +5520,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5554,7 +5555,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5588,7 +5589,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5622,7 +5623,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5656,7 +5657,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5690,7 +5691,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5725,7 +5726,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5760,7 +5761,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5795,7 +5796,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5829,7 +5830,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5863,7 +5864,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5897,7 +5898,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5931,7 +5932,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -5965,7 +5966,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6000,7 +6001,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6034,7 +6035,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6068,7 +6069,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6102,7 +6103,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6136,7 +6137,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6171,7 +6172,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6207,7 +6208,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6242,7 +6243,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6278,7 +6279,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6313,7 +6314,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6348,7 +6349,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6383,7 +6384,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6418,7 +6419,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6453,7 +6454,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6489,7 +6490,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6524,7 +6525,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6560,7 +6561,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6595,7 +6596,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6630,7 +6631,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6665,7 +6666,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6700,7 +6701,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6736,7 +6737,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6772,7 +6773,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6807,7 +6808,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6842,7 +6843,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6877,7 +6878,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6912,7 +6913,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6947,7 +6948,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -6983,7 +6984,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -7018,7 +7019,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -7053,7 +7054,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -7088,7 +7089,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -7124,7 +7125,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -7159,7 +7160,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -7194,7 +7195,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -7230,7 +7231,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -7267,7 +7268,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -7304,7 +7305,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -7340,7 +7341,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_00);
+				marker_manchester.setIcon(icon_00); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_01);
 				marker_reading.setIcon(icon_04);
@@ -7413,7 +7414,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7450,7 +7451,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7487,7 +7488,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7523,7 +7524,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7560,7 +7561,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7596,7 +7597,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7632,7 +7633,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7669,7 +7670,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7705,7 +7706,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7741,7 +7742,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7777,7 +7778,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7813,7 +7814,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7849,7 +7850,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7885,7 +7886,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7921,7 +7922,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7957,7 +7958,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -7993,7 +7994,7 @@
 				marker_ipswich.setIcon(icon_02);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8030,7 +8031,7 @@
 				marker_ipswich.setIcon(icon_03); //+1
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8066,7 +8067,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8102,7 +8103,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8138,7 +8139,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8174,7 +8175,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8210,7 +8211,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8246,7 +8247,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8282,7 +8283,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8319,7 +8320,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8356,7 +8357,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_05);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8394,7 +8395,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06); //+1
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8431,7 +8432,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8468,7 +8469,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8505,7 +8506,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8542,7 +8543,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8579,7 +8580,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8616,7 +8617,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8653,7 +8654,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8690,7 +8691,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8727,7 +8728,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8764,7 +8765,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8801,7 +8802,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8838,7 +8839,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8875,7 +8876,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8912,7 +8913,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8949,7 +8950,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -8986,7 +8987,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9023,7 +9024,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9060,7 +9061,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9097,7 +9098,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9134,7 +9135,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9171,7 +9172,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9208,7 +9209,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9245,7 +9246,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9282,7 +9283,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9319,7 +9320,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9356,7 +9357,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9393,7 +9394,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9430,7 +9431,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9467,7 +9468,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9504,7 +9505,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9541,7 +9542,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9578,7 +9579,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9616,7 +9617,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9654,7 +9655,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9692,7 +9693,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9730,7 +9731,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9768,7 +9769,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9806,7 +9807,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9844,7 +9845,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9882,7 +9883,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9920,7 +9921,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9958,7 +9959,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -9996,7 +9997,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10034,7 +10035,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10072,7 +10073,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10110,7 +10111,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10148,7 +10149,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10186,7 +10187,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10224,7 +10225,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10262,7 +10263,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10300,7 +10301,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10338,7 +10339,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10376,7 +10377,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10414,7 +10415,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10452,7 +10453,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10490,7 +10491,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10528,7 +10529,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10566,7 +10567,7 @@
 				marker_ipswich.setIcon(icon_03);
 				marker_lynn.setIcon(icon_06);
 				marker_malden.setIcon(icon_01);
-				marker_manchester.setIcon(icon_01);
+				marker_manchester.setIcon(icon_01); 
 				marker_marblehead.setIcon(icon_01);
 				marker_piscataqua_nh.setIcon(icon_02);
 				marker_reading.setIcon(icon_07);
@@ -10591,13 +10592,13 @@
 				events_nov = 3;
 				break;
 		}
-
+		
 		if(new_event) { document.getElementById('date_string').innerHTML = '1692 ~ <span class="event_date">' + the_date + '</span>'; }
 		else { document.getElementById('date_string').innerHTML = '1692 ~ ' + the_date; }
-
+		
 		events_total = events_feb + events_mar + events_apr + events_may + events_jun + events_jul + events_aug + events_sep + events_oct + events_nov;
 		document.getElementById('events_total').innerHTML = '<span class="events_total_label">Total:</span> ' + events_total;
-
+		
 		if (events_feb == 0) { events_feb = ' '; } document.getElementById('month_feb').innerHTML = events_feb;
 		if (events_mar == 0) { events_mar = ' '; } document.getElementById('month_mar').innerHTML = events_mar;
 		if (events_apr == 0) { events_apr = ' '; } document.getElementById('month_apr').innerHTML = events_apr;
@@ -10608,11 +10609,11 @@
 		if (events_sep == 0) { events_sep = ' '; } document.getElementById('month_sep').innerHTML = events_sep;
 		if (events_oct == 0) { events_oct = ' '; } document.getElementById('month_oct').innerHTML = events_oct;
 		if (events_nov == 0) { events_nov = ' '; } document.getElementById('month_nov').innerHTML = events_nov;
-
+		
 	}
-
+	
 // -->
-</script>
+</script> 
 
 </body>
 </html>
