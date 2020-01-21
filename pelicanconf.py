@@ -8,6 +8,8 @@ AUTHOR = ''
 SITENAME = 'New Salem - Pelican'
 SITEURL = ''
 THEME = "./salem-theme"
+INDEX_SAVE_AS = 'index_swp.html'
+DIRECT_TEMPLATES = ['categories', 'tags']
 
 PATH = 'content'
 STATIC_PATHS = ['search', 'people']
