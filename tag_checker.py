@@ -9,38 +9,34 @@ import fileinput
 
 pathlist = Path("content/swp").glob('*.md')
 
-missing_tags = {}
+tags = {}
 for path in pathlist:
     # because path is object not string
     pathstr = str(path)[7:]
     if "tag/" in pathstr or "SalVRec" in pathstr:
         continue
     with open("content"+pathstr, 'r') as page:
-        tags = []
-        unlisted_people = []
+        tags[pathstr] = []
         line = page.readline()
         while line:
-            if len(tags) == 0 and line[:5] == "tags:":
-                tags = [t.strip() for t in line[5:].split(",")]
+            if len(tags[pathstr]) == 0 and line[:5] == "tags:":
+                tags[pathstr] = [t.strip() for t in line[5:].split(",")]
                 continue
             pattern = re.compile("\(\/tag\/[a-z_.]*\)")
             for match in re.finditer(pattern, line):
                 person = match.group()[6:-6]
-                if person not in tags:
+                if person not in tags[pathstr]:
                     print("Person not in tags for ", pathstr, ": ", person)
-                    if pathstr in missing_tags:
-                        if person not in missing_tags[pathstr]:
-                            missing_tags[pathstr].append(person)
-                    else:
-                        missing_tags[pathstr] = [person]
+                    tags[pathstr].append(append(person))
             line = page.readline()
 
-for path in missing_tags.keys():
+for path in tags.keys():
     lines = open('content'+path).read().splitlines()
     if lines[4][:5] != "tags:":
         print("Tags not on line 5!", path)
         exit()
-    print(path)
-    print("   "+", ".join(missing_tags[path]))
-    lines[4] = lines[4] + ", " + ", ".join(missing_tags[path])
-    open('content'+path, 'w').write('\n'.join(lines))
+    if lines[4] != "tags: " + ", ".join(sorted(tags[path])):    
+        print(path)
+        print("   "+", ".join(tags[path]))
+        lines[4] = "tags: " + ", ".join(sorted(tags[path]))
+        open('content'+path, 'w').write('\n'.join(lines))
