@@ -98,6 +98,7 @@
             case_list.empty();            
             results.forEach(function(result) {
                 var item = window.documents.filter(doc => doc.id === result.ref);
+                console.log(item)
                 if (item[0].date == undefined){
                     results_docs_undated.push(item)
                 }
