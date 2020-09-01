@@ -20,9 +20,11 @@
                     <dl>
                     <dt><em>{{ month_articles[0].date.strftime('%Y, %B') }}</em></dt>
                     {% for article in (month_articles |sort(attribute='date', reverse = False))%}
-                    <li>
-                        <a href="{{ SITEURL }}/{{ article.url }}" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
-                    </li>
+                        {% if (article and article.category==category) or not article %}
+                            <li>
+                                <a href="{{ SITEURL }}/{{ article.url }}" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+                            </li>
+                        {% endif %}
                     {% endfor %}
                     </dl>
                 {% endfor %}
