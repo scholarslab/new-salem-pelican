@@ -3,6 +3,7 @@ New Salem running on Pelican
 
 ## Initial Set Up
 
+- Install [Git LFS](https://git-lfs.github.com/).
 - Clone the repo.
 - In the project directory, initialize the theme submodule: `git submodule init && git submodule update`
 - Run `pipenv update` to grab dependencies.
