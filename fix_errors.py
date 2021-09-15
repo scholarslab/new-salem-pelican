@@ -8,7 +8,7 @@ import os
 import string
 import fileinput
 
-COMMIT = False
+COMMIT = True
 
 
 # Interpreting number at start of lines as numbered lists is a problem.
