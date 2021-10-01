@@ -8,7 +8,7 @@ import os
 import string
 import fileinput
 
-COMMIT = True
+COMMIT = False
 
 
 # Interpreting number at start of lines as numbered lists is a problem.
@@ -36,9 +36,7 @@ def no_code_blocks(doc,pathstr):
 
 
 
-# Interpreting number at start of lines as numbered lists is a problem.
-# Sometimes dates will have period delimiters
-# In any case, we don't ever want markdown replacing numbers in lists.
+
 def single_newlines(doc,pathstr):
     ## Handle case with single space before newline
     pattern = re.compile(".{0,15}[^ ] \n([^\n]).{0,15}")
