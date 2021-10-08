@@ -39,7 +39,7 @@ def single_newlines(doc,pathstr):
     # for match in re.finditer(pattern, doc):
     #     print("\n",pathstr,"\n", match.group())
     
-    (doc,found1) = re.subn("[^ ] \n([^\n])",r"  \n\1",doc)
+    (doc,found1) = re.subn("([^ ]) \n([^\n])",r"\1  \n\2",doc)
 
     ## Now handle case with no space before newline
     pattern = re.compile(".{0,15}([^\n])\n([^\n]).{0,15}")
@@ -65,9 +65,9 @@ for path in pathlist:
         (doc,found) = single_newlines(doc, pathstr)
         if found:
             print("Fixed "+ str(found)+ " single newlines in "+ pathstr)
-        (doc, found) = no_code_blocks(doc, pathstr)
-        if found:
-            print("Fixed "+ str(found)+ " code blocks in "+ pathstr)
+        # (doc, found) = no_code_blocks(doc, pathstr)
+        # if found:
+        #     print("Fixed "+ str(found)+ " code blocks in "+ pathstr)
     if doc and COMMIT:
         with open("content"+pathstr, 'w') as page:
             page.write(doc)
