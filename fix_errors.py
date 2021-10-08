@@ -39,14 +39,14 @@ def single_newlines(doc,pathstr):
     # for match in re.finditer(pattern, doc):
     #     print("\n",pathstr,"\n", match.group())
     
-    (doc,found1) = re.subn("[^ ] \n([^\n])",r"  \n\1.",doc)
+    (doc,found1) = re.subn("[^ ] \n([^\n])",r"  \n\1",doc)
 
     ## Now handle case with no space before newline
     pattern = re.compile(".{0,15}([^\n])\n([^\n]).{0,15}")
     # for match in re.finditer(pattern, doc):
     #     print("\n",pathstr,"\n", match.group())
     
-    (doc,found2) = re.subn("([^ ][^\n ])\n([^\n])",r"\1  \n\2.",doc)
+    (doc,found2) = re.subn("([^ ][^\n ])\n([^\n])",r"\1  \n\2",doc)
     return (doc, found1+found2)
 
 
