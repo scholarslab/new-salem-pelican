@@ -8,8 +8,7 @@ import os
 import string
 import fileinput
 
-COMMIT = False
-
+COMMIT = True
 
 # Interpreting number at start of lines as numbered lists is a problem.
 # Sometimes dates will have period delimiters
@@ -19,20 +18,17 @@ def unnumber_lists(doc,pathstr):
     for match in re.finditer(pattern, doc):
         print(pathstr, match.group())
     (doc,found) = re.subn("\n([0-9]+)\.",r"\n\1\\.",doc)
-    if found:
-        return doc
+    return (doc, found)
 
 
 # Avoid code blocks
 def no_code_blocks(doc,pathstr):
     pattern = re.compile(".{0,15}[ ]{4,}.{0,15}")
-    for match in re.finditer(pattern, doc):
-        print("\n",pathstr,"\n", match.group())
+    # for match in re.finditer(pattern, doc):
+    #     print("\n",pathstr,"\n", match.group())
     
     (doc,found) = re.subn("\n[ ]{4,}",r"\n   ",doc)
-
-    if found:
-        return doc
+    return (doc, found)
 
 
 
@@ -40,20 +36,18 @@ def no_code_blocks(doc,pathstr):
 def single_newlines(doc,pathstr):
     ## Handle case with single space before newline
     pattern = re.compile(".{0,15}[^ ] \n([^\n]).{0,15}")
-    for match in re.finditer(pattern, doc):
-        print("\n",pathstr,"\n", match.group())
+    # for match in re.finditer(pattern, doc):
+    #     print("\n",pathstr,"\n", match.group())
     
     (doc,found1) = re.subn("[^ ] \n([^\n])",r"  \n\1.",doc)
 
     ## Now handle case with no space before newline
     pattern = re.compile(".{0,15}([^\n])\n([^\n]).{0,15}")
-    for match in re.finditer(pattern, doc):
-        print("\n",pathstr,"\n", match.group())
+    # for match in re.finditer(pattern, doc):
+    #     print("\n",pathstr,"\n", match.group())
     
     (doc,found2) = re.subn("([^ ][^\n ])\n([^\n])",r"\1  \n\2.",doc)
-    
-    if found1 or found2:
-        return doc
+    return (doc, found1+found2)
 
 
 pathlist = Path("content/swp").glob('*.md')
@@ -65,9 +59,15 @@ for path in pathlist:
         continue
     with open("content"+pathstr, 'r') as page:
         doc = page.read()
-        doc = unnumber_lists(doc, pathstr)
-        doc = single_newlines(doc, pathstr)
-        doc = no_code_blocks(doc,pathstr)
+        (doc,found) = unnumber_lists(doc, pathstr)
+        if found:
+            print("Fixed "+ str(found)+" numbered lists in "+pathstr)
+        (doc,found) = single_newlines(doc, pathstr)
+        if found:
+            print("Fixed "+ str(found)+ " single newlines in "+ pathstr)
+        (doc, found) = no_code_blocks(doc, pathstr)
+        if found:
+            print("Fixed "+ str(found)+ " code blocks in "+ pathstr)
     if doc and COMMIT:
         with open("content"+pathstr, 'w') as page:
             page.write(doc)
