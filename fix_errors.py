@@ -15,8 +15,8 @@ COMMIT = True
 # In any case, we don't ever want markdown replacing numbers in lists.
 def unnumber_lists(doc,pathstr):
     pattern = re.compile("\n([0-9]+)\..{0,15}")
-    for match in re.finditer(pattern, doc):
-        print(pathstr, match.group())
+    # for match in re.finditer(pattern, doc):
+    #     print(pathstr, match.group())
     (doc,found) = re.subn("\n([0-9]+)\.",r"\n\1\\.",doc)
     return (doc, found)
 
