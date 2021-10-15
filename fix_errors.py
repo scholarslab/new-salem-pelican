@@ -35,11 +35,11 @@ def no_code_blocks(doc,pathstr):
 
 def single_newlines(doc,pathstr):
     ## Handle case with zero or one space before newline
-    pattern = re.compile(".{0,15}[^ ][ ]?\n([^\n ]).{0,15}")
+    pattern = re.compile(".{0,15}[^\n ][ ]?\n([^\n]).{0,15}")
     # for match in re.finditer(pattern, doc):
     #     print("\n",pathstr,"\n", match.group())
     
-    (doc, found) = re.subn("([^\n ])[ ]?\n([^\n ])", r"\1  \n\2", doc)
+    (doc, found) = re.subn("([^\n ])[ ]?\n([^\n])", r"\1  \n\2", doc)
     return (doc, found)
 
 pathlist = Path("content/swp").glob('*.md')
@@ -57,9 +57,9 @@ for path in pathlist:
         (doc,found) = single_newlines(doc, pathstr)
         if found:
             print("Fixed "+ str(found)+ " single newlines in "+ pathstr)
-        (doc, found) = no_code_blocks(doc, pathstr)
-        if found:
-            print("Fixed "+ str(found)+ " code blocks in "+ pathstr)
+        # (doc, found) = no_code_blocks(doc, pathstr)
+        # if found:
+        #     print("Fixed "+ str(found)+ " code blocks in "+ pathstr)
     if doc and COMMIT:
         with open("content"+pathstr, 'w') as page:
             page.write(doc)
