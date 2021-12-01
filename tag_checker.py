@@ -27,7 +27,7 @@ for path in pathlist:
                 person = match.group()[6:-6]
                 if person not in tags[pathstr]:
                     print("Person not in tags for ", pathstr, ": ", person)
-                    tags[pathstr].append(append(person))
+                    tags[pathstr].append(person)
             line = page.readline()
 
 for path in tags.keys():
