@@ -51,4 +51,5 @@ for path,tag_list in tags.items():
             print("ERROR: Tag not found in tags.json: ",tag,path)
             if tag not in unnamed_tags:
                 unnamed_tags.append(tag)
-print("Unnamed tags: ",unnamed_tags)
+if unnamed_tags:
+    print("Unnamed tags: ",unnamed_tags)
