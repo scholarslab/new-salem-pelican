@@ -10,6 +10,9 @@ import fileinput
 pathlist = Path("content/swp").glob('*.md')
 
 tags = {}
+with open("tags.json", 'r') as tagfile:
+    tag_directory = json.load(tagfile)
+
 for path in pathlist:
     # because path is object not string
     pathstr = str(path)[7:]
@@ -40,3 +43,12 @@ for path in tags.keys():
         print("   "+", ".join(tags[path]))
         lines[4] = "tags: " + ", ".join(sorted(tags[path]))
         open('content'+path, 'w').write('\n'.join(lines))
+
+unnamed_tags = []
+for path,tag_list in tags.items():
+    for tag in tag_list:
+        if tag not in tag_directory.keys():
+            print("ERROR: Tag not found in tags.json: ",tag,path)
+            if tag not in unnamed_tags:
+                unnamed_tags.append(tag)
+print("Unnamed tags: ",unnamed_tags)
