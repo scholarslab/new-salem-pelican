@@ -1,2 +1,4 @@
 output/
 .DS_Store
+pelican.pid
+srv.pid
