@@ -8,21 +8,21 @@
             {% endif %}
         {% endfor %}
     {% elif articles and CAT_SORT[category]=="DATE" %}
-        {% for a in (articles_page.object_list|sort(attribute='date', reverse = False) if articles_page else articles|sort(attribute='date', reverse = False)) %}
+        {% for a in (articles_page.object_list|selectattr('category', 'equalto', category)|sort(attribute='date', reverse = False) if articles_page else articles|selectattr('category', 'equalto', category)|sort(attribute='date', reverse = False)) %}
             {% if (article and article.category==a.category) or not article %}
                 <li><a href="{{ SITEURL }}/{{ a.url }}">{{ a.title }}</a></li>
             {% endif %}
         {% endfor %}
     {% elif articles and CAT_SORT[category]=="DATEGROUP" %}
         {% if articles %}
-            {% for year, year_articles in articles|groupby('date.year')|sort(reverse=False) %}
+            {% for year, year_articles in articles| selectattr('category', 'equalto', category)| groupby('date.year')|sort(reverse=False) %}
                 {% for month, month_articles in year_articles|groupby('date.month')|sort(reverse=False) %}
                     <dl>
                     <dt><em>{{ month_articles[0].date.strftime('%Y, %B') }}</em></dt>
                     {% for article in (month_articles |sort(attribute='date', reverse = False))%}
-                    <li>
-                        <a href="{{ SITEURL }}/{{ article.url }}" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
-                    </li>
+                        <li>
+                            <a href="{{ SITEURL }}/{{ article.url }}" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+                        </li>
                     {% endfor %}
                     </dl>
                 {% endfor %}
