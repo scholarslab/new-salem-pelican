@@ -1,2 +1,4 @@
 output/
 .DS_Store
+content/search/corpus.json
+content/search/idx.json
