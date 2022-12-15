@@ -3,5 +3,3 @@ output/
 pelican.pid
 srv.pid
 __pycache__/
-content/search/idx.json
-content/search/corpus.json
