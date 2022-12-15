@@ -3,8 +3,12 @@ New Salem running on Pelican
 
 ## Initial Set Up
 
+- Install Python/Pipenv
+- Install Node + [Lunr](https://lunrjs.com/guides/getting_started.html)
+- Install [Git LFS](https://git-lfs.github.com/) and run `git lfs install` after.
 - Clone the repo.
 - In the project directory, initialize the theme submodule: `git submodule init && git submodule update`
+- In the project directory, pull the LFS objects: `git lfs pull`
 - Run `pipenv update` to grab dependencies.
 
 ## Running the Project.
