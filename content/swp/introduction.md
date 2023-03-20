@@ -1,7 +1,7 @@
-title: Introduction
-date: 2019-03-12
-slug: swp-intro
-category: swp
+title: Introduction  
+date: 2019-03-12  
+slug: swp-intro  
+category: swp  
 tags: 
 
 <h2 style="padding-bottom:20px;">Using the Salem Witchcraft Papers</h2>
@@ -16,15 +16,15 @@ Seventeenth century New England courts followed English law. The legal process i
 
 <h2 style="padding-bottom:20px;">Legal Terms Found in these Documents</h2>
 
-- **Billa Vera** - A true bill. An indictment endorsed by a grand jury when they found it upheld by the evidence, requiring a trial on the charge in the indictment.
-- **Cler** - Abbreviation for clerk of the court.
-- **Coram** - In the presence of, before.
-- **Habeas Corpus** - The requirement that a person who is arrested and imprisoned for a crime be given a hearing before a court of law.
-- **Ignoramous** - “We are ignorant.” A trial jury’s finding of not guilty.
-- **Jurat in Curia** - Sworn in court.
-- **Jury of Inquest** - A jury appointed to hear evidence about a case. In the Salem records this term is often used to mean a grand jury.
-- **Mittimus** - A court document sent from one court to another.
-- **Oyer and Terminer** - Literally, “to hear and determine.” This designation was used for a temporary court established to render judgment about a certain crisis or sudden illegal outbreak that required legal action. The term was used for the temporary court set up in Salem to prosecute individuals accused of witchcraft..
+- **Billa Vera** - A true bill. An indictment endorsed by a grand jury when they found it upheld by the evidence, requiring a trial on the charge in the indictment.  
+- **Cler** - Abbreviation for clerk of the court.  
+- **Coram** - In the presence of, before.  
+- **Habeas Corpus** - The requirement that a person who is arrested and imprisoned for a crime be given a hearing before a court of law.  
+- **Ignoramous** - “We are ignorant.” A trial jury’s finding of not guilty.  
+- **Jurat in Curia** - Sworn in court.  
+- **Jury of Inquest** - A jury appointed to hear evidence about a case. In the Salem records this term is often used to mean a grand jury.  
+- **Mittimus** - A court document sent from one court to another.  
+- **Oyer and Terminer** - Literally, “to hear and determine.” This designation was used for a temporary court established to render judgment about a certain crisis or sudden illegal outbreak that required legal action. The term was used for the temporary court set up in Salem to prosecute individuals accused of witchcraft..  
 - *Warrant* - An order written by a court to a public official.
 
 Definitions adapted from Boyer and Nissenbaum,*Salem Witchcraft Papers,* Vol. 1, pp. 41-42.
@@ -37,66 +37,66 @@ In assigning dates to the undated documents I have followed the guidelines provi
 
 These considerations, and following the guidelines created by Rosenthal and Burns, result in four different dating classifications in the Archive’s Salem Court Records:
 
-- No symbol appearing before the date in the brackets indicates that the assigned date is confirmed by the date written within the document.
-- \+ (plus) symbol before the bracketed date indicates that contextual evidence makes this date highly probable.
-- ++ (double plus) symbol before the bracketed date indicates that this date is the best guess.
+- No symbol appearing before the date in the brackets indicates that the assigned date is confirmed by the date written within the document.  
+- \+ (plus) symbol before the bracketed date indicates that contextual evidence makes this date highly probable.  
+- ++ (double plus) symbol before the bracketed date indicates that this date is the best guess.  
 - In rare cases contextual evidence does not indicate any particular date. Such documents are placed together with others concerning the same person wherever seems convenient.
 
 
 <h2 style="padding-bottom:20px;">Modernization</h2>
 
-The typescript of the WPA transcriptions retained the irregular spellings, archaic use of letters, and old abbreviations of the original manuscripts.  Boyer and Nissenbaum modernized the WPA transcriptions in order to make them more accessible to readers unfamiliar with the archaic conventions of seventeenth century writing which can be seen in the original manuscript records. For example:
+The typescript of the WPA transcriptions retained the irregular spellings, archaic use of letters, and old abbreviations of the original manuscripts.  Boyer and Nissenbaum modernized the WPA transcriptions in order to make them more accessible to readers unfamiliar with the archaic conventions of seventeenth century writing which can be seen in the original manuscript records. For example:  
     
 **i=j**
 
-- Jsrael: Israel
-- Jf:If
-- Beniamen: Benjamin
-- jll:ill
-- Iurors: Jurors
+- Jsrael: Israel  
+- Jf:If  
+- Beniamen: Benjamin  
+- jll:ill  
+- Iurors: Jurors  
 - Jf:If
 
 **f=s**
 
-- inftant: instant
-- Maiefts: Majests
-- prifon: prison
-- worfe: worse
+- inftant: instant  
+- Maiefts: Majests  
+- prifon: prison  
+- worfe: worse  
 - laft: last
 
 **y=th**
 
-- ye: the				
-- yr: there, their
-- yn: then, than			
-- ym: them
+- ye: the				  
+- yr: there, their  
+- yn: then, than			  
+- ym: them  
 - yt: that
 
 **u=v**
 
-- vncle: uncle
-- euedence: evidence
-- haue: have
-- vnder: under
-- diuers: divers
-- uillage: village
+- vncle: uncle  
+- euedence: evidence  
+- haue: have  
+- vnder: under  
+- diuers: divers  
+- uillage: village  
 - deuil: devil
 
 **ff=f**
 
-- ffree: free
-- ffoster: foster
-- ffor: for
+- ffree: free  
+- ffoster: foster  
+- ffor: for  
 - france: France
 
 The print edition also dropped superscript letters into alignment with the rest of the text and inserted apostrophes to indicate the contraction. For example:
 
-- Afors<sup>d</sup>: afors’d
-- w<sup>ch</sup>:w’ch [which]
-- w<sup>th</sup>: w’th [with]
-- w<sup>t</sup>: w’t [what]
-- ag<sup>t</sup>: ag’t [against]
-- o<sup>r</sup>: o’r [our]
-- Marg<sup>rt</sup>: Marg’rt [Margaret]
+- Afors<sup>d</sup>: afors’d  
+- w<sup>ch</sup>:w’ch [which]  
+- w<sup>th</sup>: w’th [with]  
+- w<sup>t</sup>: w’t [what]  
+- ag<sup>t</sup>: ag’t [against]  
+- o<sup>r</sup>: o’r [our]  
+- Marg<sup>rt</sup>: Marg’rt [Margaret]  
             
 Apart from these modernizations, the*Salem Wwitchcraft Papers* printed the documents just as they appear in the handwritten manuscripts, and they contain many archaic words and archaic meanings.
