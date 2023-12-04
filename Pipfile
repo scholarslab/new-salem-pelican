@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [requires]
-python_version = "3"
+python_version = "3.11"
 
 [dev-packages]
 
@@ -13,4 +13,4 @@ pelican = "*"
 Markdown = "*"
 markdown = "*"
 lxml = "*"
-bs4 = "*"
+beautifulsoup4 = "*"
