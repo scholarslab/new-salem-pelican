@@ -36,4 +36,3 @@ for file in files:
         appended = "".join([split[0],APPEND,"</head>",split[1]])
     with open(file, 'w') as fout:
         fout.write(appended)
-    print(file)

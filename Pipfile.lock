@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b623a30df8f6fe6f46ec318b000fee0b27d75618250f4ab3909bf3d075e8edbf"
+            "sha256": "a5923ea14ef40b863bff0ca96365339ad7217dd00e8d8f8929d7b4cf91877d57"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.11"
+            "python_version": "3"
         },
         "sources": [
             {
@@ -47,6 +47,14 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==0.20.1"
+        },
+        "exceptiongroup": {
+            "hashes": [
+                "sha256:4bfd3996ac73b41e9b9628b04e079f193850720ea5945fc96a08633c66912f14",
+                "sha256:91f5c769735f051a4290d52edd0858999b57e5876e9f85937691bd4c9fa3ed68"
+            ],
+            "markers": "python_version < '3.11'",
+            "version": "==1.2.0"
         },
         "feedgenerator": {
             "hashes": [
@@ -304,7 +312,7 @@
                 "sha256:5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa",
                 "sha256:6da14c108c4866ee9520bbffa71f6fe3962e193b7da68720583850cd4548e235"
             ],
-            "markers": "python_version >= '3.7'",
+            "markers": "python_full_version >= '3.7.0'",
             "version": "==13.7.0"
         },
         "six": {
