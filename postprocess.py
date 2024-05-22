@@ -1,3 +1,20 @@
+"""
+This is a simple script to postprocess Salem static output.
+Currently, this handles:
+
+1. Matomo tracking script injection into the all html files.
+    This relies on all html/htm extension files being utf-8
+    parsable and having a </head> or </HEAD> tag, as the
+    script is intended to be injected just before that tag.
+
+One parameter is expected and required: the location of the
+output directory where Pelican generated files as well as
+old/static salem files are copied in preparation for local
+server testing or remote publication.
+
+This script is intended mainly to be called by make tasks.
+"""
+
 import os
 import sys
 
