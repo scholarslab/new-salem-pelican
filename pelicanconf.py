@@ -12,7 +12,7 @@ INDEX_SAVE_AS = 'index_swp.html'
 DIRECT_TEMPLATES = ['categories', 'tags']
 
 PATH = 'content'
-STATIC_PATHS = ['search', 'people']
+STATIC_PATHS = ['search']
 PAGE_EXCLUDES = ['search', 'people']
 ARTICLE_EXCLUDES = ['search', 'people']
 
