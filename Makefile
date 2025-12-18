@@ -53,11 +53,13 @@ html:
 	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-salvrec; then cp -v -R $(BASEDIR)/static-salvrec/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-uph1wit; then cp -v -R $(BASEDIR)/static-uph1wit/* $(OUTPUTDIR)/; fi
+	python postprocess.py $(OUTPUTDIR)
 
 html-static:
 	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-salvrec; then cp -v -R $(BASEDIR)/static-salvrec/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-uph1wit; then cp -v -R $(BASEDIR)/static-uph1wit/* $(OUTPUTDIR)/; fi
+	python postprocess.py $(OUTPUTDIR)
 
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
@@ -98,6 +100,7 @@ publish:
 	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-salvrec; then cp -v -R $(BASEDIR)/static-salvrec/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-uph1wit; then cp -v -R $(BASEDIR)/static-uph1wit/* $(OUTPUTDIR)/; fi
+	python postprocess.py $(OUTPUTDIR)
 
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_HOST):$(SSH_TARGET_DIR)

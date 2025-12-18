@@ -51,10 +51,10 @@ for path in pathlist:
                 
                 # regex full date match
                 date_match = re.search(
-                    r'\n\n\[[\+\? ]*\=*\s*\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|July|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\b\s*[\d]{1,2}\s*[\,\.]?\s*\d{4}\.?\s*\]\n\n', doc)
+                    r'\n\s*\n\s*\[[\+\?\* ]*\=*\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|July|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\b\s*[\d]{1,2}\s*[\,\.\:]?\s*\d{4}\.?\s*\][:,]?\s*\n\s*\n', doc)
                 #regex month only match
                 month_match = re.search(
-                    r'\n\n\[[\+\? ]*\=*\s*\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|July|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\b\s*[\,\.]?\s*\d{4}\.?\s*\]\n\n', doc)
+                    r'\n\s*\n\s*\[[\+\?\* ]*\=*\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|July|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\b\s*[\,\.]?\s*\d{4}\.?\s*\][:,]?\s*\n\s*\n', doc)
                 if date_match:
                     count_dates +=1
                     date = re.search(r'[a-zA-Z0-9 ,.]{9,}', date_match.group()).group().strip()
@@ -93,10 +93,10 @@ print("Running index script")
 
 print("\n\n###### SWP documents with suspected wrong formatting #######\n\n")
 for doc in wrong_dates:
-    print(doc + ": "+wrong_dates[doc])
+    print("./content/swp/"+doc + ": "+wrong_dates[doc], "\t\t ./content/swp/"+"".join(doc.split(".")[:-1])+".md")
 print("\n\n###### SWP documents with no canonical date found #######\n\n")
 for doc in no_dates:
-    print(doc)
+    print(doc, "\t\t ./content/swp/"+"".join(doc.split(".")[:-1])+".md")
 print("Documents with dates: "+str(count_dates))
 print("Documents with date errors: "+str(len(wrong_dates)))
 print("Documents without dates: "+str(len(no_dates)))

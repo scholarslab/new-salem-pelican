@@ -14,6 +14,7 @@ New Salem running on Pelican
 ## Running the Project.
 - Open pipenv shell: `pipenv shell`
 - Run the web server: `make devserver`
+- If everything goes right, it should be accessible at [localhost:8000](http://localhost:8000/).
 
 ## Static files and make targets
 The typical Pelican structure is complicated by the large number of legacy static files from the Old Salem site that have not been converted into Pelican markdown content as well as static HTML files that replace or link to these unmanaged static files. In order to limit the pollution of the content directory, these files reside inside a number of discrete subdirectories:
