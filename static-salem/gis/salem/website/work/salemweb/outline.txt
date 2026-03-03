@@ -1,0 +1,51 @@
+1. Historical Geographic Source Materials
+	A.  Upham
+	B.  Perley
+	C.  Andover
+
+Digitizing the Charles Upham Salem 1692 Map
+
+u1. About the Upham Map
+u2. Problems with Upham Source 
+u3. Identifying Data to Record from Upham's Map 
+	A. Test Digitizing
+	B. Research Control Points
+	C. Register Upham Map
+	D. Re-Digitize
+	E. Adjust locations
+	F. Establish Atrribute Database
+
+Au4. Test Digitizing
+Au5. Preliminary Results of the Digitization
+
+Bu6. Overview: Determining Real World Coordinates
+Bu7. Identify existing features
+Bu8. Research locational information
+	Address Matching
+	GNIS Matching 
+	Local Area Input
+Bu9. Overlay and Creation of Control Points
+
+Cu10. Ascertaining Quality and Usefulness of Control Points
+Cu11. Registration of the Upham Map
+Cu12. Results of Registration:  Error and Offset
+
+Du13. Results of Georeference Digitizing
+
+Eu14. Plan to Adjust Locations
+
+Fu15. Creating the Attribute Database
+
+2. Upcoming Work on the Salem Witchcraft GIS Project 
+	B1. Researching controls for Perley
+	B2. Registration
+	B3. Digitization of Selected Features from Pereley
+
+Appendix
+
+Ap1.  About GIS Data
+Ap2.  Sources of Base Geographic Data for Salem
+Ap3.  Details on Map Sources
+Ap3.  Digitizing Features
+Ap4.  Registration of Images
+

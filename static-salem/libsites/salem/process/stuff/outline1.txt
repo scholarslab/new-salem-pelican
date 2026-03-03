@@ -1,0 +1,908 @@
+SALEM process OUTLINE
+
+
+
+Screen 1: Goals and Plans
+
+
+
+[Ben's section: Why are we doing this? Who is funding and why? 
+
+Where does this fit into the rest of the project?]
+
+
+
+Links:  	The Animated First Month (to Chris's animation)
+
+		The Putnam Family in the First Month (To screenshots/discussion of
+
+		Putnams)
+
+		The Description of the Process (the rest of this document). 
+
+
+
+Screen 2: Source Material
+
+
+
+[JPEG of Upham's map]
+
+
+
+Our primary source of geographic information for Salem in 1692 comes
+
+from a map published in 1867 in Charles W. Upham's Salem Witchcraft,
+
+With an Account of Salem Village and a History of Opinions on
+
+Witchcraft and Kindred Spirits.  W.P. Upham, brother to author
+
+Charles, researched and drew the map. In his notes to the volume,
+
+Charles Upham included some details about how land grants were
+
+located and drawn, but is largely silent about how his brother
+
+located the dwellings of the major actors in the Salem narrative:
+
+
+
+<BLOCKQUOTE>
+
+The map, based upon various local maps and the Coast-Survey chart,
+
+is the result of much personal exploration and perambulation on the
+
+ground.  It may claim to be a very exact representation of many of
+
+the original grants and farms.  The locality of these houses, mills,
+
+and bridges, in 1692, is given in some cases precisely, and in all
+
+with near approximation. The task has been a difficult one.  An
+
+original plot of Governor Endicott's Ipswich River grant, No. III.,
+
+is in the State House, and one of the Swinnerton grant, No. XIX., in
+
+the Salem town-books.  Neither of them, however, affords elements by
+
+which to establish its exact location.  A plot of the Townsend Bishop
+
+grant, No. XX., as its boundaries were finally determined, is in the
+
+State House, and another of the same in the court-files of the
+
+county.  This gives one fixed and known point, Hadlock's bridge, from
+
+which, following the lines by points of compass and distances, s
+
+indicated on the plot and described in the Colonial Records, all the
+
+sides of the grant are laid out with accuracy, and its place on the
+
+map determined with absolute certainty. A very perfect and
+
+scientifically executed plan of a part of the boundary between Salem
+
+and Reading in 1666 is in the State House; of which an exact tracing
+
+was kindly furnished by Mr. H.J. Coolidge, of the Secretary of
+
+State's office.  It gives two of the sides of the Governor Bellingham
+
+grant, No. IV., in such a manner  as to afford the means of
+
+projecting it with entire certainty, and fixing its locality.  There
+
+are no other plots of original or early grants or farms on this
+
+territory; but, starting from the Bishop and Bellingham grants thus
+
+laid out in their respective places, by a collation of deeds of
+
+conveyance and partition on record, with the aid of portions of the
+
+primitive stone-walls still remaining, and measurements resting on
+
+permanent objects, the entire region has been reduced to a
+
+demarkation comprehending the whole area.  The locations of then-
+
+existing roads have been obtained from the returns of laying-out
+
+committees, and other evidence in the records and files.  The
+
+construction of the map, in all its details, is the result of the
+
+researches and labors of W. P. Upham.
+
+<P ALIGN="right">
+
+From &quot;Map and Illustrations&quot; in Salem Witchcraft by
+
+Charles W. Upham (1867), xv - xvi.
+
+</P>
+
+</BLOCKQUOTE>
+
+
+
+Screen 3: Problems with Source Material
+
+
+
+Many problems with the source material present themselves:  the map
+
+was drawn nearly 200 years after the period it purports to represent;
+
+we have no details about how it was surveyed, or about how many of
+
+the historical sites were placed; our copy of the map is a reprint
+
+many generations removed from the manuscript, which, even if located
+
+today, would be distorted by age and decay. 
+
+
+
+With such uncertainly in the source material, there is little reason
+
+to place a high degree of faith in the geographic accuracy of the
+
+document, or to believe that we could produce a highly accurate
+
+overlay of Upham's drawing over contemporary real-world Salem. 
+
+Precise positional detail about the location of most of the sites
+
+depicted by Upham is impossible to achieve.  
+
+
+
+Nonetheless, W.P. Upham's map represents one of the best starting
+
+points (indeed the only starting point we have) to make educated
+
+guesses about the spatial organization of Salem Village and its
+
+environs in 1692.   Several sites important to the drama still exist,
+
+and most of these are pinpointed on Upham's map.  We decided to
+
+pursue the project of digitizing Upham's map, using GIS software, and
+
+accepting the factor of the unknown that is necessarily attached to
+
+it. 
+
+
+
+By digitizing the map and creating an Hisotrical Salem GIS, we hope
+
+to accomplish several things: 
+
+	<UL>
+
+      <LI>Provide a visual interface to other documentation in the
+
+project.
+
+      <LI>Provide a visual account of the spread of accusations and
+
+their 	retrenchment.
+
+	<LI>Begin a set of base historical data from which to grow. 
+
+      <LI>Encourage other cultural historians to make use of
+
+geographic analysis 	and representations to study the past. 
+
+	</UL>
+
+In time more accurate placement of some of these sites may be
+
+possible.  We hope that our work will provide a place to begin. 
+
+
+
+Screen 4: About GIS Data
+
+
+
+GIS software was first developed by the Candian government in the
+
+1960s to inventory the vast land holdings across that nation.  They
+
+needed a highly accurate way of automating information tied to
+
+geography.  In recent years, GIS has grown rapidly and tremendously. 
+
+It's major users are still those who manage or survey physical
+
+features and infrastructures:  engineers, scientists, governments,
+
+facilities coordinators.   GIS allows these users to visually
+
+organize and spatially query vast amounts of data to answer questions
+
+more rapidly and readily.  Only recently have historians and social
+
+scientists begun to explor the power of GIS to study demography and
+
+temporal change in the physical world. 
+
+
+
+Why use GIS software, which is designed to create highly accurate
+
+models of the geographic world, to model a printed map of doubtful
+
+accuracy?  Because GIS software provides us with a way to visualize
+
+data stored in a relational database system.  
+
+
+
+GIS data typically represents the world through a combination of
+
+vector graphics and tabular data, stored as a series of layers.  Each
+
+layer represents only one type of feature, but may store many
+
+instances of that feature, each of which is represented by a record
+
+in a "feature attribute table."  Features can be represented as
+
+points, for discrete features, lines, for linear features, or
+
+polygons for areal features. 
+
+
+
+For example, if you were to model the road network in your hometown,
+
+you would probably include a layer that represented the streets. 
+
+Each line in the layer would correspond to a street, and each line
+
+would have information about it--like the name of the street it
+
+represents, the addresses on that street--in the associated feature
+
+attribute table.  If you wanted to show where the stoplights in town
+
+were, you might use points to represent this information:  each point
+
+would overlay on top of the street layer, and should probably
+
+correspond to the street intersections. As with the street layer, the
+
+intersection layer would have associated information--perhaps each
+
+record would include not only the cross streets, but also the last
+
+time the lights were replaced at that stoplight.  
+
+
+
+The process of creating such GIS data layers from a printed source
+
+is called "digitization."  Essentially, this inloves tracing the
+
+points, lines and polygons of a map using the GIS software.  To do
+
+this, one needs a set of known control points, or "tics" which would
+
+be digitized and used to anchor the rest of the digitizing.  Without
+
+tics, it is difficult to impossible to assign real world lattitude
+
+and longitude values to the data.  
+
+
+
+Once digitized, the GIS layer, or "coverage" can be associated with
+
+sets of data recorded in other ways.
+
+
+
+Screen 5:  Step 1:  Determine data to record off of Upham's map.
+
+
+
+We decided to procede with digitization on two fronts:
+
+
+
+1.  For demonstration and experimentation purposes, immediately
+
+digitize the points of Upham's map. 
+
+
+
+2.  Simultaneously research information about existing sites
+
+depicted on Upham's map, so that the data created from this map could
+
+be matched to other contemporary data about Salem and Essex County,
+
+Massachusettes.  
+
+
+
+This process is slightly backward from what might usually be done: 
+
+that is, we might normally have first researched existing sites to
+
+obtain a series of known "control points" that could be used to
+
+anchor the Upham map as we digitized.  However, we recognized that
+
+this would take time and effort, and we felt that it would be useful
+
+to have a point coverage of Salem available to experiment with, even
+
+if it were not "geographically aware," or referenced to a real-world
+
+coordinate system.  Later, after ascertaining control points we could
+
+reassign coordinate systems to the data and "transform" it.  This
+
+process is not without the potential for error.   However, even if it
+
+were to produce completely unacceptable results, digitizing Upham's
+
+map a second time would not be time consuming. 
+
+
+
+The basic data, without true geographic coordinates, will be output
+
+to postscript files for use with Macromedia's Generator.  This
+
+software enables us to produce animations of the first month of
+
+Salem, showing where, when, and how quickly the accusations spread
+
+thorughout the village, and tie these animations to a queryable
+
+database.  The early results of these experiments with animated
+
+databases are <A
+
+HREF="http://jefferson.village.virginia.edu/~cj8n/salem/salem.swf">ava
+
+ilable for viewing</A>.
+
+
+
+We decided to scan the map at a high resolution and digitize the
+
+data from the image.  Digitizing from paper sources is potentially
+
+more time-consuming and more prone to error because of human fatigue.
+
+
+
+Screen 6: Step 2:  Locate TICS 
+
+
+
+Once the map was scanned, we began by developing a set of temporary
+
+tics to anchor future work on the non-referenced data.  We chose
+
+these tics based on their visibility on the map.  When precise points
+
+were identified, they would be matched to existing points on Upham's
+
+map.
+
+
+
+[overlay of tics on map]
+
+
+
+Screen 7:  Digitizing Points
+
+
+
+Once the tics were digitized, we proceded to trace the points, one-
+
+by-one.  Upham used a mix of arabic numerals, alphabetical
+
+chararcters, and other glyphs to represent the dwellings and
+
+landmarks on his map.  To track these point features and link them to
+
+other information in our developing database, we assigned our own
+
+internal key number to each point:  we followed Upham's numeric
+
+system at first, then continued sequentially through the non-
+
+alphabetical characters, then the alphabetical characters.  This
+
+process produced 182 points. 
+
+
+
+Digitization of Points [screenshot of edit session] 
+
+
+
+Screen 8:  Digitizing Other Features
+
+
+
+We also digitized major roads, streams and the boundary of Salem
+
+Village.  These features were less important for the data they convey
+
+than the visual reference they provide.
+
+
+
+Digitization of grants and such [screenshot of edit session]
+
+	Emphasize the lesser importance o this. 
+
+
+
+Screen 9:   Creating the geographic database [table]
+
+
+
+While digitizing the map continued, we recorded Upham's own key to
+
+his map in an Access database, and linked it with information from
+
+David C. Brown, A Guide to the Salem Witchcraft Hysteria of 1692
+
+(1997), and the Geographic Names Information System, published by the
+
+U.S. Geological Survey.   This database provides the core data to
+
+help us track the sites depicted on Upham's map, and match them to
+
+contemporary locational data, such as addresses or geographic
+
+coordinates. 
+
+
+
+Screen 10: Overview:  Determining Real World Coordinates
+
+
+
+The "quick and dirty" digitizing allowed us to experiment with
+
+constructing some simple demonstrations and tests to determine the
+
+usefulness and feasibility of various types of display. 
+
+
+
+While this proceded, we began to research information about those
+
+sites known still to exist.  The plan for locating control points,
+
+matching them to Upham's map and transforming the data to match real
+
+world data was as follows: 
+
+
+
+1.  Obtain base geographic data for area.
+
+2.  Identify those sites on Upham's map which still exist. 
+
+3.  Research locational information on those sites.
+
+4.  Obtain locational data and convert to GIS data formats. 
+
+5.  Overlay with base data. 
+
+6.  Modify locational data as necessary to create control points. 
+
+7.  Match existing data to control points and transform data. 
+
+
+
+Screen 11: Sources of Base Data
+
+
+
+To obtain accurate geographic coordinates for existing sites, we
+
+obtained a wealth of base data from the Massahusettes Geographic
+
+Information System (MassGIS) data clearinghouse
+
+(http://www.magnet.state.ma.us/mgis/).  MassGIS offers free aerial
+
+photography and digital map products through their data archive,
+
+which we obtained for local use.  These included:
+
+
+
+     1-Meter Resolution Digital Orthophoto Quadrangles
+
+     [sample image]
+
+
+
+     1:25000 scale USGS Digital Quadrangles
+
+	Based upon the Salem, Massachusettes 1:25000 map (Map ?)
+
+     [sample image]
+
+
+
+The U.S. Geological Survey's Geographic Names Information System is
+
+the official record of United States place names for the federal
+
+government, including cultural and physical features, as well as
+
+geographic coordinates for these features
+
+(http://mapping.usgs.gov/gnis).  A CD-ROM version, on deposit at the
+
+Geostat Center in the University of Virginia Library, was used to
+
+extract our data. 
+
+
+
+	[shot of GNIS]
+
+
+
+The U.S. Census Bureau's TIGER/Line database is the source for most
+
+of the commerical and non-commercial political and street data
+
+nationwide.  This data is deposited with the Geostat Center in the
+
+University of Virginia, which processed the data for Essex County,
+
+Massachusettes to produce a coverage of roads.  This road data would
+
+be used to address match the existing known sites. 
+
+
+
+	[shot of Essex County street layer]
+
+
+
+Screen 11:  Address Matching
+
+
+
+The process of address geocoding, or address matching, involves
+
+comparing a precise postal address (123 Main Street) with a database
+
+of streets that contains address ranges for that street (100-199 Main
+
+Street).   GIS software products take the known address, compare it
+
+to the attribute data for street layers, and interpoloates a point on
+
+the line approximating its location.  In this example, the address of
+
+123 Main street would be placed closer to the beginning of the street
+
+with a range of 100-199, rather than to the end.  An address of 149
+
+would be placed almost exactly in a the middle. 
+
+
+
+Furthermore, the Census Bureau's TIGER database is not known for
+
+it's positional accuracy.  The Bureau claims no more than 167 feet
+
+accuracy.  
+
+
+
+Thus address matching is not an exact process.  For a project such
+
+as this, it helps us to get "in the neighborhood" of the exact point.
+
+However, further examination of these points, in relation to other
+
+data such as aerial photography, is necessary to establish control
+
+points for the Upham Map.   
+
+
+
+The following table shows the sites and addresses that were matched. 
+
+
+
+[table]
+
+
+
+The address matching process resulted in this point coverage: 
+
+
+
+[screen shot]
+
+
+
+Screen 12:  GNIS matching
+
+
+
+The GNIS system provides access to coordinates of 2 million cultural
+
+and physical features in the United States.  It is not a perfect
+
+resource and, as with address matching, it provides only the starting
+
+point to locating more precise data through aerial photographs. 
+
+
+
+Users can search the GNIS database by the name of the feature, and
+
+limit the search by geographic location.  Thus we could search for
+
+"Cedar Lake" and limit returns only to those features named "Cedar
+
+Lake" that are located within Essex County, Massachusettes.  The
+
+search returns include geographic coordinates that can be converted
+
+to points in the GIS system.  
+
+
+
+After comparing Upham's Map with contemporary maps from the US
+
+Geological Survey, we identified these 9 features that appeared on
+
+both sources:
+
+
+
+[table]
+
+
+
+The returns from the search for these features resulted in the
+
+following coverage: 
+
+
+
+[screen shot]  
+
+
+
+Identification of Existing Upahm Geographic Points
+
+	GNIS search [screen shot of GNIS]
+
+
+
+Screen 13:  Overlay and creation of controls
+
+
+
+At this point, we are ready to begin the process of identifying
+
+control points using the GNIS, address matching, and aerial
+
+photography data.  These three data sources were brought together as
+
+background information in an ArcInfo editing session.  Using
+
+supplementary information from Brown's Guide and from Ben Ray's
+
+recent visits to Salem, we were able to identify with confidence
+
+those features on the aerial photographs which exactly represented
+
+the features approximated in the GNIS data and through address
+
+matching.
+
+
+
+[Screen shot of overlay--show all layers and distinguish between the
+
+approximate and real points].
+
+
+
+Control points:  Overlay of Addmatch and GNIS [one screen shot]
+
+
+
+Screen 14:  "Ground Truth" and Input from Massachusettes Historical
+
+Society
+
+
+
+At this point we have a set of control points to match to the Upham
+
+Map:
+
+
+
+[screen shot of the control1 coverage]
+
+
+
+Before transforming the data, we have sought further help from Tom
+
+O'leary in the GIS & Mapping Office of the Essex Registry of Deeds. 
+
+O'leary had provided us with sample coordinates for a few points at
+
+the beginning stage of our research for control points.  He
+
+identified the Putnam Family Cemtary for us, which, because of it's
+
+obscure location, would have been impossible for we who are not
+
+familiar with the area.  Brown explains that the cemetary is "located
+
+off a small asphalt path which begins at the entrance road to the
+
+Massachusettes Department of Public Works on Route 62, just west of
+
+its intersection with Route 1"  (Brown, 103).  On the aerials, the
+
+site looks like this: 
+
+
+
+[screen shot of aerial and Putnam cemetary]
+
+
+
+It would have been difficult for us, located in Charlottesville,
+
+Virginia, to obtain these coordinates without having a partner in
+
+Essex who could ascertain "ground truth."
+
+
+
+Because of his facilty and willingness to help, we again engaged Tom
+
+O'leary to provide us with coordinates for the sites in the address
+
+matched and GNIS point coverages.  This is duplicating efforts, but
+
+it is not wasting them:  with O'leary's help, we will be able to
+
+double-check the location of points that we had previously eyeballed.
+
+We are confident that this will help us maintain a higher degree of
+
+locational accuracy for those existing sites than would otherwise be
+
+possible. 
+
+
+
+The expertise of local officials has also proven valuable in
+
+correcting some errors on Upham's map.  For example, with the help of
+
+Michael Trask and other souces, we have identified the following
+
+corrections that shoule be made to Upham's index to his map:
+
+
+
+[table of changes]
+
+
+
+Screen 15:  Upcoming Work on the Salem GIS Project
+
+
+
+There are several more aspects to this project on the immediate
+
+horizon:
+
+
+
+Transformation and Projection of GIS Data
+
+
+
+Once our control points have been matched with the data provided by
+
+O'leary, we anticipate being able to move quickly to transform the
+
+data and register the Upham Map to these contemporary points.  At
+
+that point, we will be able to overalay all of Upham's points on top
+
+of data, including aerial photography.  We anticipate sharing this
+
+data with interested parties in Salem, and perhaps encouraging some
+
+further archeology--real or virtual--of the village. 
+
+
+
+Building the database of Salem
+
+
+
+Over the course of the coming year Ben Ray will be working with
+
+staff at the Institute for Advanced Technology in the Humanities to
+
+develop the database that will be matched with this geographic data. 
+
+This database will allow us to study the demography, kinship
+
+patterns, and temporal patterns in the drama in Salem. Because data
+
+will be recorded at the level of the person, and our GIS data is
+
+based on geographic features, there will be a one-to-many
+
+relationship between the geographic data and this
+
+demographic/temporal database. 
+
+
+
+Building related GIS layers:  other historic sites (Brown)
+
+
+
+We anticipate creating related layers of contemporary data based on
+
+Brown and other sources, and working with Michael Trask at XXXXXX to
+
+pinpoint other historic features not already visible on Upham's map.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

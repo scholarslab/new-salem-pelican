@@ -1,0 +1,36 @@
+BODY {
+	COLOR: #333366; FONT-SIZE: 10pt; p: Georgia, "Times New Roman", Times, serif
+}
+TD {
+	COLOR: #333366; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; FONT-SIZE: 10pt
+}
+BLOCKQUOTE {
+	COLOR: #333366; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; FONT-SIZE: 9pt
+}
+H4 {
+	COLOR: #333366; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; FONT-SIZE: 10pt; FONT-WEIGHT: bold
+}
+H3 {
+	COLOR: #333366; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; FONT-SIZE: 12pt; FONT-WEIGHT: bold
+}
+H2 {
+	COLOR: #333366; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; FONT-SIZE: 14pt; FONT-WEIGHT: bold
+}
+H1 {
+	COLOR: #333366; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; FONT-SIZE: 16pt; FONT-WEIGHT: bold
+}
+OL {
+	COLOR: #333366; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; FONT-SIZE: 10pt
+}
+UL {
+	COLOR: #333366; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; FONT-SIZE: 10pt
+}
+.navlink {
+	COLOR: #333366; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; FONT-SIZE: 9pt
+}
+.copyright {
+	COLOR: #333366; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; FONT-SIZE: 8pt
+}
+.captions {
+	COLOR: #333366; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; FONT-SIZE: 9pt
+}

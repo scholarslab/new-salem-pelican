@@ -1,0 +1,271 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content=
+"HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.3.6), see www.w3.org" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=us-ascii" />
+<link rel="stylesheet" href="salemstyle1.css" type="text/css" />
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+function MM_openBrWindow(theURL,winName,features) { //v1.0
+  window.open(theURL,winName,features);
+}
+//]]>
+</script>
+<title>Building the Salem Witchcraft GIS: 11. Sources of Base
+Geographic Data for Salem</title>
+</head>
+<body bgcolor="#FFFFFF" link="#006666" vlink="#808080">
+<table border="0" width="600" cellspacing="3" cellpadding="3">
+<tr>
+<td align="left" valign="top">
+<h1>Building the Salem Witchcraft GIS</h1>
+<p class="navlink"><a href="proc11.html" target="">Previous
+Screen</a> | <a href="proc13.html" target="">Next Screen</a> |
+<a href="../index.html" target="">Return to Start</a><br /></p>
+<hr noshade="noshade" /></td>
+</tr>
+<tr>
+<td align="left" valign="top">
+<h4>12. Address Matching</h4>
+<p>The process of address geocoding, or address matching, involves
+comparing a precise postal address (123 Main Street) with a
+database of streets that contains address ranges for that street
+(100-199 Main Street). GIS software products take the known
+address, compare it to the attribute data for street layers, and
+interpolates a point on the line approximating its location. In
+this example, the address of 123 Main street would be placed closer
+to the beginning of the street with a range of 100-199, rather than
+to the end. An address of 149 would be placed almost exactly in a
+the middle.</p>
+<p>Furthermore, the Census Bureau's TIGER database is not known for
+it's positional accuracy. The Bureau claims no more than 167 feet
+accuracy.</p>
+<p>Thus address matching is not an exact process. For a project
+such as this, it helps us to get "in the neighborhood" of the exact
+point. However, further examination of these points, in relation to
+other data such as aerial photography, is necessary to establish
+control points for the Upham Map.</p>
+<p>The following table shows the sites and addresses that were
+matched:</p>
+<table border="1" bgcolor="#FFFFFF" cellspacing="0">
+<caption><b><font face="Georgia, Times New Roman, Times, serif"
+class="captions">Existing Sites Depicted on Upham
+Map</font></b></caption>
+<thead>
+<tr>
+<th bgcolor="#C0C0C0" bordercolor="#000000"><font face="Verdana"
+color="#000000"><font size="1" face="Verdana" color=
+"#000000">address</font></font></th>
+<th bgcolor="#C0C0C0" bordercolor="#000000"><font size="1" face=
+"Verdana" color="#000000">city</font></th>
+<th bgcolor="#C0C0C0" bordercolor="#000000"><font size="1" face=
+"Verdana" color="#000000">zip</font></th>
+<th bgcolor="#C0C0C0" bordercolor="#000000"><font size="1" face=
+"Verdana" color="#000000">name</font></th>
+<th bgcolor="#C0C0C0" bordercolor="#000000"><font size="1" face=
+"Verdana" color="#000000">upham no</font></th>
+</tr>
+</thead>
+<tbody>
+<tr valign="top">
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">149 Pine</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Danvers</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">01923</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Rebecca Nurse House</font></td>
+<td bordercolor="#C0C0C0" align="right"><font size="1" face=
+"Verdana" color="#000000">95</font></td>
+</tr>
+<tr valign="top">
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">171 Holten</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Danvers</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">01923</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Sarah Holten House</font></td>
+<td bordercolor="#C0C0C0" align="right"><font size="1" face=
+"Verdana" color="#000000">93</font></td>
+</tr>
+<tr valign="top">
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">19 Elerton</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Danvers</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">01923</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Daniel Rea House</font></td>
+<td bordercolor="#C0C0C0" align="right"><font size="1" face=
+"Verdana" color="#000000">48</font></td>
+</tr>
+<tr valign="top">
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">199 Hobart</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Danvers</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">01923</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Nathaniel Ingersoll's Ordinary</font></td>
+<td bordercolor="#C0C0C0" align="right"><font size="1" face=
+"Verdana" color="#000000">148</font></td>
+</tr>
+<tr valign="top">
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">238 Conant</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Danvers</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">01923</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Bridget Bishop (Edward Bishop)House</font></td>
+<td bordercolor="#C0C0C0" align="right"><font size="1" face=
+"Verdana" color="#000000">68</font></td>
+</tr>
+<tr valign="top">
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">67 Centre</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Danvers</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">01923</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Parsonage</font></td>
+<td bordercolor="#C0C0C0" align="right"><font size="1" face=
+"Verdana" color="#000000">149</font></td>
+</tr>
+<tr valign="top">
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Essex &amp; North</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Salem</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">01970</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Jonathan Corwin House</font></td>
+<td bordercolor="#C0C0C0" align="right"><font size="1" face=
+"Verdana" color="#000000">151</font></td>
+</tr>
+<tr valign="top">
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Essex &amp; Washington</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Salem</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">01970</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Meetinghouse of the first church of Salem</font></td>
+<td bordercolor="#C0C0C0" align="right"><font size="1" face=
+"Verdana" color="#000000">160</font></td>
+</tr>
+<tr valign="top">
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Forest &amp; Hobart</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Danvers</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">01923</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Salem Village Meetinghouse (1692)</font></td>
+<td bordercolor="#C0C0C0" align="right"><font size="1" face=
+"Verdana" color="#000000">173</font></td>
+</tr>
+<tr valign="top">
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Hale &amp; Dane</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Beverly</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">01915</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">John Hale House</font></td>
+<td bordercolor="#C0C0C0" align="right"><font size="1" face=
+"Verdana" color="#000000">107</font></td>
+</tr>
+<tr valign="top">
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Hanson &amp; South</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Salem</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">01970</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Gallow's Hill</font></td>
+<td bordercolor="#C0C0C0" align="right"><font size="1" face=
+"Verdana" color="#000000">172</font></td>
+</tr>
+<tr valign="top">
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Hobart &amp; Centre</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Danvers</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">01923</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">First Church</font></td>
+<td bordercolor="#C0C0C0" align="right"><font size="1" face=
+"Verdana" color="#000000">174</font></td>
+</tr>
+<tr valign="top">
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Rt 1 &amp; Rt 62</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Danvers</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">01923</font></td>
+<td bordercolor="#C0C0C0"><font size="1" face="Verdana" color=
+"#000000">Joseph Putnam House</font></td>
+<td bordercolor="#C0C0C0" align="right"><font size="1" face=
+"Verdana" color="#000000">32</font></td>
+</tr>
+</tbody>
+</table>
+<p>The address matching process resulted in this point
+coverage:</p>
+<p>&nbsp;</p>
+<p><img src="images/proc12a.gif" width="512" height="530" /></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">
+<hr noshade="noshade" />
+<p class="navlink"><a href="proc11.html" target="">Previous
+Screen</a> | <a href="proc13.html" target="">Next Screen</a> |
+<a href="../index.html" target="">Return to Start</a></p>
+<p class="navlink"><span class="navlink"><a href=
+"http://etext.virginia.edu/salem/witchcraft/texts/">Salem
+Witchcraft Papers</a> | <a href=
+"http://jefferson.village.virginia.edu/%7Ebcr/salem/salem.html">March
+1692 Animated</a> | The Putnam Family</span></p>
+<p class="navlink"><a href=
+"http://fisher.lib.virginia.edu">Geostat</a> | <a href=
+"www.iath.virginia.edu">IATH</a> | <a href=
+"http://www.ias.berkeley.edu/ecai/">ECAI</a> | <a href=
+"http://www.lib.virginia.edu" target="">U of Virginia
+Library</a>|<a href="http://www.virginia.edu">U of Virginia</a></p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">
+<p class="copyright">LAST MODIFIED:
+<!--#config timefmt="%A, %B %d, %Y"-->
+<!--#echo var="LAST_MODIFIED" --><br />
+MAINTAINED BY: <a href=
+"mailto:geostat@virginia.edu">geostat@virginia.edu</a></p>
+<p class="copyright">&#169; Copyright 1999 The Rector and Visitors
+of the University of Virginia<br />
+ArcInfo is a trademark of the <a href="http://www.esri.com">ESRI
+Corporation;</a> Access is a trademark of <a href=
+"http://www.microsoft.com">Microsoft Corporation</a></p>
+</td>
+</tr>
+</table>
+</body>
+</html>

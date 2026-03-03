@@ -1,0 +1,89 @@
+define-macro kill-line ^[xbeginning-of-line^M^[xset-mark^M^[xnext-line^M^[xkill-region^M^[xpop-mark^M
+define-macro keychart ^[xpushlibd^M^U^[xshell-command-with-typeout cat keychart.$TERM^M^[xpopd^M
+define-macro newline-and-beginning ^A^N
+define-macro smacros ^[xwrite-macros-to-file macros^M
+define-macro print ^Qlpr  -P etext_l1 ^[i^X1
+define-macro quit ^X^C
+define-macro cs3 ^S, [0-9][0-9][0-9]^M^@^[OD^[OD^[OD^W^Y^[r,^M^[OC^[OC<a href="../images/essex^Y.html">^[OC^[OC^[OC^[OC</a>^M
+define-macro cs2 ^S, [0-9][0-9]^M^@^[OD^[OD^W^Y^[OD^[OD<a href="../images/essex0^Y.html">^[OC^[OC</a>
+define-macro cs1 ^S, [0-9]^M^@^[OD^W^Y^[OD<a href="../images/essex00^Y.htmll^H">^[OC</a>
+define-macro b3 ^S\^[0-9][0-9][0-9]^M^@^[OD^[OD^[OD^W^Y^[OD^[OD^[OD<a href="../images/essex^Y.html">^[OC^[OC^[OC</a>
+define-macro b2 ^S\^[0-9][0-9]^M^@^[OD^[OD^W^Y^[OD^[OD<a href="..i^H/images/essex0^Y.html">^[OC^[OC</a>
+define-macro b1 ^S\^[0-9]^M^@^[OD^W^Y^[OD<a href="../images/essex00^Y.html">^[OC</a>
+define-macro h3 ^S-[0-9][0-9][0-9]^M^@^[OD^[OD^[OD^W^Y^[OD^[OD^[OD<a href="../images/essex^Y.html">^[OC^[OC^[OC</a>
+define-macro h2 ^S-[0-9][0-9]^M^@^[OD^[OD^W^Y^[OD^[OD<a href="../images/essex0^Y.html">^[OC^[OC</a>
+define-macro h1 ^S-[0-9]^M^@^[OD^W^Y^[OD<a href="../images/essex00^Y.html">^[OC</a>
+define-macro bh </h^Hbody>^M</html>
+define-macro hdr <HTML>^M<HEAD>^M<TITLE>Records and Files of the Quarterly Courts of Essex County,^MVolume III.^MIndex: A^M</TITLE>^M</HEAD>^M<BODY BGCOLOR="#FFFFF2">^M<center>^M<h3>Records and Files</h3>^M<h5>of the</h5>^M<h3>Quarterly Courts of Essex County Massachusetts,<br>^MVolume III<br><br>^MGENERAL INDEX:^M<br><font color ="green"> A</h3></font><br>^M</center>^M
+define-macro i ^S<p>{^H[A-Z]^M^[OD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+define-macro </p> ^S</p><p>^M^[OD^[OD^[OD^M
+define-macro E ^SEng^M^[r</^M^D^D^D^D^D^D^D^S\\.^M^[OD</font>
+define-macro ga ^S^AA^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro g1a ^SA[a-z]*\\.</p>^M^[r\\.^M</font>
+define-macro g2a ^S<p>A^M^[OD<font size ="+1" color="green">
+define-macro gb ^SB^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro g1b ^X(^S^BB[a-z]*\\.</p>^M^[r\\.^M</font>
+define-macro g2b ^S,p>^H^H^H<p>^B^[OCB^M^[OD<font size ="+1" color="green">
+define-macro gc ^SC^M^[OD<font size ="+1" color="green">^S,^M^[OD^[OD^[OC</font>
+define-macro g1c ^SC[a-z]*\\.</p>^M^[r\\.^M</font>
+define-macro g2c ^S,p^H^H<p>C^M^[OD<font size ="+1" color="green">^X(
+define-macro gd ^SS^HD^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro g1d ^SD[a-z]*\\.</p>^M^[r\\.^M</font>
+define-macro g2d ^S<p>D^M^[OD<font size ="+1" color="green">
+define-macro ge ^SE^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro gf ^SF^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro g1f ^SF[a-z]*\\.</p>^M^[r\\.^M</font>
+define-macro g2f ^SF[a-z]*\\.</p>^M^[r\\.^M</font>
+define-macro gg ^SG^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro g1g ^SG[a-z}^H]*\\.</p>^M^[r\\.^M</font>
+define-macro g2g ^S<p>G^M^[OD<font size ="+1" color="green">
+define-macro gh ^SH^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>^X^S
+define-macro g1h ^SH[a-z]*\\.</p>^M^[OD^[OD^[OD^[OD^[OD</font>
+define-macro g2h ^S<p>H^M^[OD<font size ="+1" color="green">
+define-macro gi ^SI^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro gj ^X(^SJ^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro gk ^SK^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro gl ^SK^HL^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro gm ^SM^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro g1m ^SM[a-z]*\\.</p>^M^[r\\.^M</font>
+define-macro g2m ^S<p>M^M^[OD<font size ="+1" color="green">
+define-macro gn ^SN^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro go ^SO^M^[OD<font size ="+1" color="green">^S,^M^[OD>^H>^H</font>
+define-macro gp ^SP^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro g1p S^H^SP[a-z]*\\.</p>^M^[r\\.^M</font>
+define-macro g2p ^S<p>P^M^[OD<font size ="+1" color="green">
+define-macro gq ^SQ^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro gr ^SR^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro g1r ^SR[a-z]*\\.^M^[OD</font>
+define-macro g2r ^S<p>R^M^[OD<font size ="+1" color="green">
+define-macro gs ^S^SS^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro g1s ^SS[a-z]*\\.</p>^M^[r\\.^M</font>
+define-macro g2s ^S<p>^SS^M^[OD<font size ="+1" color="green">
+define-macro gt ^ST^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro g1t ^ST[a-z]*\\.</p>^M^[r\\.^M</font>
+define-macro g2t ^S<p>T^M^[OD<font size ="+1" color="green">
+define-macro gu ^SU^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro gv s^H^SV^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro gw ^SW^M^[OD<font size ="+1" color="green"^S,^M^[OD</font>
+define-macro g1w ^SW[a-z]*\\.</p>^M^[r\\.^M</font>
+define-macro g2w ^S<p>W^M^[OD<font size ="+1" color="green"
+define-macro gy ^SY^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro hyph ^S[a-z]-$^M^H^[OC^H
+define-macro orig ^S<org^Hig reg^M^[r<o^M^@^S>^M^W
+define-macro mile ^S<milestone^H^H^H^H^H^M^[r<^M^@^S/>^M^W^[OC^H
+define-macro /lb ^S<lb/>^M^H^H^H^H^H^[OC^H 
+define-macro /orig ^S</orig>^M^H^H^H^H^H^H^H
+define-macro hysp ^S- ^M^H^H
+define-macro cs ^S,<a^M^[OD^[OD 
+define-macro cs3x, ^S[0-9][0-9][0-9],</a>^M^[OD^[OD^[OD^[OD^H^[OC^[OC^[OC^[OC,
+define-macro s3 ^S [0-9][0-9][0-9]^M^@^[OD^[OD^[OD^W^Y</a>^[OD^[OD^[OD^[OD^[OD^[OD^[OD^[OD<a href="../images/essex^Y.html">^[OC^H
+define-macro Sam ^SSamuel^H^H^H^H^H^H"green"S^H>Samuel^MDD^H^H^D^D^D^D^D^D^D^[OD^[OD^[OD^[OD^[OD^[OD^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+define-macro Sarah ^SSar^H^H^H"green">Sarah^M^D^D^D^D^D^D^D^[OD^[OD^[OD^[OD^[OD^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+define-macro ^1 ^S\^\\.</p>^M^[OD^[OD^[OD^[OD^[OD^H
+define-macro ^2 ^S\^, <a href^M^[OD^[OD^[OD^[OD^[OD^[OD^[OD^[OD^[OD^H
+define-macro ^, ^S\^, <a href^M^[OD^[OD^[OD^[OD^[OD^[OD^[OD^[OD^[OD^H
+define-macro ^. ^S\^\\.</p>^M^[OD^[OD^[OD^[OD^[OD^H
+define-macro gh1 ^SH[a-z}^H]*\\.</p>^M^[OD^[OD^[OD^[OD^[OD</font>
+define-macro gh2 ^S<p>H^M^[OD<font size ="+1" color= "green">
+define-macro negro ^Snegro^M^[OC^[OC^[OC^[OC^[OC^[OC^[OC^[OC^H^H^H^H^H^H^H^[OD^[OD^[OD^[OD^[OD^[OD^[OD^[OD</font>
+define-macro g1l ^SL[a-z]*\\.</p>^M^[OD^[OD^[OD^[OD^[OD</font<^H>

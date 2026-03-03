@@ -1,0 +1,16 @@
+1. Historical Geographic Source Materials
+2. Problems with Source Material
+3. About GIS Data
+4. Identifying Data to Record from Upham's Map 
+5. Locate Temporary TICS on Upham's Map
+6. Digitizing Points
+7. Digitizing Other Features
+8. Preliminary Results of the Digitization
+9. Creating the Attribute Database
+10. Overview: Determining Real World Coordinates
+11. Sources of Base Geographic Data for Salem
+12. Address Matching
+13. GNIS Matching 
+14. Overlay and Creation of Control Points
+15. Final Checks: Local Area Input
+16. Upcoming Work on the Salem Witchcraft GIS Project 

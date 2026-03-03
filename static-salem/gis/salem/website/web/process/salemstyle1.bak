@@ -1,0 +1,16 @@
+<!--
+body { color: #FFFFF0; 
+p {  font-family: Georgia, Palatino, "Times New Roman", Times, serif; font-size: 10pt; color: #333366}
+td {  font-family: Georgia, Palatino, "Times New Roman", Times, serif; font-size: 10pt; color: #333366}
+blockquote {  font-family: Georgia, Palatino, "Times New Roman", Times, serif; font-size:9pt; color: #333366}
+h4 { font-family: Georgia, Palatino, "Times New Roman", Times, serif;font-size: 10pt ; font-weight: bold; color: #333366}
+h3 { font-family: Georgia, Palatino, "Times New Roman", Times, serif;font-size: 12pt ; font-weight: bold; color: #333366}
+h2 { font-family: Georgia, Palatino, "Times New Roman", Times, serif;font-size: 14pt ; font-weight: bold; color: #333366}
+h1 { font-family: Georgia, Palatino, "Times New Roman", Times, serif;font-size: 16pt ; font-weight: bold; color: #333366}
+ol { font-family: Georgia, Palatino, "Times New Roman", Times, serif; font-size: 10pt ; color: #333366}
+ul { font-family: Georgia, Palatino, "Times New Roman", Times, serif; font-size: 10pt ; color: #333366}
+.navlink {  font-family: Georgia, Palatino, "Times New Roman", Times, serif; font-size:9pt; color: #333366}
+.copyright { font-family: Georgia, Palatino, "Times New Roman", Times, serif; font-size:8pt; color: #333366}
+.captions { font-family: Georgia, Palatino, "Times New Roman", Times, serif; font-size:9pt; color: #333366 }
+
+-->

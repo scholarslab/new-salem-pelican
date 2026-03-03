@@ -1,0 +1,11 @@
+define-macro kill-line ^[xbeginning-of-line^M^[xset-mark^M^[xnext-line^M^[xkill-region^M^[xpop-mark^M
+define-macro keychart ^[xpushlibd^M^U^[xshell-command-with-typeout cat keychart.$TERM^M^[xpopd^M
+define-macro newline-and-beginning ^A^N
+define-macro smacros ^[xwrite-macros-to-file macros^M
+define-macro print ^Qlpr  -P etext_l1 ^[i^X1
+define-macro quit ^X^C
+
+define-macro i ^S<p>{^H[A-Z]^M^[OD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+define-macro gj ^X(^SJ^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
+define-macro gk ^SK^M^[OD<font size ="+1" color="green">^S,^M^[OD</font>
