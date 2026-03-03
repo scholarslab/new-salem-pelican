@@ -29,7 +29,7 @@ help:
 	@echo 'Makefile for a pelican Web site                                           '
 	@echo '                                                                          '
 	@echo 'Usage:                                                                    '
-	@echo '   make html                           copy over old salem static content, regenerate site, copy over new static content'
+	@echo '   make html                           regenerate site, copy over new static content'
 	@echo '   make html-static                    only copy over new static content'
 	@echo '   make clean                          remove the generated files         '
 	@echo '   make regenerate                     regenerate files upon modification '
@@ -48,7 +48,7 @@ help:
 html:
 	python lunrcorpus.py
 	cat content/search/corpus.json | scripts/build-index > content/search/idx.json
-	if test -d $(BASEDIR)/old-salem; then rsync -tHa --stats --delete $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
+#	if test -d $(BASEDIR)/old-salem; then rsync -tHa --stats --delete $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-salvrec; then cp -v -R $(BASEDIR)/static-salvrec/* $(OUTPUTDIR)/; fi
@@ -95,7 +95,7 @@ stopserver:
 publish:
 	python lunrcorpus.py
 	cat content/search/corpus.json | scripts/build-index > content/search/idx.json
-	if test -d $(BASEDIR)/old-salem; then rsync -tHa --stats --delete $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
+#	if test -d $(BASEDIR)/old-salem; then rsync -tHa --stats --delete $(BASEDIR)/old-salem/ $(OUTPUTDIR)/; fi
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 	if test -d $(BASEDIR)/static-salem; then cp -v -R $(BASEDIR)/static-salem/* $(OUTPUTDIR)/; fi
 	if test -d $(BASEDIR)/static-salvrec; then cp -v -R $(BASEDIR)/static-salvrec/* $(OUTPUTDIR)/; fi
