@@ -41,7 +41,7 @@ Because the SWP markdown files essentially serve as a bridge between the older C
 
 Each document is wrapped within an HTML div tag:
 
-`<div markdown class="doc" id="n6.1">`
+`<div markdown class="doc" lang="en-emodeng" id="n6.1">`
 
 This formatting must be exactly reproduced in order for the keyword search to function.
 

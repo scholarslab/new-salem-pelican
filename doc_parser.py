@@ -39,8 +39,8 @@ for path in pathlist:
             if ":" in line:
                 metadata[line.split(":",1)[0].lower()] = line.split(":",1)[1].strip()
         md = page.read()
-        if len(md.split('\n<div markdown class="doc" id="')) > 1:
-            for doc in md.split('\n<div markdown class="doc" id="'):
+        if len(md.split('\n<div markdown class="doc" lang="en-emodeng" id="')) > 1:
+            for doc in md.split('\n<div markdown class="doc" lang="en-emodeng" id="'):
                 if len(doc.strip().split("\n"))<=1:
                     #Ignore single lines (incl. the first split single div line)
                     continue

@@ -29,7 +29,7 @@ This document is a quick reference glossary of the markdown syntax and HTML tags
 	
 	ex. Case Document 
 		
-		<div markdown class="doc" id="n6.1">
+		<div markdown class="doc" lang="en-emodeng" id="n6.1">
 			Text of case document
 		</div>
 		

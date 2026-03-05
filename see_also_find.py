@@ -43,9 +43,9 @@ for path in pathlist:
             if ":" in line:
                 metadata[line.split(":",1)[0].lower()] = line.split(":",1)[1].strip()
         md = page.read()
-        if len(md.split('\n<div markdown class="doc" id="')) > 1:
+        if len(md.split('\n<div markdown class="doc" lang="en-emodeng" id="')) > 1:
 
-            for doc in md.split('\n<div markdown class="doc" id="'):
+            for doc in md.split('\n<div markdown class="doc" lang="en-emodeng" id="'):
 
                 if doc.lstrip().split("\n")[0].startswith("(See also:"):
                     links = getlinks(doc.lstrip().split("\n")[0])

@@ -7,7 +7,7 @@ tags: insert comma separated list of name tags for all names in document from th
 
 
 
-<div markdown class="doc" id="n##.#">
+<div markdown class="doc" lang="en-emodeng" id="n##.#">
 
 <div class="doc_id">SWP No. ##.#</div>
 
@@ -24,7 +24,7 @@ Text of case section
 
 
 
-<div markdown class="doc" id="n##.#">
+<div markdown class="doc" lang="en-emodeng" id="n##.#">
 
 <div class="doc_id">SWP No. ##.#</div>
 
