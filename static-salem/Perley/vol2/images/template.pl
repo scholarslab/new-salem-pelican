@@ -29,7 +29,7 @@ close(OUT);
 
 sub PrintHead {
 print OUT <<"EndofHeader";
-<html>
+<html lang="en">
 <head>
 <title>History of Salem</title>
 <meta name="generator" content="iView Multimedia">

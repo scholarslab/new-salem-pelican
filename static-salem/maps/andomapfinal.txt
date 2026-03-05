@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head><title>Index of Andover Map</title>
 </head>
 

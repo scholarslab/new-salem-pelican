@@ -56,7 +56,7 @@ for($i=$index; $i<$cnt; $i++) {
 
 sub PrintHead {
 print OUT <<"EndofHeader";
-<html>
+<html lang="en">
 <head>
 <title>Records and Files of the Quarterly Courts of Essex County</title>
 <meta name="generator" content="iView Multimedia">

@@ -14,7 +14,7 @@ define-macro h3 ^S-[0-9][0-9][0-9]^M^@^[OD^[OD^[OD^W^Y^[OD^[OD^[OD<a href="../im
 define-macro h2 ^S-[0-9][0-9]^M^@^[OD^[OD^W^Y^[OD^[OD<a href="../images/essex0^Y.html">^[OC^[OC</a>
 define-macro h1 ^S-[0-9]^M^@^[OD^W^Y^[OD<a href="../images/essex00^Y.html">^[OC</a>
 define-macro bh </h^Hbody>^M</html>
-define-macro hdr <HTML>^M<HEAD>^M<TITLE>Records and Files of the Quarterly Courts of Essex County,^MVolume III.^MIndex: A^M</TITLE>^M</HEAD>^M<BODY BGCOLOR="#FFFFF2">^M<center>^M<h3>Records and Files</h3>^M<h5>of the</h5>^M<h3>Quarterly Courts of Essex County Massachusetts,<br>^MVolume III<br><br>^MGENERAL INDEX:^M<br><font color ="green"> A</h3></font><br>^M</center>^M
+define-macro hdr <html lang="en">^M<HEAD>^M<TITLE>Records and Files of the Quarterly Courts of Essex County,^MVolume III.^MIndex: A^M</TITLE>^M</HEAD>^M<BODY BGCOLOR="#FFFFF2">^M<center>^M<h3>Records and Files</h3>^M<h5>of the</h5>^M<h3>Quarterly Courts of Essex County Massachusetts,<br>^MVolume III<br><br>^MGENERAL INDEX:^M<br><font color ="green"> A</h3></font><br>^M</center>^M
 define-macro i ^S<p>{^H[A-Z]^M^[OD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 define-macro </p> ^S</p><p>^M^[OD^[OD^[OD^M
 define-macro E ^SEng^M^[r</^M^D^D^D^D^D^D^D^S\\.^M^[OD</font>

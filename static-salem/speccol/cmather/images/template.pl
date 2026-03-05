@@ -56,7 +56,7 @@ for($i=$index; $i<$cnt; $i++) {
 
 sub PrintHead {
 print OUT <<"EndofHeader";
-<html>
+<html lang="en">
 <head>
 <title>The Wonders of the Invisible World</title>
 <meta name="generator" content="iView Multimedia">
