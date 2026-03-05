@@ -5,7 +5,7 @@
     <div class="docs">
         {% for article in (articles_page.object_list|sort(attribute='date', reverse = False) if articles_page else articles|sort(attribute='date',
         reverse = True)) %}
-            <div class="doc">
+            <div class="doc" lang="en-emodeng">
                 <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
                 <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
             </div>
